@@ -57,7 +57,7 @@ export default function BestSellerFeature() {
           >
             <div className="relative w-[800px] h-[800px] scale-110">
               <Image 
-                src="/images/ChatGPT Image Jul 9, 2026, 03_48_58 PM.png" 
+                src="/images/t.png" 
                 alt="Nitro Flow Pre-Workout"
                 fill
                 className="object-contain"
@@ -142,7 +142,7 @@ export default function BestSellerFeature() {
             className="relative w-full max-w-[500px] aspect-square mb-8"
           >
             <Image 
-              src="/images/ChatGPT Image Jul 9, 2026, 03_48_58 PM.png" 
+              src="/images/t.png" 
               alt="Nitro Flow Pre-Workout"
               fill
               className="object-contain"
