@@ -8,6 +8,7 @@ import CategoryGrid from '@/components/CategoryGrid'
 import ProductsCarousel from '@/components/ProductsCarousel'
 import BestSellerFeature from '@/components/BestSellerFeature'
 import ReviewsSection from '@/components/ReviewsSection'
+import FeaturedSeriesShowcase from '@/components/FeaturedSeriesShowcase'
 import StoreVideoShowcase from '@/components/StoreVideoShowcase'
 import ScrollReveal from '@/components/ScrollReveal'
 import Footer from '@/components/Footer'
@@ -64,9 +65,14 @@ export default function Home() {
         <BestSellerFeature />
       </ScrollReveal>
 
-      {/* Customer reviews (Now Dark Mode) */}
+      {/* Customer reviews */}
       <ScrollReveal direction="up">
         <ReviewsSection />
+      </ScrollReveal>
+
+      {/* Trust Strip & Series Showcase (After Reviews) */}
+      <ScrollReveal direction="up">
+        <FeaturedSeriesShowcase />
       </ScrollReveal>
 
       {/* Interactive Store Video Showcase */}
