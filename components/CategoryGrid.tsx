@@ -54,7 +54,7 @@ const itemVariants = {
 
 export default function CategoryGrid() {
   return (
-    <section className="bg-white pb-32">
+    <section className="bg-[#F6F5F2] pb-32">
       <div className="max-w-[1400px] mx-auto px-6">
         
         <motion.div 

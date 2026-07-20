@@ -20,7 +20,7 @@ function ProductCard({ product }: { product: Product }) {
   return (
     <Link href={product.href} className="group flex-shrink-0 w-[280px] flex flex-col">
       {/* Image Container - Sharper corners */}
-      <div className="relative w-full h-[280px] rounded-md overflow-hidden mb-4 bg-zinc-100/50">
+      <div className="relative w-full h-[280px] rounded-md overflow-hidden mb-4 bg-[#EAE8E3]/50">
         <Image
           src={product.image}
           alt={product.name}
@@ -76,7 +76,7 @@ export default function ProductsCarousel({ title, products, dark = false }: Prop
   }
 
   return (
-    <section className={`py-20 ${dark ? 'bg-[#0a0a0a] border-t border-zinc-800 shadow-inner' : 'bg-white border-t border-zinc-200'}`}>
+    <section className={`py-20 ${dark ? 'bg-[#0a0a0a] border-t border-zinc-800 shadow-inner' : 'bg-[#F6F5F2] border-t border-zinc-200/80'}`}>
       <div className="max-w-[1400px] mx-auto px-6">
         <div className="flex items-center justify-between mb-10">
           <h2 className={`text-3xl font-black tracking-wide uppercase ${dark ? 'text-white' : 'text-black'}`}>

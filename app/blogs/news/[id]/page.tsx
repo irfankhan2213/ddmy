@@ -69,7 +69,7 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
         <div className="pt-32 text-center py-20">
           <h1 className="text-3xl font-black uppercase">Article Not Found</h1>
           <p className="text-zinc-500 mt-2">The article you are looking for does not exist.</p>
-          <Link href="/blogs/news" className="mt-6 inline-block bg-white text-black px-6 py-3 font-bold rounded">
+          <Link href="/blogs/news" className="mt-6 inline-block bg-[#F6F5F2] hover:bg-[#C9A84C] text-black px-6 py-3 font-bold rounded transition-colors">
             Back to Blog
           </Link>
         </div>

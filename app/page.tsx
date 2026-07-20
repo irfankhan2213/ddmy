@@ -38,7 +38,7 @@ export default function Home() {
       {/* BLOCK 2: THE LIGHT CATALOG              */}
       {/* ======================================= */}
       
-      <div className="bg-white">
+      <div className="bg-[#F6F5F2]">
         {/* Featured Products (Best Sellers) */}
         <ScrollReveal direction="up">
           <ProductsCarousel title="Best Sellers" products={bestSellers} dark={false} />

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 export default function OurProductsBanner() {
   return (
-    <section className="bg-white pt-32 pb-16">
+    <section className="bg-[#F6F5F2] pt-32 pb-16">
       <div className="max-w-[900px] mx-auto px-6 text-center">
         <motion.span 
           initial={{ opacity: 0, y: 10 }}

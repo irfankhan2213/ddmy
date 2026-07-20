@@ -53,7 +53,7 @@ export default function ReviewsSection() {
   const visible = reviews.slice(page * pageSize, page * pageSize + pageSize)
 
   return (
-    <section className="bg-white py-24 border-t border-zinc-200 relative z-10">
+    <section className="bg-[#F6F5F2] py-24 border-t border-zinc-200/80 relative z-10">
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">
@@ -67,7 +67,7 @@ export default function ReviewsSection() {
         {/* Review cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {visible.map(review => (
-            <div key={review.id} className="bg-zinc-50 border border-zinc-200 rounded-2xl p-8 shadow-sm hover:shadow-md hover:border-zinc-300 transition-all flex flex-col justify-between">
+            <div key={review.id} className="bg-[#FAF9F6] border border-zinc-300/70 rounded-2xl p-8 shadow-sm hover:shadow-md hover:border-zinc-400/60 transition-all flex flex-col justify-between">
               <div>
                 <StarRating rating={review.rating} />
                 <h3 className="font-bold text-black mt-4 mb-3 text-lg leading-snug">{review.title}</h3>
