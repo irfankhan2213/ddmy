@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { createOrderInDb } from '@/lib/supabase/services'
 
 interface CheckoutModalProps {
   isOpen: boolean
@@ -24,9 +25,34 @@ export default function CheckoutModal({ isOpen, onClose, cartItems, subtotal, sh
 
   const total = subtotal + shipping
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+
+    try {
+      // Record order to Supabase database
+      await createOrderInDb(
+        {
+          customer_name: formData.name,
+          customer_phone: formData.phone,
+          delivery_address: formData.address,
+          city: formData.city,
+          pincode: formData.pincode,
+          subtotal,
+          shipping,
+          total,
+        },
+        cartItems.map(item => ({
+          product_id: item.product?.id,
+          product_name: item.product?.name || 'Product',
+          flavor: item.flavor,
+          quantity: item.quantity,
+          price: item.product?.price || 0,
+        }))
+      )
+    } catch (err) {
+      console.error('Order recording error:', err)
+    }
 
     // Build the items list
     let itemsText = ''

@@ -230,7 +230,7 @@ export default function CollectionPage({ params }: { params: { id: string } }) {
                             <span
                               key={i}
                               title={f}
-                              className="px-2 py-0.5 rounded border border-zinc-800 text-[10px] bg-zinc-900 text-zinc-400 hover:border-white cursor-pointer select-none"
+                              className="px-2.5 py-0.5 rounded-full border border-zinc-800 text-[10px] bg-zinc-900 text-zinc-300 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors cursor-pointer select-none"
                             >
                               {f}
                             </span>

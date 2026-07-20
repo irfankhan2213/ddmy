@@ -30,14 +30,14 @@ function ProductCard({ product }: { product: Product }) {
 
         {/* Sale badge */}
         {product.badge && (
-          <div className="absolute top-4 left-4 bg-black text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full tracking-widest z-10">
+          <div className="absolute top-4 left-4 bg-[#C9A84C] text-black text-[10px] font-extrabold uppercase px-3 py-1 rounded-full tracking-widest z-10 shadow-[0_2px_10px_rgba(201,168,76,0.4)]">
             {product.badge}
           </div>
         )}
 
         {/* Quick view overlay */}
-        <div className="product-overlay absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
-          <span className="bg-white text-black text-xs font-bold px-5 py-2.5 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Quick View</span>
+        <div className="product-overlay absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+          <span className="bg-[#C9A84C] hover:bg-white text-black text-xs font-black px-6 py-2.5 rounded-full shadow-[0_4px_20px_rgba(201,168,76,0.5)] transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Quick View</span>
         </div>
       </div>
 

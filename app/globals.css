@@ -120,14 +120,31 @@ body {
 }
 
 .btn-gold {
-  background: #C9A84C;
+  background: linear-gradient(135deg, #E5C158 0%, #C9A84C 50%, #B38E32 100%);
   color: #000;
-  transition: all 0.3s ease;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.35);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-gold:hover {
-  background: #dfc06a;
+  background: linear-gradient(135deg, #F3D06C 0%, #D8B75B 50%, #C29D41 100%);
   transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201, 168, 76, 0.5);
+}
+
+/* Theme Accent Utilities */
+.text-gold-accent {
+  color: #C9A84C;
+}
+
+.bg-gold-accent {
+  background-color: #C9A84C;
+}
+
+.border-gold-accent {
+  border-color: #C9A84C;
 }
 
 /* Star rating */

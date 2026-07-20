@@ -89,7 +89,7 @@ export default function BestSellerFeature() {
                       hidden: { width: "0%" },
                       visible: { width: "100%", transition: { duration: 0.8, ease: "easeInOut" } }
                     }}
-                    className={`absolute bottom-0 h-[1px] bg-zinc-400 ${f.side === 'left' ? 'left-0' : 'right-0'}`}
+                    className={`absolute bottom-0 h-[1.5px] bg-gradient-to-r from-[#C9A84C] via-[#e5c158] to-zinc-600 ${f.side === 'left' ? 'left-0' : 'right-0'}`}
                   />
                   
                   {/* The Dot */}
@@ -98,7 +98,7 @@ export default function BestSellerFeature() {
                       hidden: { scale: 0, opacity: 0 },
                       visible: { scale: 1, opacity: 1, transition: { duration: 0.4, type: "spring" } }
                     }}
-                    className={`absolute bottom-0 translate-y-1/2 w-6 h-6 bg-white text-black rounded-full flex items-center justify-center font-black text-[11px] shadow-[0_0_10px_rgba(255,255,255,0.3)] pointer-events-auto ${
+                    className={`absolute bottom-0 translate-y-1/2 w-6 h-6 bg-[#C9A84C] text-black rounded-full flex items-center justify-center font-black text-[11px] shadow-[0_0_12px_rgba(201,168,76,0.6)] pointer-events-auto ${
                       f.side === 'left' ? 'right-0 translate-x-1/2' : 'left-0 -translate-x-1/2'
                     }`}
                   >
@@ -159,7 +159,7 @@ export default function BestSellerFeature() {
                 transition={{ delay: i * 0.15 }}
                 className="text-center"
               >
-                <div className="inline-flex items-center justify-center w-8 h-8 bg-white text-black rounded-full font-black text-sm mb-4">
+                <div className="inline-flex items-center justify-center w-8 h-8 bg-[#C9A84C] text-black rounded-full font-black text-sm mb-4 shadow-[0_0_10px_rgba(201,168,76,0.5)]">
                   {f.id}
                 </div>
                 <h3 className="text-white font-bold text-lg mb-3 tracking-wide">{f.title}</h3>
