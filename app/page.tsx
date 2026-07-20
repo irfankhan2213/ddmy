@@ -11,7 +11,7 @@ import ReviewsSection from '@/components/ReviewsSection'
 import StoreVideoShowcase from '@/components/StoreVideoShowcase'
 import ScrollReveal from '@/components/ScrollReveal'
 import Footer from '@/components/Footer'
-import { bestSellers, healthLineProducts } from '@/data/products'
+import { bestSellers } from '@/data/products'
 
 export default function Home() {
   return (
@@ -52,11 +52,6 @@ export default function Home() {
         {/* Category Grid */}
         <ScrollReveal direction="up">
           <CategoryGrid />
-        </ScrollReveal>
-
-        {/* Health Line Products */}
-        <ScrollReveal direction="up">
-          <ProductsCarousel title="Health & Vitality Line" products={healthLineProducts} dark={false} />
         </ScrollReveal>
       </div>
 
