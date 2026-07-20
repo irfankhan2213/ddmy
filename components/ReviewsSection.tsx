@@ -53,36 +53,38 @@ export default function ReviewsSection() {
   const visible = reviews.slice(page * pageSize, page * pageSize + pageSize)
 
   return (
-    <section className="bg-[#0a0a0a] py-24 border-t border-zinc-800 shadow-inner relative z-10">
+    <section className="bg-white py-24 border-t border-zinc-200 relative z-10">
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-black text-white mb-4 uppercase tracking-widest drop-shadow-md">Customer Arsenal</h2>
+          <h2 className="text-4xl font-black text-black mb-4 uppercase tracking-widest">Customer Arsenal</h2>
           <div className="flex items-center justify-center gap-2 mb-2">
             <StarRating rating={5} />
           </div>
-          <p className="text-zinc-400 text-sm font-medium">from verified athletes</p>
+          <p className="text-zinc-600 text-sm font-medium">from verified athletes</p>
         </div>
 
         {/* Review cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {visible.map(review => (
-            <div key={review.id} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 shadow-2xl hover:border-zinc-700 transition-colors">
-              <StarRating rating={review.rating} />
-              <h3 className="font-bold text-white mt-4 mb-3 text-lg leading-snug">{review.title}</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-6">{review.text}</p>
+            <div key={review.id} className="bg-zinc-50 border border-zinc-200 rounded-2xl p-8 shadow-sm hover:shadow-md hover:border-zinc-300 transition-all flex flex-col justify-between">
+              <div>
+                <StarRating rating={review.rating} />
+                <h3 className="font-bold text-black mt-4 mb-3 text-lg leading-snug">{review.title}</h3>
+                <p className="text-zinc-600 text-sm leading-relaxed mb-6">{review.text}</p>
+              </div>
               
-              <div className="pt-4 border-t border-zinc-800 flex items-center justify-between">
+              <div className="pt-4 border-t border-zinc-200 flex items-center justify-between">
                 <div>
-                  <div className="font-bold text-white text-sm">{review.name}</div>
-                  <div className="text-zinc-500 text-xs mt-1 uppercase tracking-wider">{review.date}</div>
+                  <div className="font-bold text-black text-sm">{review.name}</div>
+                  <div className="text-zinc-400 text-xs mt-1 uppercase tracking-wider">{review.date}</div>
                 </div>
                 <div
                   className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-sm border"
                   style={{
-                    backgroundColor: review.productColor + '10',
-                    color: review.productColor,
-                    borderColor: review.productColor + '30'
+                    backgroundColor: review.productColor + '15',
+                    color: review.productColor === '#C9A84C' ? '#b89228' : review.productColor,
+                    borderColor: review.productColor + '40'
                   }}
                 >
                   {review.product}
