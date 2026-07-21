@@ -61,7 +61,7 @@ function ProductCard({ product }: { product: Product }) {
 }
 
 interface Props {
-  title: string
+  title?: string
   products: Product[]
   dark?: boolean
 }
@@ -76,31 +76,54 @@ export default function ProductsCarousel({ title, products, dark = false }: Prop
   }
 
   return (
-    <section className={`py-20 ${dark ? 'bg-[#0a0a0a] border-t border-zinc-800 shadow-inner' : 'bg-[#F6F5F2] border-t border-zinc-200/80'}`}>
+    <section className={`py-12 ${dark ? 'bg-[#0a0a0a] border-t border-zinc-800 shadow-inner' : 'bg-[#F6F5F2]'}`}>
       <div className="max-w-[1400px] mx-auto px-6">
-        <div className="flex items-center justify-between mb-10">
-          <h2 className={`text-3xl font-black tracking-wide uppercase ${dark ? 'text-white' : 'text-black'}`}>
-            {title}
-          </h2>
-          <div className="flex gap-2">
-            <button
-              onClick={() => scroll('left')}
-              className={`w-10 h-10 rounded-full flex items-center justify-center border transition-colors ${dark ? 'border-zinc-800 text-white hover:border-[#C9A84C] hover:text-[#C9A84C]' : 'border-zinc-300 text-black hover:border-black hover:bg-black hover:text-white'}`}
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              onClick={() => scroll('right')}
-              className={`w-10 h-10 rounded-full flex items-center justify-center border transition-colors ${dark ? 'border-zinc-800 text-white hover:border-[#C9A84C] hover:text-[#C9A84C]' : 'border-zinc-300 text-black hover:border-black hover:bg-black hover:text-white'}`}
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+        {title ? (
+          <div className="flex items-center justify-between mb-8">
+            <h2 className={`text-3xl font-black tracking-wide uppercase ${dark ? 'text-white' : 'text-black'}`}>
+              {title}
+            </h2>
+            <div className="flex gap-2">
+              <button
+                onClick={() => scroll('left')}
+                className={`w-10 h-10 rounded-full flex items-center justify-center border transition-colors ${dark ? 'border-zinc-800 text-white hover:border-[#C9A84C] hover:text-[#C9A84C]' : 'border-zinc-300 text-black hover:border-black hover:bg-black hover:text-white'}`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={() => scroll('right')}
+                className={`w-10 h-10 rounded-full flex items-center justify-center border transition-colors ${dark ? 'border-zinc-800 text-white hover:border-[#C9A84C] hover:text-[#C9A84C]' : 'border-zinc-300 text-black hover:border-black hover:bg-black hover:text-white'}`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="flex justify-end mb-6">
+            <div className="flex gap-2">
+              <button
+                onClick={() => scroll('left')}
+                className={`w-10 h-10 rounded-full flex items-center justify-center border transition-colors ${dark ? 'border-zinc-800 text-white hover:border-[#C9A84C] hover:text-[#C9A84C]' : 'border-zinc-300 text-black hover:border-black hover:bg-black hover:text-white'}`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={() => scroll('right')}
+                className={`w-10 h-10 rounded-full flex items-center justify-center border transition-colors ${dark ? 'border-zinc-800 text-white hover:border-[#C9A84C] hover:text-[#C9A84C]' : 'border-zinc-300 text-black hover:border-black hover:bg-black hover:text-white'}`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        )}
 
         <div
           ref={scrollRef}

@@ -1,41 +1,45 @@
 'use client'
-import { motion } from 'framer-motion'
+import Image from 'next/image'
 
-export default function OurProductsBanner() {
+interface OurProductsBannerProps {
+  imageSrc?: string
+  altText?: string
+}
+
+export default function OurProductsBanner({ 
+  imageSrc = '/images/banner_whey.png',
+  altText = 'Our Products Lineup' 
+}: OurProductsBannerProps) {
   return (
-    <section className="bg-[#F6F5F2] pt-32 pb-16">
-      <div className="max-w-[900px] mx-auto px-6 text-center">
-        <motion.span 
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-zinc-400 font-bold tracking-[0.3em] uppercase text-xs mb-6 block"
-        >
-          Performance Architecture
-        </motion.span>
-        
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-5xl md:text-7xl font-black text-black tracking-tight uppercase leading-[0.9]"
-        >
-          Engineered For <br />
-          <span className="text-[#C9A84C]">
-            Excellence
-          </span>
-        </motion.h2>
-        
-        <motion.p 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="mt-8 text-zinc-500 text-sm md:text-base font-medium leading-relaxed max-w-2xl mx-auto"
-        >
-          Every scoop, every pill, and every formula is meticulously crafted in certified facilities to guarantee raw power, uncompromised purity, and absolute results.
-        </motion.p>
+    <section className="bg-[#F6F5F2] pt-12 pb-6 px-6">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="relative w-full h-[220px] sm:h-[280px] md:h-[340px] bg-black rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl flex items-center justify-between border border-zinc-800">
+          
+          {/* Background subtle geometric / smoke texture overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-zinc-900/40 z-10 pointer-events-none" />
+
+          {/* Left Text Area: "Our products" */}
+          <div className="relative z-20 pl-8 sm:pl-12 md:pl-16 max-w-[45%]">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-wider leading-none drop-shadow-md">
+              Our <br />
+              <span className="text-zinc-100">products</span>
+            </h2>
+          </div>
+
+          {/* Right Image Area */}
+          <div className="relative z-10 w-[60%] sm:w-[55%] h-full flex items-center justify-end pr-4 sm:pr-8">
+            <div className="relative w-full h-[85%] sm:h-[90%]">
+              <Image
+                src={imageSrc}
+                alt={altText}
+                fill
+                className="object-contain object-right drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)]"
+                priority
+              />
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   )

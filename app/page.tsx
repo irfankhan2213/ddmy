@@ -40,14 +40,14 @@ export default function Home() {
       {/* ======================================= */}
       
       <div className="bg-[#F6F5F2]">
-        {/* Featured Products (Best Sellers) */}
-        <ScrollReveal direction="up">
-          <ProductsCarousel title="Best Sellers" products={bestSellers} dark={false} />
-        </ScrollReveal>
-
-        {/* Our Products Banner */}
+        {/* Our Products Banner Card */}
         <ScrollReveal direction="up">
           <OurProductsBanner />
+        </ScrollReveal>
+
+        {/* Featured Products Carousel without title */}
+        <ScrollReveal direction="up">
+          <ProductsCarousel products={bestSellers} dark={false} />
         </ScrollReveal>
 
         {/* Category Grid */}
