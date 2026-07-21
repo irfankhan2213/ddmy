@@ -17,58 +17,58 @@ export default function FeaturedSeriesShowcase() {
   }
 
   return (
-    <section className="bg-black text-white py-12 overflow-hidden border-t border-zinc-900 select-none">
+    <section className="bg-[#F6F5F2] text-black py-12 overflow-hidden border-t border-zinc-200/80 select-none">
       
       {/* ============================================================ */}
-      {/* 1. TRUST FEATURES STRIP (EXACT SCREENSHOT CLONE)              */}
+      {/* 1. TRUST FEATURES STRIP (OFF-WHITE THEME)                     */}
       {/* ============================================================ */}
-      <div className="w-full bg-black py-10 mb-12 border-b border-zinc-900">
+      <div className="w-full bg-[#F6F5F2] py-10 mb-12 border-b border-zinc-200/80">
         <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8">
           
           {/* Feature 1: Free Shipping */}
           <div className="flex flex-col items-center text-center">
-            <div className="w-10 h-10 mb-3 flex items-center justify-center text-white">
+            <div className="w-10 h-10 mb-3 flex items-center justify-center text-black">
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 17a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4zM3 4h4l2.5 10.5a1 1 0 001 .8h9a1 1 0 001-.8L22 6H7" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V6M13 11V6" />
               </svg>
             </div>
-            <h4 className="font-extrabold text-base text-white tracking-tight">Free Shipping</h4>
-            <p className="text-zinc-400 text-xs mt-1">All Orders Over $99</p>
+            <h4 className="font-extrabold text-base text-black tracking-tight">Free Shipping</h4>
+            <p className="text-zinc-600 text-xs mt-1">All Orders Over $99</p>
           </div>
 
           {/* Feature 2: Secure payment */}
           <div className="flex flex-col items-center text-center">
-            <div className="w-10 h-10 mb-3 flex items-center justify-center text-white">
+            <div className="w-10 h-10 mb-3 flex items-center justify-center text-black">
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 10h18M7 15h1m4 0h1m-7 4h12a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
-            <h4 className="font-extrabold text-base text-white tracking-tight">Secure payment</h4>
-            <p className="text-zinc-400 text-xs mt-1">Shopify™ Secured</p>
+            <h4 className="font-extrabold text-base text-black tracking-tight">Secure payment</h4>
+            <p className="text-zinc-600 text-xs mt-1">Shopify™ Secured</p>
           </div>
 
           {/* Feature 3: Order Tracking */}
           <div className="flex flex-col items-center text-center">
-            <div className="w-10 h-10 mb-3 flex items-center justify-center text-white">
+            <div className="w-10 h-10 mb-3 flex items-center justify-center text-black">
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <h4 className="font-extrabold text-base text-white tracking-tight">Order Tracking</h4>
-            <p className="text-zinc-400 text-xs mt-1">Every Step of the Way</p>
+            <h4 className="font-extrabold text-base text-black tracking-tight">Order Tracking</h4>
+            <p className="text-zinc-600 text-xs mt-1">Every Step of the Way</p>
           </div>
 
           {/* Feature 4: Trusted Service */}
           <div className="flex flex-col items-center text-center">
-            <div className="w-10 h-10 mb-3 flex items-center justify-center text-white">
+            <div className="w-10 h-10 mb-3 flex items-center justify-center text-black">
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h4 className="font-extrabold text-base text-white tracking-tight">Trusted Service</h4>
-            <p className="text-zinc-400 text-xs mt-1">24/7 Customer Service</p>
+            <h4 className="font-extrabold text-base text-black tracking-tight">Trusted Service</h4>
+            <p className="text-zinc-600 text-xs mt-1">24/7 Customer Service</p>
           </div>
 
         </div>
@@ -76,7 +76,7 @@ export default function FeaturedSeriesShowcase() {
 
 
       {/* ============================================================ */}
-      {/* 2. CAROUSEL SHOWCASE (4 EXACT MATCH CARDS)                   */}
+      {/* 2. CAROUSEL SHOWCASE (WHITE THEME SECTION)                   */}
       {/* ============================================================ */}
       <div className="max-w-[1400px] mx-auto px-6">
         
@@ -89,7 +89,7 @@ export default function FeaturedSeriesShowcase() {
           {/* ================= CARD 1: PROBURN ================= */}
           <Link
             href="/collections/weight-loss"
-            className="group relative flex-shrink-0 w-[310px] sm:w-[330px] h-[520px] bg-[#09090b] border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:border-zinc-700 block snap-start"
+            className="group relative flex-shrink-0 w-[310px] sm:w-[330px] h-[520px] bg-black border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:border-zinc-700 block snap-start"
           >
             {/* Background geometric pattern */}
             <div className="absolute inset-0 opacity-30 bg-[radial-gradient(#555_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
@@ -157,7 +157,7 @@ export default function FeaturedSeriesShowcase() {
           {/* ================= CARD 2: GREENS ================= */}
           <Link
             href="/collections/vitamins-supplements"
-            className="group relative flex-shrink-0 w-[310px] sm:w-[330px] h-[520px] bg-[#09090b] border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:border-zinc-700 block snap-start"
+            className="group relative flex-shrink-0 w-[310px] sm:w-[330px] h-[520px] bg-black border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:border-zinc-700 block snap-start"
           >
             {/* Background geometric pattern */}
             <div className="absolute inset-0 opacity-30 bg-[radial-gradient(#555_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
@@ -207,7 +207,7 @@ export default function FeaturedSeriesShowcase() {
           {/* ================= CARD 3: CREATINE ================= */}
           <Link
             href="/collections/pre-workout"
-            className="group relative flex-shrink-0 w-[310px] sm:w-[330px] h-[520px] bg-[#09090b] border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:border-zinc-700 block snap-start"
+            className="group relative flex-shrink-0 w-[310px] sm:w-[330px] h-[520px] bg-black border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:border-zinc-700 block snap-start"
           >
             {/* Background geometric pattern */}
             <div className="absolute inset-0 opacity-30 bg-[radial-gradient(#555_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
@@ -272,7 +272,7 @@ export default function FeaturedSeriesShowcase() {
           {/* ================= CARD 4: PROTEIN ================= */}
           <Link
             href="/collections/protein"
-            className="group relative flex-shrink-0 w-[310px] sm:w-[330px] h-[520px] bg-[#09090b] border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:border-zinc-700 block snap-start"
+            className="group relative flex-shrink-0 w-[310px] sm:w-[330px] h-[520px] bg-black border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:border-zinc-700 block snap-start"
           >
             {/* Background geometric pattern */}
             <div className="absolute inset-0 opacity-30 bg-[radial-gradient(#555_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
@@ -316,22 +316,22 @@ export default function FeaturedSeriesShowcase() {
         </div>
 
         {/* ============================================================ */}
-        {/* 3. BOTTOM CAROUSEL CONTROLS (EXACT MATCH SCREENSHOT)        */}
+        {/* 3. BOTTOM CAROUSEL CONTROLS (LIGHT THEME)                    */}
         {/* ============================================================ */}
         <div className="flex items-center justify-between mt-6 px-2">
           {/* Progress Indicators */}
           <div className="flex items-center gap-2">
-            <div className="w-10 h-0.5 bg-white" />
-            <div className="w-6 h-0.5 bg-zinc-800" />
-            <div className="w-6 h-0.5 bg-zinc-800" />
-            <div className="w-6 h-0.5 bg-zinc-800" />
+            <div className="w-10 h-0.5 bg-black" />
+            <div className="w-6 h-0.5 bg-zinc-300" />
+            <div className="w-6 h-0.5 bg-zinc-300" />
+            <div className="w-6 h-0.5 bg-zinc-300" />
           </div>
 
           {/* Navigation Arrows */}
           <div className="flex items-center gap-4">
             <button
               onClick={() => handleScroll('left')}
-              className="text-white hover:text-[#C9A84C] transition-colors p-2"
+              className="text-black hover:text-[#C9A84C] transition-colors p-2"
               aria-label="Previous slide"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -340,7 +340,7 @@ export default function FeaturedSeriesShowcase() {
             </button>
             <button
               onClick={() => handleScroll('right')}
-              className="text-white hover:text-[#C9A84C] transition-colors p-2"
+              className="text-black hover:text-[#C9A84C] transition-colors p-2"
               aria-label="Next slide"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
