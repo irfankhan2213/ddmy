@@ -94,15 +94,8 @@ export default function FeaturedSeriesShowcase() {
             {/* Background geometric pattern */}
             <div className="absolute inset-0 opacity-30 bg-[radial-gradient(#555_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
-            {/* Header Title */}
-            <div className="relative z-10 pt-6 text-center">
-              <h3 className="text-3xl font-black uppercase tracking-wider text-white">
-                Proburn
-              </h3>
-            </div>
-
             {/* Product Center Area */}
-            <div className="relative w-full h-[380px] flex items-center justify-center p-4">
+            <div className="relative w-full h-[430px] flex items-center justify-center p-4 pt-6">
               <Image
                 src="/images/product-2.png"
                 alt="Proburn"
@@ -169,15 +162,8 @@ export default function FeaturedSeriesShowcase() {
             {/* Background geometric pattern */}
             <div className="absolute inset-0 opacity-30 bg-[radial-gradient(#555_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
-            {/* Header Title */}
-            <div className="relative z-10 pt-6 text-center">
-              <h3 className="text-3xl font-black uppercase tracking-wider text-white">
-                Greens
-              </h3>
-            </div>
-
             {/* Product Center Area */}
-            <div className="relative w-full h-[380px] flex items-center justify-center p-4">
+            <div className="relative w-full h-[430px] flex items-center justify-center p-4 pt-6">
               <Image
                 src="/images/product-1.png"
                 alt="Greens"
@@ -226,15 +212,8 @@ export default function FeaturedSeriesShowcase() {
             {/* Background geometric pattern */}
             <div className="absolute inset-0 opacity-30 bg-[radial-gradient(#555_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
-            {/* Header Title */}
-            <div className="relative z-10 pt-6 text-center">
-              <h3 className="text-3xl font-black uppercase tracking-wider text-white">
-                Creatine
-              </h3>
-            </div>
-
             {/* Product Center Area */}
-            <div className="relative w-full h-[380px] flex items-center justify-center p-4">
+            <div className="relative w-full h-[430px] flex items-center justify-center p-4 pt-6">
               <Image
                 src="/images/product-3.png"
                 alt="Creatine"
@@ -298,15 +277,8 @@ export default function FeaturedSeriesShowcase() {
             {/* Background geometric pattern */}
             <div className="absolute inset-0 opacity-30 bg-[radial-gradient(#555_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
-            {/* Header Title */}
-            <div className="relative z-10 pt-6 text-center">
-              <h3 className="text-3xl font-black uppercase tracking-wider text-white">
-                Protein
-              </h3>
-            </div>
-
             {/* Product Center Area */}
-            <div className="relative w-full h-[380px] flex items-center justify-center p-4">
+            <div className="relative w-full h-[430px] flex items-center justify-center p-4 pt-6">
               <Image
                 src="/images/new-product.png"
                 alt="Protein Isolate"
