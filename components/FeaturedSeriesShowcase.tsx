@@ -141,8 +141,8 @@ export default function FeaturedSeriesShowcase() {
         </div>
       </div>
 
-      {/* ── THIN OFF-WHITE DIVIDER ── */}
-      <div className="h-4 bg-[#F6F5F2]" />
+      {/* ── OFF-WHITE GAP BETWEEN STRIP AND CARDS ── */}
+      <div className="h-8 bg-[#F6F5F2]" />
 
       {/* ── AUTO-SCROLL CARD STRIP ── */}
       <div className="relative overflow-hidden">
@@ -170,7 +170,7 @@ export default function FeaturedSeriesShowcase() {
         {/* Scroll container — cards flush, no side padding */}
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto"
+          className="flex gap-1 overflow-x-auto px-1"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -179,7 +179,7 @@ export default function FeaturedSeriesShowcase() {
             <Link
               key={`${card.id}-${idx}`}
               href={card.href}
-              className="group relative flex-shrink-0 overflow-hidden block"
+              className="group relative flex-shrink-0 overflow-hidden rounded-xl block"
               style={{ width: '25vw', minWidth: 240, height: 460 }}
             >
               {/* Full-bleed product image */}
@@ -221,6 +221,9 @@ export default function FeaturedSeriesShowcase() {
           ))}
         </div>
       </div>
+
+      {/* ── BOTTOM OFF-WHITE PADDING ── */}
+      <div className="h-8 bg-[#F6F5F2]" />
 
     </section>
   )
