@@ -142,7 +142,7 @@ export default function FeaturedSeriesShowcase() {
       </div>
 
       {/* ── OFF-WHITE GAP BETWEEN STRIP AND CARDS ── */}
-      <div className="h-8 bg-[#F6F5F2]" />
+      <div className="h-14 bg-[#F6F5F2]" />
 
       {/* ── AUTO-SCROLL CARD STRIP ── */}
       <div className="relative overflow-hidden">
@@ -170,7 +170,7 @@ export default function FeaturedSeriesShowcase() {
         {/* Scroll container — cards flush, no side padding */}
         <div
           ref={scrollRef}
-          className="flex gap-1 overflow-x-auto px-1"
+          className="flex gap-3 overflow-x-auto px-3"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -223,7 +223,7 @@ export default function FeaturedSeriesShowcase() {
       </div>
 
       {/* ── BOTTOM OFF-WHITE PADDING ── */}
-      <div className="h-8 bg-[#F6F5F2]" />
+      <div className="h-14 bg-[#F6F5F2]" />
 
     </section>
   )
