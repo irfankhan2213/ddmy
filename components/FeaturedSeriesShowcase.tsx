@@ -142,7 +142,7 @@ export default function FeaturedSeriesShowcase() {
       </div>
 
       {/* ── OFF-WHITE GAP BETWEEN STRIP AND CARDS ── */}
-      <div className="h-28 bg-[#F6F5F2]" />
+      <div className="h-12 bg-[#F6F5F2]" />
 
       {/* ── AUTO-SCROLL CARD STRIP ── */}
       <div className="relative overflow-hidden">
@@ -223,7 +223,7 @@ export default function FeaturedSeriesShowcase() {
       </div>
 
       {/* ── BOTTOM OFF-WHITE PADDING ── */}
-      <div className="h-28 bg-[#F6F5F2]" />
+      <div className="h-40 bg-[#F6F5F2]" />
 
     </section>
   )
