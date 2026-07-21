@@ -170,7 +170,7 @@ export default function FeaturedSeriesShowcase() {
         {/* Scroll container — cards flush, no side padding */}
         <div
           ref={scrollRef}
-          className="flex gap-8 overflow-x-auto px-8"
+          className="flex gap-12 overflow-x-auto px-12"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
