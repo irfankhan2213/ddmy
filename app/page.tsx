@@ -60,17 +60,17 @@ export default function Home() {
       {/* BLOCK 3: THE DARK SPOTLIGHT & PROOF     */}
       {/* ======================================= */}
 
-      {/* Interactive Best Seller Spotlights */}
-      <ScrollReveal direction="up">
-        <BestSellerFeature />
-      </ScrollReveal>
-
       {/* Customer reviews */}
       <ScrollReveal direction="up">
         <ReviewsSection />
       </ScrollReveal>
 
-      {/* Trust Strip & Series Showcase (After Reviews) */}
+      {/* Interactive Best Seller Spotlights */}
+      <ScrollReveal direction="up">
+        <BestSellerFeature />
+      </ScrollReveal>
+
+      {/* Trust Strip & Series Showcase (After Best Seller Feature) */}
       <ScrollReveal direction="up">
         <FeaturedSeriesShowcase />
       </ScrollReveal>
