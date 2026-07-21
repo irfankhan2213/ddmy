@@ -58,6 +58,7 @@ const CARDS = [
 export default function FeaturedSeriesShowcase() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [isPaused, setIsPaused] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
     const el = scrollRef.current
@@ -80,6 +81,20 @@ export default function FeaturedSeriesShowcase() {
     rafId = requestAnimationFrame(step)
     return () => cancelAnimationFrame(rafId)
   }, [isPaused])
+
+  // Track active indicator based on scroll position
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+    const onScroll = () => {
+      const half = el.scrollWidth / 2
+      const pos = el.scrollLeft % half
+      const cardWidth = half / CARDS.length
+      setActiveIndex(Math.round(pos / cardWidth) % CARDS.length)
+    }
+    el.addEventListener('scroll', onScroll, { passive: true })
+    return () => el.removeEventListener('scroll', onScroll)
+  }, [])
 
   const scroll = (dir: 'l' | 'r') => {
     scrollRef.current?.scrollBy({ left: dir === 'l' ? -320 : 320, behavior: 'smooth' })
@@ -222,8 +237,27 @@ export default function FeaturedSeriesShowcase() {
         </div>
       </div>
 
+      {/* ── SLIDE INDICATORS ── */}
+      <div className="flex items-center justify-center gap-2 pt-8 pb-4 bg-[#F6F5F2]">
+        {CARDS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => {
+              if (scrollRef.current) {
+                const cardWidth = scrollRef.current.scrollWidth / (CARDS.length * 2)
+                scrollRef.current.scrollTo({ left: cardWidth * i, behavior: 'smooth' })
+              }
+            }}
+            className={`h-[3px] rounded-full transition-all duration-300 ${
+              i === activeIndex ? 'w-8 bg-black' : 'w-6 bg-zinc-300'
+            }`}
+            aria-label={`Slide ${i + 1}`}
+          />
+        ))}
+      </div>
+
       {/* ── BOTTOM OFF-WHITE PADDING ── */}
-      <div className="h-40 bg-[#F6F5F2]" />
+      <div className="h-28 bg-[#F6F5F2]" />
 
     </section>
   )
