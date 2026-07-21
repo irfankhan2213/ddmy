@@ -57,19 +57,19 @@ const CARDS = [
 
 export default function FeaturedSeriesShowcase() {
   const scrollRef = useRef<HTMLDivElement>(null)
-  const [isPaused, setIsPaused] = useState(false)
+  const isPausedRef = useRef(false)
   const [activeIndex, setActiveIndex] = useState(0)
 
+  // Single stable auto-scroll loop — never restarts
   useEffect(() => {
     const el = scrollRef.current
     if (!el) return
     let rafId: number
-    const speed = 0.6
+    const speed = 0.8
 
     const step = () => {
-      if (!isPaused && el) {
+      if (!isPausedRef.current && el) {
         el.scrollLeft += speed
-        // reset to 0 when we've scrolled through one full set of cards
         const half = el.scrollWidth / 2
         if (el.scrollLeft >= half) {
           el.scrollLeft = 0
@@ -80,7 +80,7 @@ export default function FeaturedSeriesShowcase() {
 
     rafId = requestAnimationFrame(step)
     return () => cancelAnimationFrame(rafId)
-  }, [isPaused])
+  }, []) // ← runs once only, no dependency on isPaused
 
   // Track active indicator based on scroll position
   useEffect(() => {
@@ -187,8 +187,8 @@ export default function FeaturedSeriesShowcase() {
           ref={scrollRef}
           className="flex gap-12 overflow-x-auto px-12"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
+          onMouseEnter={() => { isPausedRef.current = true }}
+          onMouseLeave={() => { isPausedRef.current = false }}
         >
           {[...CARDS, ...CARDS].map((card, idx) => (
             <Link
