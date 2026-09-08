@@ -5,24 +5,16 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import Image from 'next/image'
-import { products } from '@/data/products'
+import { Product } from '@/data/products'
 import CheckoutModal from '@/components/CheckoutModal'
 
 export default function CartPage() {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
-  // Let's seed with one mock item for interactive display
-  const [cartItems, setCartItems] = useState([
-    {
-      product: products[0], // CRANK Pre-Workout 250g
-      quantity: 1,
-      flavor: 'Fruit Punch',
-    },
-    {
-      product: products[2], // Whey Protein Isolate 2kg
-      quantity: 1,
-      flavor: 'Chocolate',
-    }
-  ])
+  const [cartItems, setCartItems] = useState<Array<{
+    product: Product
+    quantity: number
+    flavor?: string
+  }>>([])
 
   const updateQty = (index: number, newQty: number) => {
     if (newQty < 1) {

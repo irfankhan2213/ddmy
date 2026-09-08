@@ -112,8 +112,8 @@ export default function ContactPage() {
         {/* Contact details row */}
         <div className="mt-12 text-center text-sm text-zinc-500">
           Email us directly at:{' '}
-          <a href="mailto:Contact@Nitrogennutri.com" className="text-white hover:text-[#C9A84C] font-semibold underline decoration-zinc-700 transition-colors">
-            Contact@Nitrogennutri.com
+          <a href="mailto:support@psychonutrition.in" className="text-white hover:text-[#C9A84C] font-semibold underline decoration-zinc-700 transition-colors">
+            support@psychonutrition.in
           </a>
         </div>
       </div>

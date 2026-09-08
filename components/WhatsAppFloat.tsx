@@ -11,7 +11,7 @@ export default function WhatsAppFloat() {
   }, [])
 
   const whatsappNumber = '919876543210' // Replace with actual number
-  const message = 'Hello DDMY Nutrition! I have a question about your products.'
+  const message = 'Hello Psycho Nutrition! I have a question about your products.'
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
 
   return (

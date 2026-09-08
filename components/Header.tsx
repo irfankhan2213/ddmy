@@ -44,10 +44,10 @@ export default function Header() {
       <div className="w-full max-w-[1920px] mx-auto px-8 md:px-16 xl:px-24 h-[110px] grid grid-cols-[auto_1fr_auto] items-center gap-8">
         {/* Logo (Left) */}
         <Link href="/" className="flex-shrink-0 transition-transform duration-300 hover:scale-105 flex flex-col items-center justify-center leading-none">
-          <div className="flex justify-center items-center h-10 mb-1">
-            <span className="text-white font-black text-3xl md:text-4xl uppercase tracking-widest" style={{ transform: 'scaleX(1.5)' }}>DDMY</span>
+          <div className="flex justify-center items-center h-9 mb-1">
+            <span className="text-white font-black text-2xl md:text-3xl uppercase tracking-[0.2em]">PSYCHO</span>
           </div>
-          <span className="text-white text-[9px] md:text-[10px] font-bold tracking-[0.6em] uppercase">Nutrition</span>
+          <span className="text-[#C9A84C] text-[9px] md:text-[10px] font-extrabold tracking-[0.55em] uppercase">Nutrition</span>
         </Link>
 
         {/* Desktop Nav (Center) */}

@@ -52,7 +52,7 @@ export default function BlogPage() {
 
         <h1 className="text-4xl md:text-5xl font-black uppercase text-center tracking-wide mb-4">News & Articles</h1>
         <p className="text-zinc-400 text-sm text-center max-w-md mx-auto mb-12">
-          Your source for the latest sports nutrition science, training guides, and product insights from the Nitrogen team.
+          Your source for the latest sports nutrition science, training guides, and product insights from the Psycho Nutrition team.
         </p>
 
         {/* Article list */}

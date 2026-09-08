@@ -25,7 +25,7 @@ const bannerData = [
   {
     title: 'Whey Isolate',
     subtitle: 'PURE RECOVERY',
-    image: 'https://www.ddmynutrition.in/assets/Pimages/resized_1740480843-4761.jpg',
+    image: '/images/new-product.png',
     href: '/products/whey-protein-isolate-2kg',
     bg: 'linear-gradient(180deg, #1c1100 0%, #070400 100%)',
     accentColor: '#C9A84C',
@@ -44,7 +44,7 @@ const bannerData = [
   {
     title: 'Anabolic Gainer',
     subtitle: 'MASSIVE GAINS',
-    image: 'https://www.ddmynutrition.in/assets/Pimages/resized_1733734586-5898.jpg',
+    image: '/images/new-product.png',
     href: '/products/anabolic-gainer-5kg',
     bg: 'linear-gradient(180deg, #021a0e 0%, #000703 100%)',
     accentColor: '#10b981',
@@ -63,7 +63,7 @@ const bannerData = [
   {
     title: 'Fish Oil Softgels',
     subtitle: 'DAILY ESSENTIALS',
-    image: 'https://www.ddmynutrition.in/assets/Pimages/resized_1766489842-4591.jpg',
+    image: '/images/new-product.png',
     href: '/products/fish-oil-softgel',
     bg: 'linear-gradient(180deg, #021124 0%, #00040a 100%)',
     accentColor: '#3b82f6',

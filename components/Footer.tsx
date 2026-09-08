@@ -1,6 +1,5 @@
 'use client'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -8,14 +7,13 @@ export default function Footer() {
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Column 1: Logo */}
         <div className="flex flex-col gap-4">
-          <Link href="/" className="inline-block">
-            <Image
-              src="https://www.ddmynutrition.in/website/image/demo/logos/website.png"
-              alt="DDMY Nutrition Logo"
-              width={140}
-              height={48}
-              className="h-10 w-auto object-contain mb-2"
-            />
+          <Link href="/" className="inline-flex flex-col leading-none group mb-2">
+            <span className="text-white font-black text-2xl uppercase tracking-wider group-hover:text-[#C9A84C] transition-colors">
+              PSYCHO <span className="text-[#C9A84C]">NUTRITION</span>
+            </span>
+            <span className="text-zinc-400 text-[9px] font-bold tracking-[0.4em] uppercase mt-1">
+              Pure Performance
+            </span>
           </Link>
           <p className="text-zinc-500 text-xs max-w-xs leading-relaxed">
             Premium sports supplements engineered for elite athletes who demand absolute purity, power, and performance.
@@ -74,8 +72,8 @@ export default function Footer() {
               <svg className="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              <a href="mailto:support@ddmynutrition.in" className="hover:text-white transition-colors">
-                support@ddmynutrition.in
+              <a href="mailto:support@psychonutrition.in" className="hover:text-white transition-colors">
+                support@psychonutrition.in
               </a>
             </li>
           </ul>
@@ -85,7 +83,7 @@ export default function Footer() {
       {/* Bottom copyright and compliance */}
       <div className="max-w-[1400px] mx-auto mt-16 pt-8 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
         <div>
-          © {new Date().getFullYear()}, DDMY Nutrition. All rights reserved.
+          © {new Date().getFullYear()}, Psycho Nutrition. All rights reserved.
         </div>
         <div className="max-w-xl text-center md:text-right leading-relaxed opacity-60">
           *These statements have not been evaluated by the FSSAI or FDA. These products are not intended to diagnose, treat, cure, or prevent any disease.

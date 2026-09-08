@@ -3,9 +3,9 @@ import './globals.css'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
 
 export const metadata: Metadata = {
-  title: 'DDMY Nutrition – Elite Sports Supplements India',
-  description: 'Premium sports nutrition supplements in India. Pre-workouts, whey protein, mass gainers, vitamins & more. Lab tested, pure quality.',
-  keywords: 'DDMY nutrition, whey protein isolate, mass gainer, pre workout, creatine, sports supplements India, CRANK pre workout',
+  title: 'Psycho Nutrition – Elite Sports Supplements India',
+  description: 'Premium sports nutrition supplements by Psycho Nutrition. Pre-workouts, whey protein, mass gainers, vitamins & more. Lab tested, pure quality.',
+  keywords: 'Psycho Nutrition, psychonutrition, whey protein isolate, mass gainer, pre workout, creatine, sports supplements India',
 }
 
 export default function RootLayout({

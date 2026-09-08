@@ -61,7 +61,7 @@ export default function CheckoutModal({ isOpen, onClose, cartItems, subtotal, sh
     })
 
     // Construct the full WhatsApp message
-    const message = `Hello DDMY Nutrition! I would like to place an order:
+    const message = `Hello Psycho Nutrition! I would like to place an order:
 
 📦 *ORDER DETAILS:*
 ${itemsText}

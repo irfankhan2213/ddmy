@@ -7,31 +7,31 @@ const categories = [
     label: 'Mass Gainer',
     href: '/collections/mass-gainer',
     description: 'Anabolic High Calorie Gainers',
-    tag: 'DDMY Elite Line'
+    tag: 'Psycho Elite Line'
   },
   {
     label: 'Pre-Workout',
     href: '/collections/pre-workout',
     description: 'CRANK Fruit Punch & Energy Formula',
-    tag: 'DDMY Elite Line'
+    tag: 'Psycho Elite Line'
   },
   {
     label: 'Protein',
     href: '/collections/protein',
     description: 'Pure Isolate & 100% Whey',
-    tag: 'DDMY Elite Line'
+    tag: 'Psycho Elite Line'
   },
   {
     label: 'Fish Oils & Essentials',
     href: '/collections/fish-oils',
     description: 'Omega 3 and recovery essentials',
-    tag: 'DDMY Vitality'
+    tag: 'Psycho Vitality'
   },
   {
     label: 'Vitamins & Supplements',
     href: '/collections/vitamins-supplements',
     description: 'ZMA Sleep & Organ Health Support',
-    tag: 'DDMY Vitality'
+    tag: 'Psycho Vitality'
   },
 ]
 

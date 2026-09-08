@@ -7,12 +7,12 @@ const slides = [
   {
     id: 1,
     image: '/images/Firefly-2.jpg',
-    alt: 'DDMY Nutrition - Ignite Your Performance',
+    alt: 'Psycho Nutrition - Ignite Your Performance',
   },
   {
     id: 2,
     image: '/images/e780c1edaebcc8bf5b75146e0f866ac488e83febca281867ab031bbdf7b8e24a-2.png',
-    alt: 'DDMY Nutrition - Premium Quality Supplements',
+    alt: 'Psycho Nutrition - Premium Quality Supplements',
   }
 ]
 

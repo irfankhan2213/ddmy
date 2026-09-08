@@ -12,19 +12,19 @@ const pagesContent: Record<string, {
   'privacy-policy': {
     title: 'Privacy Policy',
     content: [
-      'At Nitrogen Nutrition, we value your privacy. We collect information you provide directly to us (e.g. name, email address, payment details) when making a purchase or signing up for updates.',
+      'At Psycho Nutrition, we value your privacy. We collect information you provide directly to us (e.g. name, email address, payment details) when making a purchase or signing up for updates.',
       'We use this information to fulfill orders, process payments, communicate updates, and customize your experience. We do not sell or lease your personal information to third parties.',
       'We use cookies and similar tracking technologies to analyze site traffic, personalize content, and serve relevant advertisements. You can configure your browser to disable cookies if preferred.',
-      'If you have any questions or would like to request removal of your personal data, contact us at Contact@Nitrogennutri.com.',
+      'If you have any questions or would like to request removal of your personal data, contact us at support@psychonutrition.in.',
     ],
   },
   'terms-of-service': {
     title: 'Terms of Service',
     content: [
-      'Welcome to Nitrogen Nutrition. By visiting our site or purchasing products from us, you agree to be bound by the following terms and conditions.',
+      'Welcome to Psycho Nutrition. By visiting our site or purchasing products from us, you agree to be bound by the following terms and conditions.',
       'All products are subject to availability. We reserve the right to limit quantities or discontinue products without notice. Prices are subject to change.',
       'You agree to provide current, complete, and accurate purchase and account information for all purchases. We reserve the right to refuse any order.',
-      'All content on this site, including text, logos, graphics, and product names, is the property of Nitrogen Nutrition and protected by intellectual property laws.',
+      'All content on this site, including text, logos, graphics, and product names, is the property of Psycho Nutrition and protected by intellectual property laws.',
     ],
   },
 }

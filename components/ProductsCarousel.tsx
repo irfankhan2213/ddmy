@@ -41,7 +41,7 @@ function ProductCard({ product }: { product: Product }) {
         </div>
       </div>
 
-      {/* Product Details - Centered exactly like Nitrogen */}
+      {/* Product Details - Centered */}
       <div className="flex flex-col items-center text-center px-2">
         <h3 className="text-black font-semibold text-sm mb-2 group-hover:text-[#C9A84C] transition-colors truncate w-full">{product.name}</h3>
         
