@@ -118,14 +118,14 @@ export default function FeaturedSeriesShowcase() {
     <section className="bg-white select-none border-t border-zinc-200">
 
       {/* ── CLEAN TRUST STRIP ── */}
-      <div className="bg-zinc-50 py-8 border-b border-zinc-200">
-        <div className="max-w-[1440px] mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="bg-zinc-50 py-4 sm:py-8 border-b border-zinc-200">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {[
             {
               label: 'FREE SHIPPING',
               sub: 'On All Orders Above $50',
               icon: (
-                <svg className="w-7 h-7 text-[#E50914]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-7 sm:h-7 text-[#E50914]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0zM13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1" />
                 </svg>
               ),
@@ -134,7 +134,7 @@ export default function FeaturedSeriesShowcase() {
               label: '100% AUTHENTIC',
               sub: 'Scratch-to-Verify Security',
               icon: (
-                <svg className="w-7 h-7 text-[#E50914]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-7 sm:h-7 text-[#E50914]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               ),
@@ -143,7 +143,7 @@ export default function FeaturedSeriesShowcase() {
               label: 'LIVE TRACKING',
               sub: 'SMS & WhatsApp Updates',
               icon: (
-                <svg className="w-7 h-7 text-[#E50914]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-7 sm:h-7 text-[#E50914]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -153,19 +153,19 @@ export default function FeaturedSeriesShowcase() {
               label: 'DIRECT LAB TO DOOR',
               sub: 'No Middlemen Markup',
               icon: (
-                <svg className="w-7 h-7 text-[#E50914]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-7 sm:h-7 text-[#E50914]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                 </svg>
               ),
             },
           ].map((f) => (
-            <div key={f.label} className="flex items-center gap-3.5">
-              <div className="flex-shrink-0 p-2.5 rounded-sm bg-red-50 border border-red-100">
+            <div key={f.label} className="flex items-center gap-2 sm:gap-3.5">
+              <div className="flex-shrink-0 p-1.5 sm:p-2.5 rounded-sm bg-red-50 border border-red-100">
                 {f.icon}
               </div>
               <div>
-                <p className="font-display font-bold text-base tracking-wider uppercase text-zinc-900">{f.label}</p>
-                <p className="text-zinc-500 text-xs">{f.sub}</p>
+                <p className="font-display font-bold text-[10px] sm:text-base tracking-wider uppercase text-zinc-900">{f.label}</p>
+                <p className="text-zinc-500 text-[9px] sm:text-xs hidden sm:block">{f.sub}</p>
               </div>
             </div>
           ))}
@@ -175,7 +175,7 @@ export default function FeaturedSeriesShowcase() {
       {/* ── AUTO-SCROLL CARD STRIP (MATCHING IMAGE 3) ── */}
       {CARDS.length > 0 && (
         <>
-          <div className="relative overflow-hidden py-14">
+          <div className="relative overflow-hidden py-6 sm:py-14">
 
             {/* Left Arrow */}
             <button
@@ -202,7 +202,7 @@ export default function FeaturedSeriesShowcase() {
             {/* Scroll container */}
             <div
               ref={scrollRef}
-              className="flex gap-8 overflow-x-auto px-6 scrollbar-hide"
+              className="flex gap-4 sm:gap-8 overflow-x-auto px-4 sm:px-6 scrollbar-hide"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
               onMouseEnter={() => { isPausedRef.current = true }}
               onMouseLeave={() => { isPausedRef.current = false }}
@@ -212,7 +212,7 @@ export default function FeaturedSeriesShowcase() {
                   key={`${card.id}-${idx}`}
                   href={card.href}
                   className="group relative flex-shrink-0 overflow-hidden rounded-2xl block bg-gradient-to-b from-[#111116] via-[#09090c] to-[#040405] shadow-xl hover:shadow-2xl transition-all duration-300"
-                  style={{ width: '26vw', minWidth: 280, height: 480 }}
+                  style={{ width: '60vw', minWidth: 220, maxWidth: 380, height: 'clamp(320px, 60vw, 480px)' }}
                 >
                   {/* Product poster image */}
                   <div className="absolute inset-0 p-6 flex items-center justify-center">
@@ -230,7 +230,7 @@ export default function FeaturedSeriesShowcase() {
 
                   {/* Card title — top centered (matching Image 3) */}
                   <div className="absolute top-6 inset-x-6 text-center z-10">
-                    <span className="text-white font-display font-bold text-2xl md:text-3xl tracking-wider uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                    <span className="text-white font-display font-bold text-lg sm:text-2xl md:text-3xl tracking-wider uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                       {card.title}
                     </span>
                   </div>
@@ -281,7 +281,7 @@ export default function FeaturedSeriesShowcase() {
           </div>
 
           {/* Indicators */}
-          <div className="flex items-center justify-center gap-2 pb-14 bg-white">
+          <div className="flex items-center justify-center gap-2 pb-6 sm:pb-14 bg-white">
             {CARDS.map((_, i) => (
               <button
                 key={i}

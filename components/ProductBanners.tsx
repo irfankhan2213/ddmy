@@ -83,30 +83,30 @@ const bannerData = [
 
 export default function ProductBanners() {
   return (
-    <section className="bg-black py-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+    <section className="bg-black py-6 sm:py-12">
+      <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4">
         {bannerData.map((banner, idx) => (
           <div
             key={idx}
-            className="relative h-[650px] overflow-hidden border-r border-b border-zinc-900 group"
+            className="relative h-[360px] sm:h-[480px] md:h-[650px] overflow-hidden border-r border-b border-zinc-900 group"
             style={{ background: banner.bg }}
           >
             {/* Ambient Background Glow */}
             <div className={`absolute inset-0 transition-opacity duration-700 opacity-40 group-hover:opacity-75 blur-[120px] ${banner.glowClass}`} />
 
             {/* Title / Header */}
-            <div className="absolute top-10 left-8 right-8 z-20">
-              <span className="text-xs font-black tracking-[0.25em] uppercase" style={{ color: banner.accentColor }}>
+            <div className="absolute top-5 sm:top-10 left-4 sm:left-8 right-4 sm:right-8 z-20">
+              <span className="text-[8px] sm:text-xs font-black tracking-[0.2em] sm:tracking-[0.25em] uppercase" style={{ color: banner.accentColor }}>
                 {banner.subtitle}
               </span>
-              <h3 className="text-3xl font-black text-white mt-1 uppercase tracking-tight leading-none">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mt-0.5 sm:mt-1 uppercase tracking-tight leading-none">
                 {banner.title}
               </h3>
             </div>
 
             {/* Floating Product Bottle in center */}
             <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none transition-transform duration-500 group-hover:scale-105">
-              <div className="relative w-[180px] h-[240px] mt-10 flex items-center justify-center">
+              <div className="relative w-[120px] h-[160px] sm:w-[150px] sm:h-[200px] md:w-[180px] md:h-[240px] mt-6 sm:mt-10 flex items-center justify-center">
                 <div className="relative w-full h-full">
                   <Image
                     src={banner.image}
@@ -129,7 +129,7 @@ export default function ProductBanners() {
                   <div className={`flex items-center gap-2 ${callout.align === 'right' ? 'flex-row-reverse' : ''}`}>
                     {/* Badge Pill */}
                     <span
-                      className="text-[10px] font-black tracking-widest text-white px-3 py-1.5 rounded-full uppercase border shadow-md whitespace-nowrap"
+                      className="text-[7px] sm:text-[10px] font-black tracking-wider sm:tracking-widest text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-full uppercase border shadow-md whitespace-nowrap"
                       style={{
                         background: `${banner.accentColor}dd`,
                         borderColor: banner.accentColor,
@@ -139,7 +139,7 @@ export default function ProductBanners() {
                     </span>
 
                     {/* Styled Connecting Line */}
-                    <div className="w-8 h-0.5 bg-white/40 relative">
+                    <div className="w-4 sm:w-8 h-0.5 bg-white/40 relative">
                       <div
                         className="absolute w-1.5 h-1.5 rounded-full bg-white"
                         style={{
@@ -157,17 +157,17 @@ export default function ProductBanners() {
             {/* Quick View Button at bottom left */}
             <Link
               href={banner.href}
-              className="absolute bottom-8 left-8 z-30 w-12 h-12 rounded-full bg-[#ccff00] text-black flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-lg"
+              className="absolute bottom-4 sm:bottom-8 left-4 sm:left-8 z-30 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-[#ccff00] text-black flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-lg"
               title="Quick View"
             >
-              <svg className="w-5 h-5 fill-black" viewBox="0 0 20 20">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-black" viewBox="0 0 20 20">
                 <path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
                 <path fillRule="evenodd" d="M.664 10.59a1.651 1.651 0 010-1.186A10.004 10.004 0 0110 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0110 17c-4.257 0-7.893-2.66-9.336-6.41zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
               </svg>
             </Link>
 
             {/* Decorative Icon inside background */}
-            <div className="absolute bottom-8 right-8 z-10 opacity-25 group-hover:opacity-50 transition-opacity">
+            <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 z-10 opacity-25 group-hover:opacity-50 transition-opacity">
               {banner.iconPath}
             </div>
           </div>

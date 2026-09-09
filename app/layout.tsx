@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   description: 'Premium sports nutrition supplements by Psycho Nutrition. Pre-workouts, whey protein, mass gainers, vitamins & more. Lab tested, pure quality.',
   keywords: 'Psycho Nutrition, psychonutrition, whey protein isolate, mass gainer, pre workout, creatine, sports supplements',
   icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
+    icon: '/images/logo.png',
+    apple: '/images/logo.png',
   },
 }
 

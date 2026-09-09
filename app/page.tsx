@@ -2,7 +2,6 @@ import AnnouncementBar from '@/components/AnnouncementBar'
 import Header from '@/components/Header'
 import HeroSlider from '@/components/HeroSlider'
 import TrustBadges from '@/components/TrustBadges'
-import OurProductsBanner from '@/components/OurProductsBanner'
 
 import CategoryGrid from '@/components/CategoryGrid'
 import ProductsCarousel from '@/components/ProductsCarousel'
@@ -39,11 +38,6 @@ export default function Home() {
       {/* ======================================= */}
       
       <div className="bg-white relative overflow-hidden border-t border-zinc-200">
-
-        {/* Our Products Banner Card */}
-        <ScrollReveal direction="up">
-          <OurProductsBanner />
-        </ScrollReveal>
 
         {/* Featured Products Carousel */}
         <ScrollReveal direction="up">

@@ -56,14 +56,14 @@ export default function ReviewsSection() {
   const visible = reviews.slice(page * pageSize, page * pageSize + pageSize)
 
   return (
-    <section className="bg-white py-24 border-t border-zinc-200 relative z-10 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 relative z-10">
+    <section className="bg-white py-10 sm:py-24 border-t border-zinc-200 relative z-10 overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-6 sm:mb-14">
           <span className="text-[#E50914] font-display text-xs tracking-[0.25em] uppercase font-bold block mb-2">
             ATHLETE ENDORSEMENTS
           </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-zinc-900 mb-3 uppercase tracking-wider">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-zinc-900 mb-3 uppercase tracking-wider">
             CUSTOMER REVIEWS & TASTE TEST
           </h2>
           <div className="flex items-center justify-center gap-2 mb-2">
@@ -76,18 +76,18 @@ export default function ReviewsSection() {
         </div>
 
         {/* Review cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {visible.map((review) => (
             <div
               key={review.id}
-              className="bg-zinc-50 border border-zinc-200 rounded-md p-7 transition-all duration-300 hover:border-[#E50914] hover:shadow-[0_10px_30px_rgba(0,0,0,0.06)] flex flex-col justify-between"
+              className="bg-zinc-50 border border-zinc-200 rounded-md p-4 sm:p-7 transition-all duration-300 hover:border-[#E50914] hover:shadow-[0_10px_30px_rgba(0,0,0,0.06)] flex flex-col justify-between"
             >
               <div>
                 <StarRating rating={review.rating} />
-                <h3 className="font-display text-xl text-zinc-900 mt-4 mb-2 tracking-wide uppercase leading-snug">
+                <h3 className="font-display text-base sm:text-xl text-zinc-900 mt-3 sm:mt-4 mb-1.5 sm:mb-2 tracking-wide uppercase leading-snug">
                   {review.title}
                 </h3>
-                <p className="text-zinc-600 text-sm leading-relaxed mb-6">
+                <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
                   &ldquo;{review.text}&rdquo;
                 </p>
               </div>

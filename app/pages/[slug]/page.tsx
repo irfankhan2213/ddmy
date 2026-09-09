@@ -15,7 +15,7 @@ const pagesContent: Record<string, {
       'At Psycho Nutrition, we value your privacy. We collect information you provide directly to us (e.g. name, email address, payment details) when making a purchase or signing up for updates.',
       'We use this information to fulfill orders, process payments, communicate updates, and customize your experience. We do not sell or lease your personal information to third parties.',
       'We use cookies and similar tracking technologies to analyze site traffic, personalize content, and serve relevant advertisements. You can configure your browser to disable cookies if preferred.',
-      'If you have any questions or would like to request removal of your personal data, contact us at support@psychonutrition.in.',
+      'If you have any questions or would like to request removal of your personal data, contact us at psychonutrition@yahoo.com.',
     ],
   },
   'terms-of-service': {

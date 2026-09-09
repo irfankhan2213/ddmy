@@ -47,13 +47,13 @@ const features = [
 
 export default function BestSellerFeature() {
   return (
-    <section className="bg-black py-24 overflow-hidden border-t border-zinc-900 relative">
+    <section className="bg-black py-12 sm:py-24 overflow-hidden border-t border-zinc-900 relative">
       {/* Background ambient red glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-600/5 rounded-full blur-[180px] pointer-events-none" />
 
-      <div className="max-w-[1440px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 relative z-10">
         
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-16">
           <span className="text-red-600 font-display text-xs tracking-[0.25em] uppercase font-bold block mb-1">
             LAB FORMULA TELEMETRY
           </span>
@@ -62,7 +62,7 @@ export default function BestSellerFeature() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-display font-bold text-center text-white tracking-wider uppercase"
+            className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-center text-white tracking-wider uppercase"
           >
             BEST SELLER ANATOMY
           </motion.h2>
@@ -161,12 +161,12 @@ export default function BestSellerFeature() {
         </div>
 
         {/* Mobile View (Stacked) */}
-        <div className="lg:hidden flex flex-col items-center gap-10 mt-6">
+        <div className="lg:hidden flex flex-col items-center gap-6 sm:gap-10 mt-4 sm:mt-6">
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative w-full max-w-[400px] aspect-square mb-4"
+            className="relative w-full max-w-[280px] sm:max-w-[400px] aspect-square mb-2 sm:mb-4"
           >
             <Image 
               src={ANATOMY_IMAGE_URL} 
@@ -177,7 +177,7 @@ export default function BestSellerFeature() {
             />
           </motion.div>
           
-          <div className="space-y-6 w-full px-2">
+          <div className="space-y-4 sm:space-y-6 w-full px-1 sm:px-2">
             {features.map((f, i) => (
               <motion.div 
                 key={f.id} 
@@ -185,12 +185,12 @@ export default function BestSellerFeature() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="bg-[#0E0E12] border border-white/5 rounded-md p-6 text-center"
+                className="bg-[#0E0E12] border border-white/5 rounded-md p-4 sm:p-6 text-center"
               >
                 <div className="inline-flex items-center justify-center w-8 h-8 bg-[#E50914] text-white rounded-full font-display font-bold text-sm mb-3 shadow-[0_0_15px_rgba(229,9,20,0.6)]">
                   {f.id}
                 </div>
-                <h3 className="text-white font-display text-xl mb-2 tracking-wide uppercase">{f.title}</h3>
+                <h3 className="text-white font-display text-lg sm:text-xl mb-1.5 sm:mb-2 tracking-wide uppercase">{f.title}</h3>
                 <div className="space-y-1.5 text-zinc-400 text-xs font-medium">
                   {f.bullets.map((b, i) => (
                     <div key={i}>{b}</div>

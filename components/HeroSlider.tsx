@@ -9,7 +9,7 @@ const MAIN_BANNER_URL =
 
 export default function HeroSlider() {
   return (
-    <div className="relative w-full aspect-[16/9] overflow-hidden bg-black select-none border-b border-zinc-900 group">
+    <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] overflow-hidden bg-black select-none border-b border-zinc-900 group">
       <Link
         href="/collections/shop-all"
         className="block relative w-full h-full cursor-pointer overflow-hidden"

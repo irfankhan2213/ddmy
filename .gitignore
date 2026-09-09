@@ -43,6 +43,7 @@ tsconfig.tsbuildinfo
 *.ico
 /public/images/*
 !/public/images/.gitkeep
+!/public/images/logo.png
 
 # raw local supplement store assets
 /app/supplement_store/
