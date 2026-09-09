@@ -6,30 +6,42 @@ import Footer from '@/components/Footer'
 import { products, Product } from '@/data/products'
 import Link from 'next/link'
 import Image from 'next/image'
-import CheckoutModal from '@/components/CheckoutModal'
 
 export default function ProductDetailPage({ params }: { params: { id: string } }) {
   const productId = params.id
   const product = useMemo(() => products.find(p => p.id === productId), [productId])
 
-  const [selectedFlavor, setSelectedFlavor] = useState<string>(
-    product?.flavors?.[0] || 'Default'
-  )
-  const [purchaseOption, setPurchaseOption] = useState<'one-time' | 'subscribe'>('one-time')
-  const [quantity, setQuantity] = useState(1)
-  const [cartMessage, setCartMessage] = useState(false)
-  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
+  // Gallery state for active image
+  const galleryImages = useMemo(() => {
+    if (!product) return []
+    if (product.gallery && product.gallery.length > 0) {
+      return product.gallery
+    }
+    return [{ view: 'Hero View', url: product.image, altText: product.name }]
+  }, [product])
+
+  const [activeImageIndex, setActiveImageIndex] = useState(0)
 
   if (!product) {
     return (
-      <main className="min-h-screen bg-black text-white flex flex-col justify-between">
+      <main className="min-h-screen bg-white text-zinc-900 flex flex-col justify-between">
         <AnnouncementBar />
         <Header />
-        <div className="pt-32 text-center py-20">
-          <h1 className="text-3xl font-black uppercase">Product Not Found</h1>
-          <p className="text-zinc-500 mt-2">The product you are looking for does not exist.</p>
-          <Link href="/collections/shop-all" className="mt-6 inline-block bg-[#F6F5F2] hover:bg-[#C9A84C] text-black px-6 py-3 font-bold rounded transition-colors">
-            Back to Shop
+        <div className="pt-32 text-center py-24 px-6">
+          <span className="text-red-600 font-display text-xs tracking-widest uppercase font-bold block mb-2">
+            CATALOG NOTIFICATION
+          </span>
+          <h1 className="text-4xl font-display font-bold uppercase tracking-wider text-zinc-900">
+            Formulation Not Found
+          </h1>
+          <p className="text-zinc-500 mt-2 text-sm max-w-md mx-auto">
+            The requested formulation does not exist or may have been updated. Explore our full performance lineup below.
+          </p>
+          <Link 
+            href="/collections/shop-all" 
+            className="mt-6 inline-block bg-[#E50914] hover:bg-red-600 text-white font-display text-sm tracking-widest px-8 py-3.5 rounded-sm uppercase transition-all shadow-md"
+          >
+            Explore Full Arsenal
           </Link>
         </div>
         <Footer />
@@ -37,262 +49,440 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
     )
   }
 
-  // Calculate prices
-  const priceOneTime = product.price
-  const priceSubscribe = Math.round(product.price * 0.9) // 10% discount for subscription
-  const discountPercent = product.salePrice && product.salePrice > product.price
-    ? Math.round(((product.salePrice - product.price) / product.salePrice) * 100)
-    : 0
-
-  const handleAddToCart = () => {
-    setCartMessage(true)
-    setTimeout(() => setCartMessage(false), 3000)
-  }
+  // Related products (exclude current)
+  const relatedProducts = products.filter(p => p.id !== product.id).slice(0, 3)
+  const activeImage = galleryImages[activeImageIndex] || galleryImages[0]
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-white text-zinc-900">
       <AnnouncementBar />
       <Header />
 
-      <div className="pt-24 max-w-[1400px] mx-auto px-6 pb-20">
-        {/* Breadcrumbs */}
-        <div className="text-zinc-500 text-xs uppercase tracking-wider mb-8">
-          <Link href="/" className="hover:text-white transition-colors">Home</Link> /{' '}
-          <Link href={`/collections/shop-all`} className="hover:text-white transition-colors">Products</Link> /{' '}
-          <span className="text-white">{product.name}</span>
-        </div>
+      <div className="pt-28 max-w-[1440px] mx-auto px-6 pb-24">
+        {/* Breadcrumb Navigation */}
+        <nav className="text-zinc-500 text-xs uppercase tracking-wider mb-8 font-medium flex items-center flex-wrap gap-2">
+          <Link href="/" className="hover:text-zinc-900 transition-colors">Home</Link>
+          <span className="text-zinc-300">/</span>
+          <Link href="/collections/shop-all" className="hover:text-zinc-900 transition-colors">Arsenal</Link>
+          <span className="text-zinc-300">/</span>
+          <Link href={`/collections/${product.category.toLowerCase().replace(/\s+/g, '-')}`} className="hover:text-zinc-900 transition-colors">
+            {product.category}
+          </Link>
+          <span className="text-zinc-300">/</span>
+          <span className="text-zinc-900 font-bold truncate max-w-[300px]">{product.name}</span>
+        </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Column - Product Image Representation */}
-          <div className="relative">
-            <div
-              className="w-full aspect-square rounded-2xl flex flex-col items-center justify-center relative overflow-hidden bg-gradient-to-br from-zinc-950 to-black border border-zinc-800 p-8"
-            >
-              {/* Custom ambient blur bg */}
-              <div
-                className="absolute inset-0 opacity-10 pointer-events-none blur-3xl"
-                style={{ background: `radial-gradient(circle, ${product.accent} 0%, transparent 70%)` }}
-              />
+        {/* Top Product Hero Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* ── LEFT: INTERACTIVE IMAGE GALLERY (6 COLS) ── */}
+          <div className="lg:col-span-6 relative sticky top-28">
+            {/* Primary Main Image Frame */}
+            <div className="relative w-full aspect-square bg-[#f5f5f7] rounded-2xl overflow-hidden border border-zinc-200/80 p-8 shadow-sm flex flex-col items-center justify-center">
+              {product.badge && (
+                <span className="absolute top-5 left-5 bg-black text-white font-display text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full z-10 font-bold shadow-md">
+                  {product.badge}
+                </span>
+              )}
 
-              <div className="relative w-full h-[80%] flex items-center justify-center">
+              {/* View Label Badge */}
+              <span className="absolute top-5 right-5 bg-white/90 backdrop-blur-sm border border-zinc-200 text-zinc-700 font-display text-[10px] uppercase tracking-widest px-3 py-1 rounded-full z-10 font-semibold shadow-xs">
+                {activeImage.view}
+              </span>
+
+              {/* Main Image Viewport */}
+              <div className="relative w-full h-[88%] flex items-center justify-center">
                 <Image
-                  src={product.image}
-                  alt={product.name}
+                  src={activeImage.url}
+                  alt={activeImage.altText || product.name}
                   fill
-                  className="object-contain filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)]"
+                  priority
+                  className="object-contain filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.12)] transition-all duration-500"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              <h2 className="text-3xl font-black mt-6 tracking-wider uppercase" style={{ color: product.accent }}>
-                {product.name}
-              </h2>
+
+              {/* Purity & Authentic Lot Indicator */}
+              <div className="w-full flex items-center justify-between border-t border-zinc-200/80 pt-3 mt-1">
+                <span className="text-zinc-500 font-display text-[11px] uppercase tracking-widest">
+                  SIZE: <span className="text-zinc-900 font-bold">{product.size || 'Standard'}</span>
+                </span>
+                <span className="text-emerald-700 font-display text-[11px] uppercase tracking-widest font-bold flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  AUTHENTIC LAB VERIFIED
+                </span>
+              </div>
             </div>
+
+            {/* Thumbnails Gallery Selector */}
+            {galleryImages.length > 1 && (
+              <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 mt-4">
+                {galleryImages.map((img, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setActiveImageIndex(idx)}
+                    className={`group relative aspect-square rounded-xl bg-[#f5f5f7] p-2 border-2 transition-all duration-200 overflow-hidden text-left ${
+                      idx === activeImageIndex
+                        ? 'border-[#E50914] shadow-md ring-2 ring-red-600/20'
+                        : 'border-zinc-200 hover:border-zinc-400 opacity-80 hover:opacity-100'
+                    }`}
+                  >
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={img.url}
+                        alt={img.view}
+                        fill
+                        className="object-contain p-1"
+                        sizes="100px"
+                      />
+                    </div>
+                    <span className="absolute bottom-1 inset-x-1 bg-black/75 backdrop-blur-xs text-white text-[9px] font-display font-medium uppercase px-1 py-0.5 rounded text-center truncate pointer-events-none">
+                      {img.view.split(' ')[0]}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Right Column - Product Purchase Interface */}
-          <div>
-            <h1 className="text-4xl font-black uppercase tracking-tight mb-4">{product.name}</h1>
+          {/* ── RIGHT: PRODUCT SPECS & DETAILS (6 COLS) ── */}
+          <div className="lg:col-span-6 flex flex-col">
+            {product.series && (
+              <span className="text-[#E50914] font-display text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-1">
+                {product.series}
+              </span>
+            )}
+            
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-wide text-zinc-950 mb-3 leading-tight">
+              {product.name}
+            </h1>
 
-            <div className="flex items-center gap-4 mb-3">
-              <span className="text-2xl font-black text-white">₹{priceOneTime} INR</span>
+            {/* Stars & Athlete Ratings */}
+            <div className="flex items-center gap-3 mb-5">
+              <div className="flex gap-0.5 text-zinc-900">
+                {'★★★★★'}
+              </div>
+              <span className="text-xs text-zinc-500 font-bold uppercase tracking-wider">
+                {product.reviewCount} Verified Athlete Reviews
+              </span>
+            </div>
+
+            {/* Price & Savings in USD */}
+            <div className="flex items-baseline gap-3 pb-6 border-b border-zinc-200">
+              <span className="text-3xl sm:text-4xl font-display font-bold text-[#E50914] tracking-wide">
+                ${product.price.toFixed(2)}
+              </span>
               {product.salePrice && product.salePrice > product.price && (
                 <>
-                  <span className="text-zinc-500 line-through">₹{product.salePrice} INR</span>
-                  <span className="text-[#C9A84C] text-xs font-bold px-2 py-0.5 bg-[#C9A84C]/10 border border-[#C9A84C]/20 rounded">
-                    {discountPercent}% off
+                  <span className="text-base text-zinc-400 line-through">
+                    ${product.salePrice.toFixed(2)}
+                  </span>
+                  <span className="text-emerald-700 text-xs font-display font-bold px-2.5 py-1 bg-emerald-50 border border-emerald-200 rounded-sm uppercase tracking-wider">
+                    {Math.round(((product.salePrice - product.price) / product.salePrice) * 100)}% SAVINGS
                   </span>
                 </>
               )}
             </div>
 
-            <p className="text-xs text-zinc-500 leading-relaxed mb-6">
-              Pay in interest-free installments with <span className="font-extrabold text-indigo-400">Simpl</span> or <span className="font-extrabold text-green-400">LazyPay</span> at checkout.
+            {/* Serving & Container Highlights Pill Bar */}
+            <div className="grid grid-cols-3 gap-2 py-4 my-2 border-b border-zinc-200 bg-zinc-50/70 p-3 rounded-xl">
+              <div>
+                <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-bold block">NET WEIGHT</span>
+                <span className="text-sm font-bold text-zinc-900 font-display">{product.size || '1 kg'}</span>
+              </div>
+              <div>
+                <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-bold block">TOTAL SERVINGS</span>
+                <span className="text-sm font-bold text-zinc-900 font-display">{product.servingsCount || 28} Servings</span>
+              </div>
+              <div>
+                <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-bold block">SERVING SIZE</span>
+                <span className="text-sm font-bold text-zinc-900 font-display">{product.servingSize || '1 Scoop'}</span>
+              </div>
+            </div>
+
+            {/* Product Description */}
+            <p className="text-zinc-600 text-sm leading-relaxed py-4 border-b border-zinc-200">
+              {product.description}
             </p>
 
-            {/* Stars */}
-            <div className="flex items-center gap-2 mb-6 border-b border-zinc-900 pb-6">
-              <div className="flex gap-0.5">
-                {[1,2,3,4,5].map(i => (
-                  <svg key={i} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                  </svg>
-                ))}
-              </div>
-              <span className="text-xs text-zinc-400 font-bold">{product.reviewCount} reviews</span>
-            </div>
-
-            {/* Stock Level Alert */}
-            <div className="mb-6">
-              <div className="flex justify-between text-xs font-bold uppercase tracking-wider mb-2 text-[#00C87A]">
-                <span>Stock Adequate!</span>
-                <span>Ready to ship</span>
-              </div>
-              <div className="h-1 bg-zinc-800 rounded-full overflow-hidden">
-                <div className="h-full bg-[#00C87A] w-[95%]" />
-              </div>
-            </div>
-
-            {/* Flavor Swatches */}
-            {product.flavors && product.flavors.length > 0 && (
-              <div className="mb-6">
-                <div className="text-sm font-bold text-zinc-300 mb-3">
-                  Flavor: <span className="text-white">{selectedFlavor}</span>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {product.flavors.map(flavor => (
-                    <button
-                      key={flavor}
-                      onClick={() => setSelectedFlavor(flavor)}
-                      className={`px-4 py-2 border text-sm rounded-full font-semibold transition-all ${
-                        selectedFlavor === flavor
-                          ? 'border-[#C9A84C] text-[#C9A84C] bg-[#C9A84C]/5'
-                          : 'border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-white'
-                      }`}
-                    >
-                      {flavor}
-                    </button>
-                  ))}
+            {/* ── CLINICAL MACRO HIGHLIGHTS ── */}
+            {product.nutritionFacts && (
+              <div className="py-5 border-b border-zinc-200">
+                <span className="font-display font-bold text-xs tracking-widest uppercase text-zinc-500 block mb-3">
+                  CORE POTENCY BREAKDOWN (PER SERVING)
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <div className="p-3 bg-red-50/60 border border-red-100 rounded-xl text-center">
+                    <p className="font-display font-bold text-xl text-[#E50914]">{product.nutritionFacts.protein}g</p>
+                    <p className="text-[10px] text-zinc-600 uppercase tracking-widest font-bold mt-0.5">PROTEIN</p>
+                  </div>
+                  <div className="p-3 bg-zinc-50 border border-zinc-200 rounded-xl text-center">
+                    <p className="font-display font-bold text-xl text-zinc-900">{product.nutritionFacts.bcaa}g</p>
+                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest font-bold mt-0.5">BCAAs</p>
+                  </div>
+                  <div className="p-3 bg-zinc-50 border border-zinc-200 rounded-xl text-center">
+                    <p className="font-display font-bold text-xl text-zinc-900">{product.nutritionFacts.eaa}g</p>
+                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest font-bold mt-0.5">EAAs</p>
+                  </div>
+                  <div className="p-3 bg-zinc-50 border border-zinc-200 rounded-xl text-center">
+                    <p className="font-display font-bold text-xl text-zinc-900">
+                      {product.nutritionFacts.glutamine ? `${product.nutritionFacts.glutamine}g` : `${product.nutritionFacts.leucine || 2.6}g`}
+                    </p>
+                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest font-bold mt-0.5">
+                      {product.nutritionFacts.glutamine ? 'GLUTAMINE' : 'LEUCINE'}
+                    </p>
+                  </div>
                 </div>
               </div>
             )}
 
-            {/* Purchase Options */}
-            <div className="space-y-4 mb-6">
-              <div className="text-sm font-bold text-zinc-300">Purchase Options</div>
-
-              {/* One Time */}
-              <label
-                onClick={() => setPurchaseOption('one-time')}
-                className={`flex items-center justify-between p-4 border rounded-xl cursor-pointer transition-all ${
-                  purchaseOption === 'one-time'
-                    ? 'border-[#C9A84C] bg-[#C9A84C]/5'
-                    : 'border-zinc-800 hover:border-zinc-700'
-                }`}
+            {/* ── SHOWCASE ACTION BUTTONS (SHOWCASE ONLY) ── */}
+            <div className="pt-6 flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/collections/shop-all"
+                className="flex-1 bg-[#E50914] hover:bg-red-600 text-white font-display font-bold text-sm py-4 rounded-sm uppercase tracking-wider transition-all text-center shadow-md hover:shadow-lg"
               >
-                <div className="flex items-center gap-3">
-                  <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${
-                    purchaseOption === 'one-time' ? 'border-[#C9A84C]' : 'border-zinc-700'
-                  }`}>
-                    {purchaseOption === 'one-time' && <div className="w-2.5 h-2.5 rounded-full bg-[#C9A84C]" />}
-                  </div>
-                  <span className="font-bold text-sm text-white">One Time Purchase</span>
-                </div>
-                <span className="font-bold text-sm text-white">₹{priceOneTime}</span>
-              </label>
-
-              {/* Subscription */}
-              <label
-                onClick={() => setPurchaseOption('subscribe')}
-                className={`flex items-center justify-between p-4 border rounded-xl cursor-pointer transition-all ${
-                  purchaseOption === 'subscribe'
-                    ? 'border-[#C9A84C] bg-[#C9A84C]/5'
-                    : 'border-zinc-800 hover:border-zinc-700'
-                }`}
+                Explore Full Arsenal
+              </Link>
+              <Link
+                href="/pages/contact"
+                className="flex-1 bg-white hover:bg-zinc-50 border border-zinc-300 text-zinc-900 font-display font-bold text-sm py-4 rounded-sm uppercase tracking-wider transition-all text-center"
               >
-                <div className="flex items-center gap-3">
-                  <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${
-                    purchaseOption === 'subscribe' ? 'border-[#C9A84C]' : 'border-zinc-700'
-                  }`}>
-                    {purchaseOption === 'subscribe' && <div className="w-2.5 h-2.5 rounded-full bg-[#C9A84C]" />}
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="font-bold text-sm text-white flex items-center gap-2">
-                      Subscribe and Save
-                      <span className="bg-[#00C87A]/25 text-[#00C87A] text-[9px] font-black px-1.5 py-0.5 rounded">
-                        SAVE 10%
-                      </span>
-                    </span>
-                    <span className="text-zinc-500 text-xs mt-0.5">Delivered every 30 days automatically</span>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <span className="font-bold text-sm text-[#00C87A]">₹{priceSubscribe}</span>
-                  <span className="text-zinc-500 text-xs line-through block mt-0.5">₹{priceOneTime}</span>
-                </div>
-              </label>
+                Inquire & Order Info
+              </Link>
             </div>
 
-            {/* Quantity */}
-            <div className="flex items-center gap-4 mb-6">
-              <span className="text-sm font-bold text-zinc-300">Quantity</span>
-              <div className="flex items-center border border-zinc-800 rounded-lg overflow-hidden h-11 bg-zinc-950">
-                <button
-                  onClick={() => setQuantity(q => Math.max(1, q - 1))}
-                  className="w-10 text-lg hover:bg-zinc-900 transition-colors border-r border-zinc-800"
-                >
-                  -
-                </button>
-                <span className="w-12 text-center font-bold">{quantity}</span>
-                <button
-                  onClick={() => setQuantity(q => q + 1)}
-                  className="w-10 text-lg hover:bg-zinc-900 transition-colors border-l border-zinc-800"
-                >
-                  +
-                </button>
-              </div>
-            </div>
-
-            {/* Purchase Actions */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={handleAddToCart}
-                className="flex-1 btn-gold text-black font-extrabold text-sm sm:text-base py-4 rounded-xl hover:shadow-[0_0_25px_rgba(201,168,76,0.5)] active:scale-[0.99] transition-all flex items-center justify-center gap-2 uppercase tracking-wider"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-                Add to Cart
-              </button>
-              
-              <button
-                onClick={() => setIsCheckoutOpen(true)}
-                className="flex-1 bg-[#25D366] text-white font-extrabold text-sm sm:text-base py-4 rounded-xl hover:bg-[#20bd5a] active:scale-[0.99] transition-all flex items-center justify-center gap-2 uppercase tracking-wider shadow-[0_0_15px_rgba(37,211,102,0.3)]"
-              >
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
-                </svg>
-                Buy via WhatsApp
-              </button>
-            </div>
-
-            {cartMessage && (
-              <div className="mt-4 p-3 bg-zinc-900 border border-zinc-800 rounded-lg text-sm text-[#00C87A] flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                Item added to cart successfully!
+            {/* Certifications Badge Line */}
+            {product.certifications && (
+              <div className="mt-6 pt-4 border-t border-zinc-200 flex flex-wrap items-center gap-2">
+                {product.certifications.map((cert, ci) => (
+                  <span
+                    key={ci}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-100 text-zinc-800 rounded-full text-[10px] font-bold uppercase tracking-wider"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    {cert}
+                  </span>
+                ))}
               </div>
             )}
           </div>
         </div>
 
-        {/* Product Features Section */}
-        {product.features && product.features.length > 0 && (
-          <div className="mt-16 pt-16 border-t border-zinc-900">
-            <h3 className="text-xl font-bold uppercase tracking-wide mb-6">Product Details & Benefits</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {product.features.map((feature, i) => (
-                <div key={i} className="flex gap-3 items-start border border-zinc-800 p-4 rounded-lg bg-zinc-900/10">
-                  <span className="text-[#C9A84C] text-lg font-bold">✓</span>
-                  <span className="text-zinc-300 text-sm leading-relaxed">{feature}</span>
+        {/* ── DETAILED SUPPLEMENT FACTS & INGREDIENTS TABS ── */}
+        <div className="mt-20 pt-12 border-t border-zinc-200 grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          {/* Left: Complete Nutrition Facts Table (7 cols) */}
+          <div className="lg:col-span-7">
+            <span className="text-[#E50914] font-display text-xs font-bold tracking-[0.25em] uppercase block mb-1">
+              LABORATORY PROFILE
+            </span>
+            <h3 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-wider text-zinc-950 mb-6">
+              Supplement Facts & Nutritional Assay
+            </h3>
+
+            {product.nutritionFacts ? (
+              <div className="border border-zinc-900 rounded-xl overflow-hidden shadow-xs bg-white">
+                <div className="bg-black text-white p-4">
+                  <h4 className="font-display font-extrabold text-xl uppercase tracking-wider">Supplement Facts</h4>
+                  <p className="text-xs text-zinc-400 mt-0.5">
+                    Serving Size: {product.servingSize || '34g'} | Servings Per Container: {product.servingsCount || 29}
+                  </p>
+                </div>
+
+                <div className="divide-y divide-zinc-200 text-sm">
+                  <div className="flex justify-between px-4 py-2.5 font-bold bg-zinc-50">
+                    <span>Amount Per Serving</span>
+                    <span>% Daily Value*</span>
+                  </div>
+                  <div className="flex justify-between px-4 py-2.5">
+                    <span className="font-bold text-zinc-900">Calories: {product.nutritionFacts.calories} kcal</span>
+                    <span className="text-zinc-500">6%</span>
+                  </div>
+                  <div className="flex justify-between px-4 py-2.5 font-bold text-zinc-950 bg-red-50/40">
+                    <span>Protein: {product.nutritionFacts.protein}g</span>
+                    <span className="text-[#E50914]">48%</span>
+                  </div>
+                  <div className="flex justify-between px-4 py-2 text-zinc-700 pl-8">
+                    <span>BCAAs (Branched Chain Amino Acids)</span>
+                    <span className="font-semibold">{product.nutritionFacts.bcaa}g</span>
+                  </div>
+                  <div className="flex justify-between px-4 py-2 text-zinc-700 pl-8">
+                    <span>EAAs (Essential Amino Acids)</span>
+                    <span className="font-semibold">{product.nutritionFacts.eaa}g</span>
+                  </div>
+                  {product.nutritionFacts.glutamine && (
+                    <div className="flex justify-between px-4 py-2 text-zinc-700 pl-8">
+                      <span>L-Glutamine Recovery Complex</span>
+                      <span className="font-semibold">{product.nutritionFacts.glutamine}g</span>
+                    </div>
+                  )}
+                  {product.nutritionFacts.leucine && (
+                    <div className="flex justify-between px-4 py-2 text-zinc-700 pl-8">
+                      <span>L-Leucine (Anabolic Trigger)</span>
+                      <span className="font-semibold">{product.nutritionFacts.leucine}g</span>
+                    </div>
+                  )}
+                  <div className="flex justify-between px-4 py-2.5">
+                    <span className="font-semibold text-zinc-900">Total Carbohydrates: {product.nutritionFacts.carbohydrates}g</span>
+                    <span className="text-zinc-500">1%</span>
+                  </div>
+                  <div className="flex justify-between px-4 py-2 text-zinc-600 pl-8">
+                    <span>Total Sugars (0g Added)</span>
+                    <span>{product.nutritionFacts.sugars}g</span>
+                  </div>
+                  <div className="flex justify-between px-4 py-2.5">
+                    <span className="font-semibold text-zinc-900">Total Fat: {product.nutritionFacts.fat}g</span>
+                    <span className="text-zinc-500">1%</span>
+                  </div>
+                  <div className="flex justify-between px-4 py-2 text-zinc-600 pl-8">
+                    <span>Saturated Fat</span>
+                    <span>{product.nutritionFacts.saturatedFat}g</span>
+                  </div>
+                  <div className="flex justify-between px-4 py-2.5">
+                    <span className="font-semibold text-zinc-900">Sodium: {product.nutritionFacts.sodium}mg</span>
+                    <span className="text-zinc-500">5%</span>
+                  </div>
+                  <div className="flex justify-between px-4 py-2.5">
+                    <span className="font-semibold text-zinc-900">Cholesterol: {product.nutritionFacts.cholesterol}mg</span>
+                    <span className="text-zinc-500">1%</span>
+                  </div>
+                </div>
+
+                <div className="p-3 bg-zinc-50 text-[11px] text-zinc-500 border-t border-zinc-200">
+                  *Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs.
+                </div>
+              </div>
+            ) : null}
+          </div>
+
+          {/* Right: Ingredients, Directions & Benefits (5 cols) */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            
+            {/* Ingredients Box */}
+            <div className="p-6 bg-zinc-50 border border-zinc-200 rounded-xl">
+              <h4 className="font-display font-bold text-base uppercase tracking-wider text-zinc-900 mb-2 flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#E50914]" />
+                Ingredients Breakdown
+              </h4>
+              <p className="text-xs leading-relaxed text-zinc-700">
+                {product.ingredients || 'Protein Blend (91%) [Whey Protein Concentrate, Whey Protein Isolate] (Emulsifier: INS 322i), Natural & Artificial Flavours, Sodium Chloride, Thickeners (INS 466, INS 415, INS 407), Sweeteners (INS 955, INS 950).'}
+              </p>
+              <p className="text-[11px] font-bold text-red-700 mt-3 uppercase tracking-wider">
+                Allergen Warning: Contains Milk and Soy (Lecithin).
+              </p>
+            </div>
+
+            {/* Directions for Use */}
+            <div className="p-6 bg-zinc-50 border border-zinc-200 rounded-xl">
+              <h4 className="font-display font-bold text-base uppercase tracking-wider text-zinc-900 mb-2 flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#E50914]" />
+                Suggested Directions
+              </h4>
+              <p className="text-xs leading-relaxed text-zinc-700">
+                {product.usageDirections || 'Mix 1 scoop with 200-250 ml of cold water, skim milk, or your preferred beverage. Shake vigorously for 30 seconds. Consume 30-60 minutes post-workout or as a high-protein supplement throughout the day.'}
+              </p>
+            </div>
+
+            {/* Features Checklist */}
+            {product.features && (
+              <div className="p-6 bg-white border border-zinc-200 rounded-xl shadow-xs">
+                <h4 className="font-display font-bold text-base uppercase tracking-wider text-zinc-900 mb-3">
+                  Engineered Advantages
+                </h4>
+                <ul className="space-y-2.5 text-xs text-zinc-700 font-medium">
+                  {product.features.map((feat, fi) => (
+                    <li key={fi} className="flex items-start gap-2.5">
+                      <span className="text-[#E50914] font-bold mt-0.5">✓</span>
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* ── RELATED FORMULATIONS ── */}
+        {relatedProducts.length > 0 && (
+          <div className="mt-24 pt-12 border-t border-zinc-200">
+            <div className="flex items-end justify-between mb-8 pb-4 border-b border-zinc-200">
+              <div>
+                <span className="text-[#E50914] font-display text-xs font-bold tracking-[0.25em] uppercase block mb-1">
+                  RELATED FORMULATIONS
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-display font-bold uppercase tracking-wider text-zinc-900">
+                  Complete Your Supplement Protocol
+                </h3>
+              </div>
+              <Link 
+                href="/collections/shop-all" 
+                className="text-xs font-display font-bold tracking-widest text-zinc-600 hover:text-[#E50914] uppercase transition-colors"
+              >
+                View Full Lineup →
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {relatedProducts.map((item) => (
+                <div key={item.id} className="group flex flex-col items-center">
+                  {/* Image Card */}
+                  <Link 
+                    href={`/products/${item.id}`} 
+                    className="relative w-full aspect-square bg-black rounded-2xl overflow-hidden block mb-4 group-hover:shadow-md transition-all duration-300"
+                  >
+                    {item.badge && (
+                      <span className="absolute top-3.5 right-3.5 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full z-10 tracking-tight">
+                        {item.badge}
+                      </span>
+                    )}
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </Link>
+
+                  {/* Details */}
+                  <div className="text-center w-full px-2">
+                    <Link href={`/products/${item.id}`} className="block">
+                      <h4 className="font-sans font-bold text-zinc-950 text-base hover:text-[#E50914] transition-colors truncate">
+                        {item.name}
+                      </h4>
+                    </Link>
+
+                    {/* 5 solid black stars */}
+                    <div className="flex justify-center text-zinc-900 text-xs my-1 tracking-widest">
+                      {'★★★★★'}
+                    </div>
+
+                    {/* Price in USD */}
+                    <div className="flex items-baseline justify-center gap-2 mb-2">
+                      <span className="text-base font-bold text-[#E50914]">${item.price.toFixed(2)}</span>
+                      {item.salePrice && item.salePrice > item.price && (
+                        <span className="text-xs text-zinc-500 line-through">
+                          ${item.salePrice.toFixed(2)}
+                        </span>
+                      )}
+                    </div>
+
+                    <Link
+                      href={`/products/${item.id}`}
+                      className="inline-block mt-1 text-xs font-display font-bold uppercase tracking-widest text-zinc-800 hover:text-[#E50914] transition-colors"
+                    >
+                      View Formulation →
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         )}
+
       </div>
-
-      <CheckoutModal
-        isOpen={isCheckoutOpen}
-        onClose={() => setIsCheckoutOpen(false)}
-        cartItems={[{
-          product: product,
-          quantity: quantity,
-          flavor: selectedFlavor
-        }]}
-        subtotal={purchaseOption === 'subscribe' ? Math.round(product.price * 0.9) * quantity : product.price * quantity}
-        shipping={0} // Just assume free shipping for single product buy now for simplicity, or we can calculate it
-      />
-
       <Footer />
     </main>
   )

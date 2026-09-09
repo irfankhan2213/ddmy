@@ -11,18 +11,22 @@ export default function OurProductsBanner({
   altText = 'Our Products Lineup' 
 }: OurProductsBannerProps) {
   return (
-    <section className="bg-[#F6F5F2] pt-12 pb-6 px-6">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="relative w-full h-[220px] sm:h-[280px] md:h-[340px] bg-black rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl flex items-center justify-between border border-zinc-800">
+    <section className="bg-transparent pt-12 pb-4 px-6 relative z-10">
+      <div className="max-w-[1440px] mx-auto">
+        <div className="relative w-full h-[220px] sm:h-[280px] md:h-[320px] bg-gradient-to-r from-[#0C0C10] via-[#0E0E14] to-[#140D10] rounded-md overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.8)] flex items-center justify-between border border-zinc-850 hover:border-red-600/40 transition-all duration-300">
           
-          {/* Background subtle geometric / smoke texture overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-zinc-900/40 z-10 pointer-events-none" />
+          {/* Background subtle crimson ambient glow & texture */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent z-10 pointer-events-none" />
+          <div className="absolute -left-10 top-1/2 -translate-y-1/2 w-64 h-64 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />
 
           {/* Left Text Area: "Our products" */}
-          <div className="relative z-20 pl-8 sm:pl-12 md:pl-16 max-w-[45%]">
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-wider leading-none drop-shadow-md">
-              Our <br />
-              <span className="text-zinc-100">products</span>
+          <div className="relative z-20 pl-8 sm:pl-12 md:pl-16 max-w-[50%]">
+            <span className="text-red-600 font-display text-xs sm:text-sm tracking-[0.25em] uppercase font-bold block mb-2">
+              ENGINEERED SUPREMACY
+            </span>
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-display font-bold text-white uppercase tracking-wider leading-none drop-shadow-lg">
+              OUR <br />
+              <span className="text-red-600">PRODUCTS</span>
             </h2>
           </div>
 
@@ -33,7 +37,7 @@ export default function OurProductsBanner({
                 src={imageSrc}
                 alt={altText}
                 fill
-                className="object-contain object-right drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)]"
+                className="object-contain object-right drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]"
                 priority
               />
             </div>

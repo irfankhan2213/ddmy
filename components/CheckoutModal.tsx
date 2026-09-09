@@ -57,7 +57,7 @@ export default function CheckoutModal({ isOpen, onClose, cartItems, subtotal, sh
     // Build the items list
     let itemsText = ''
     cartItems.forEach(item => {
-      itemsText += `${item.quantity}x ${item.product.name} (Flavor: ${item.flavor}) - ₹${item.product.price * item.quantity}\n`
+      itemsText += `${item.quantity}x ${item.product.name} (Flavor: ${item.flavor}) - $${(item.product.price * item.quantity).toFixed(2)}\n`
     })
 
     // Construct the full WhatsApp message
@@ -65,9 +65,9 @@ export default function CheckoutModal({ isOpen, onClose, cartItems, subtotal, sh
 
 📦 *ORDER DETAILS:*
 ${itemsText}
-Subtotal: ₹${subtotal}
-Shipping: ${shipping === 0 ? 'FREE' : `₹${shipping}`}
-*Total Amount: ₹${total}*
+Subtotal: $${subtotal.toFixed(2)}
+Shipping: ${shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`}
+*Total Amount: $${total.toFixed(2)}*
 
 📍 *SHIPPING DETAILS:*
 Name: ${formData.name}
@@ -128,7 +128,7 @@ Please confirm my order and share payment details.`
               <input
                 required
                 type="text"
-                className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#C9A84C] transition-colors"
+                className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#E50914] transition-colors"
                 placeholder="John Doe"
                 value={formData.name}
                 onChange={e => setFormData({ ...formData, name: e.target.value })}
@@ -140,7 +140,7 @@ Please confirm my order and share payment details.`
               <input
                 required
                 type="tel"
-                className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#C9A84C] transition-colors"
+                className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#E50914] transition-colors"
                 placeholder="+91 98765 43210"
                 value={formData.phone}
                 onChange={e => setFormData({ ...formData, phone: e.target.value })}
@@ -152,7 +152,7 @@ Please confirm my order and share payment details.`
               <textarea
                 required
                 rows={3}
-                className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#C9A84C] transition-colors resize-none"
+                className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#E50914] transition-colors resize-none"
                 placeholder="123 Fitness Street, Apt 4B"
                 value={formData.address}
                 onChange={e => setFormData({ ...formData, address: e.target.value })}
@@ -165,7 +165,7 @@ Please confirm my order and share payment details.`
                 <input
                   required
                   type="text"
-                  className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#C9A84C] transition-colors"
+                  className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#E50914] transition-colors"
                   placeholder="Mumbai"
                   value={formData.city}
                   onChange={e => setFormData({ ...formData, city: e.target.value })}
@@ -176,7 +176,7 @@ Please confirm my order and share payment details.`
                 <input
                   required
                   type="text"
-                  className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#C9A84C] transition-colors"
+                  className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#E50914] transition-colors"
                   placeholder="400001"
                   value={formData.pincode}
                   onChange={e => setFormData({ ...formData, pincode: e.target.value })}
@@ -190,7 +190,7 @@ Please confirm my order and share payment details.`
         <div className="p-6 border-t border-zinc-800 bg-zinc-900/50 flex flex-col gap-4">
           <div className="flex items-center justify-between text-sm">
             <span className="text-zinc-400">Total to Pay:</span>
-            <span className="font-black text-xl text-[#C9A84C]">₹{total}</span>
+            <span className="font-black text-xl text-[#E50914]">${total.toFixed(2)}</span>
           </div>
           
           <button

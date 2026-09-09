@@ -29,3 +29,23 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# build artifacts and temporary files
+tsconfig.tsbuildinfo
+
+# ignore all images
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.avif
+*.ico
+/public/images/*
+!/public/images/.gitkeep
+
+# raw local supplement store assets
+/app/supplement_store/
+
+# local maintenance scripts
+/scripts/

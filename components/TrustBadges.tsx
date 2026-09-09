@@ -45,12 +45,12 @@ const repeatedBadges = [...badges, ...badges, ...badges, ...badges, ...badges]
 
 export default function TrustBadges() {
   return (
-    <div className="bg-black border-y border-zinc-800 py-6 overflow-hidden shadow-2xl relative z-10">
+    <div className="bg-white border-y border-zinc-200 py-6 overflow-hidden shadow-sm relative z-10">
       <div className="badge-ticker flex items-center gap-24">
         {repeatedBadges.map((badge, i) => (
-          <div key={i} className="flex-shrink-0 flex flex-col items-center gap-4 min-w-[120px]">
-            <div className="text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">{badge.icon}</div>
-            <span className="text-xs font-black tracking-[0.2em] text-white text-center whitespace-nowrap uppercase">
+          <div key={i} className="flex-shrink-0 flex flex-col items-center gap-3 min-w-[120px]">
+            <div className="text-zinc-900 hover:text-[#E50914] transition-colors">{badge.icon}</div>
+            <span className="text-xs font-display font-bold tracking-[0.2em] text-zinc-900 text-center whitespace-nowrap uppercase">
               {badge.label}
             </span>
           </div>

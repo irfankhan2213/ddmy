@@ -52,7 +52,7 @@ export default function ContactPage() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Your Name"
-                  className="w-full bg-zinc-950 border border-zinc-800 rounded px-4 py-3 text-sm text-white outline-none focus:border-[#C9A84C] transition-colors"
+                  className="w-full bg-zinc-950 border border-zinc-800 rounded px-4 py-3 text-sm text-white outline-none focus:border-[#E50914] transition-colors"
                 />
               </div>
               <div>
@@ -63,7 +63,7 @@ export default function ContactPage() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="Your Email"
-                  className="w-full bg-zinc-950 border border-zinc-800 rounded px-4 py-3 text-sm text-white outline-none focus:border-[#C9A84C] transition-colors"
+                  className="w-full bg-zinc-950 border border-zinc-800 rounded px-4 py-3 text-sm text-white outline-none focus:border-[#E50914] transition-colors"
                 />
               </div>
             </div>
@@ -75,7 +75,7 @@ export default function ContactPage() {
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder="Your Phone Number (Optional)"
-                className="w-full bg-zinc-950 border border-zinc-800 rounded px-4 py-3 text-sm text-white outline-none focus:border-[#C9A84C] transition-colors"
+                className="w-full bg-zinc-950 border border-zinc-800 rounded px-4 py-3 text-sm text-white outline-none focus:border-[#E50914] transition-colors"
               />
             </div>
 
@@ -87,13 +87,13 @@ export default function ContactPage() {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 placeholder="Write your message here..."
-                className="w-full bg-zinc-950 border border-zinc-800 rounded px-4 py-3 text-sm text-white outline-none focus:border-[#C9A84C] transition-colors resize-none"
+                className="w-full bg-zinc-950 border border-zinc-800 rounded px-4 py-3 text-sm text-white outline-none focus:border-[#E50914] transition-colors resize-none"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full btn-gold text-black font-extrabold text-sm py-4 rounded-lg active:scale-[0.99] transition-all uppercase tracking-wider shadow-[0_0_15px_rgba(201,168,76,0.3)]"
+              className="w-full bg-[#E50914] text-white font-display text-lg py-4 rounded-sm hover:bg-red-600 active:scale-[0.99] transition-all uppercase tracking-widest shadow-[0_0_20px_rgba(229,9,20,0.4)]"
             >
               Send Message
             </button>
@@ -112,7 +112,7 @@ export default function ContactPage() {
         {/* Contact details row */}
         <div className="mt-12 text-center text-sm text-zinc-500">
           Email us directly at:{' '}
-          <a href="mailto:support@psychonutrition.in" className="text-white hover:text-[#C9A84C] font-semibold underline decoration-zinc-700 transition-colors">
+          <a href="mailto:support@psychonutrition.in" className="text-white hover:text-[#E50914] font-semibold underline decoration-zinc-700 transition-colors">
             support@psychonutrition.in
           </a>
         </div>

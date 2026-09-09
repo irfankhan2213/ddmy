@@ -4,34 +4,29 @@ import { motion } from 'framer-motion'
 
 const categories = [
   {
-    label: 'Mass Gainer',
+    label: 'BUILD MUSCLE',
+    count: 5,
     href: '/collections/mass-gainer',
-    description: 'Anabolic High Calorie Gainers',
-    tag: 'Psycho Elite Line'
   },
   {
-    label: 'Pre-Workout',
+    label: 'PRE-WORKOUT ENERGY',
+    count: 4,
     href: '/collections/pre-workout',
-    description: 'CRANK Fruit Punch & Energy Formula',
-    tag: 'Psycho Elite Line'
   },
   {
-    label: 'Protein',
+    label: 'PURE PROTEIN ISOLATE',
+    count: 6,
     href: '/collections/protein',
-    description: 'Pure Isolate & 100% Whey',
-    tag: 'Psycho Elite Line'
   },
   {
-    label: 'Fish Oils & Essentials',
+    label: 'DAILY ESSENTIALS',
+    count: 4,
     href: '/collections/fish-oils',
-    description: 'Omega 3 and recovery essentials',
-    tag: 'Psycho Vitality'
   },
   {
-    label: 'Vitamins & Supplements',
+    label: 'VITALITY & RECOVERY',
+    count: 5,
     href: '/collections/vitamins-supplements',
-    description: 'ZMA Sleep & Organ Health Support',
-    tag: 'Psycho Vitality'
   },
 ]
 
@@ -39,92 +34,103 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: { 
     opacity: 1,
-    transition: { staggerChildren: 0.15 }
+    transition: { staggerChildren: 0.1 }
   }
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
+    transition: { duration: 0.4, ease: "easeOut" as const }
   }
 }
 
 export default function CategoryGrid() {
   return (
-    <section className="bg-[#F6F5F2] pb-32">
-      <div className="max-w-[1400px] mx-auto px-6">
+    <section className="bg-white pb-24 pt-8 relative border-t border-zinc-200">
+      <div className="max-w-[1440px] mx-auto px-6">
         
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-zinc-200">
+          <div>
+            <span className="text-[#E50914] font-display text-xs tracking-[0.25em] uppercase font-bold block mb-1">
+              CATEGORY DIRECTORY
+            </span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold tracking-wider uppercase text-zinc-900">
+              EXPLORE BY GOAL
+            </h2>
+          </div>
+          <Link
+            href="/collections/shop-all"
+            className="mt-3 md:mt-0 inline-flex items-center gap-2 text-xs font-display tracking-widest uppercase text-zinc-600 hover:text-[#E50914] transition-colors"
+          >
+            VIEW ALL COLLECTIONS
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
+
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
         >
-          {/* Top row: 3 large grid columns */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          {/* Top row: 3 cards (matching Image 2) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             {categories.slice(0, 3).map((cat) => (
               <motion.div key={cat.href} variants={itemVariants}>
                 <Link
                   href={cat.href}
-                  className="relative overflow-hidden rounded-md h-[420px] group flex flex-col justify-end p-10 transition-all duration-500 hover:shadow-2xl block"
+                  className="group relative overflow-hidden rounded-2xl h-[280px] md:h-[300px] bg-gradient-to-b from-[#18181c] to-[#0d0d10] border border-white/5 block shadow-md hover:shadow-xl hover:border-red-600/30 transition-all duration-300"
                 >
-                  {/* Full Card Picture Placeholder */}
-                  <div className="absolute inset-0 z-0 overflow-hidden">
-                    <div className="w-full h-full bg-zinc-200 border-4 border-dashed border-zinc-400 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-700 ease-out">
-                      <span className="text-zinc-500 font-bold text-lg md:text-xl tracking-[0.3em] uppercase">Picture Here</span>
-                    </div>
-                    {/* Gradient Overlay for Text Readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
-                  </div>
+                  {/* Subtle ambient accent glow */}
+                  <div className="absolute -right-8 -top-8 w-44 h-44 bg-red-600/10 rounded-full blur-3xl pointer-events-none group-hover:bg-red-600/20 transition-all" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
-                  <div className="relative z-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#C9A84C]">{cat.tag}</span>
-                    <h3 className="text-3xl font-black mt-2 leading-none uppercase text-white">{cat.label}</h3>
-                    <p className="text-sm mt-3 text-zinc-300 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">{cat.description}</p>
-                    
-                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                      Explore Category
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
+                  {/* Floating Glassmorphic Box (Matching Image 2) */}
+                  <div className="absolute inset-x-5 bottom-5 z-20 bg-white/45 backdrop-blur-md rounded-2xl p-5 text-center shadow-lg border border-white/40">
+                    <h4 className="font-extrabold text-sm md:text-base tracking-wider uppercase text-zinc-950 mb-0.5 font-display">
+                      {cat.label}
+                    </h4>
+                    <p className="text-xs text-zinc-800 font-medium mb-3">
+                      Total: {cat.count}
+                    </p>
+                    <span className="inline-block bg-[#ccff00] text-black font-bold text-xs uppercase px-7 py-2 rounded-full shadow-md group-hover:brightness-105 transition-all">
+                      View all
+                    </span>
                   </div>
                 </Link>
               </motion.div>
             ))}
           </div>
 
-          {/* Bottom row: 2 grid columns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Bottom row: 2 cards (matching Image 2) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {categories.slice(3, 5).map((cat) => (
               <motion.div key={cat.href} variants={itemVariants}>
                 <Link
                   href={cat.href}
-                  className="relative overflow-hidden rounded-md h-[360px] group flex flex-col justify-end p-10 transition-all duration-500 hover:shadow-2xl block"
+                  className="group relative overflow-hidden rounded-2xl h-[280px] md:h-[300px] bg-gradient-to-b from-[#18181c] to-[#0d0d10] border border-white/5 block shadow-md hover:shadow-xl hover:border-red-600/30 transition-all duration-300"
                 >
-                  {/* Full Card Picture Placeholder */}
-                  <div className="absolute inset-0 z-0 overflow-hidden">
-                    <div className="w-full h-full bg-zinc-200 border-4 border-dashed border-zinc-400 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-700 ease-out">
-                      <span className="text-zinc-500 font-bold text-xl tracking-[0.3em] uppercase">Picture Here</span>
-                    </div>
-                    {/* Gradient Overlay for Text Readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
-                  </div>
+                  {/* Subtle ambient accent glow */}
+                  <div className="absolute -right-8 -top-8 w-44 h-44 bg-red-600/10 rounded-full blur-3xl pointer-events-none group-hover:bg-red-600/20 transition-all" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
-                  <div className="relative z-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#C9A84C]">{cat.tag}</span>
-                    <h3 className="text-3xl font-black mt-2 leading-none uppercase text-white">{cat.label}</h3>
-                    <p className="text-sm mt-3 text-zinc-300 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">{cat.description}</p>
-                    
-                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                      Explore Category
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
+                  {/* Floating Glassmorphic Box (Matching Image 2) */}
+                  <div className="absolute inset-x-8 bottom-5 z-20 bg-white/45 backdrop-blur-md rounded-2xl p-5 text-center shadow-lg border border-white/40">
+                    <h4 className="font-extrabold text-sm md:text-base tracking-wider uppercase text-zinc-950 mb-0.5 font-display">
+                      {cat.label}
+                    </h4>
+                    <p className="text-xs text-zinc-800 font-medium mb-3">
+                      Total: {cat.count}
+                    </p>
+                    <span className="inline-block bg-[#ccff00] text-black font-bold text-xs uppercase px-7 py-2 rounded-full shadow-md group-hover:brightness-105 transition-all">
+                      View all
+                    </span>
                   </div>
                 </Link>
               </motion.div>

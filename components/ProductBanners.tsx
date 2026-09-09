@@ -27,16 +27,16 @@ const bannerData = [
     subtitle: 'PURE RECOVERY',
     image: '/images/new-product.png',
     href: '/products/whey-protein-isolate-2kg',
-    bg: 'linear-gradient(180deg, #1c1100 0%, #070400 100%)',
-    accentColor: '#C9A84C',
+    bg: 'linear-gradient(180deg, #1c0505 0%, #070000 100%)',
+    accentColor: '#E50914',
     callouts: [
       { text: '28G PURE ISOLATE', x: '10%', y: '28%', align: 'left' },
       { text: 'EASY DIGESTION', x: '12%', y: '52%', align: 'left' },
       { text: 'FAST RECOVERY', x: '68%', y: '72%', align: 'right' }
     ],
-    glowClass: 'bg-amber-500/10',
+    glowClass: 'bg-red-500/10',
     iconPath: (
-      <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
       </svg>
     )
@@ -154,13 +154,15 @@ export default function ProductBanners() {
               ))}
             </div>
 
-            {/* Quick Add To Cart Button at bottom left */}
+            {/* Quick View Button at bottom left */}
             <Link
               href={banner.href}
-              className="absolute bottom-8 left-8 z-30 w-12 h-12 rounded-full bg-amber-500 text-black flex items-center justify-center hover:bg-amber-400 hover:scale-110 active:scale-95 transition-all shadow-lg animate-pulse"
+              className="absolute bottom-8 left-8 z-30 w-12 h-12 rounded-full bg-[#ccff00] text-black flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-lg"
+              title="Quick View"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M12 4v16m8-8H4" />
+              <svg className="w-5 h-5 fill-black" viewBox="0 0 20 20">
+                <path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+                <path fillRule="evenodd" d="M.664 10.59a1.651 1.651 0 010-1.186A10.004 10.004 0 0110 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0110 17c-4.257 0-7.893-2.66-9.336-6.41zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
               </svg>
             </Link>
 

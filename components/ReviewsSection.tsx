@@ -7,9 +7,9 @@ const reviews = [
     name: 'Aman Sharma',
     rating: 5,
     title: 'Extreme pumps and clean energy!',
-    text: 'Crank pre-workout is a game changer. The pump is insane, and the Fruit Punch flavor is actually pleasant. Zero post-workout crash or jitters.',
+    text: 'Crank pre-workout is a game changer. The pump is insane, and the formula is ultra smooth. Zero post-workout crash or jitters.',
     product: 'CRANK Pre-Workout',
-    productColor: '#f43f5e',
+    productColor: '#E50914',
     date: '2 weeks ago',
   },
   {
@@ -17,9 +17,9 @@ const reviews = [
     name: 'Vikram Singh',
     rating: 5,
     title: 'High quality whey isolate',
-    text: 'Mixes super easily and doesn\'t cause bloating like other concentrates. The Chocolate flavor is rich. Highly recommended.',
+    text: 'Mixes super easily and doesn\'t cause bloating like other concentrates. The consistency is exceptionally rich. Highly recommended.',
     product: 'Whey Isolate',
-    productColor: '#C9A84C',
+    productColor: '#E50914',
     date: '1 month ago',
   },
   {
@@ -29,17 +29,21 @@ const reviews = [
     title: 'Authentic supplements, trust verified',
     text: 'Was skeptical initially, but the packaging has a scratch code to verify authenticity. The daily vitamins and ZMA help sleep and recovery.',
     product: 'ZMA Capsules',
-    productColor: '#a855f7',
+    productColor: '#E50914',
     date: '3 weeks ago',
   },
 ]
 
 function StarRating({ rating }: { rating: number }) {
   return (
-    <div className="flex gap-0.5">
-      {[1,2,3,4,5].map(i => (
-        <svg key={i} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+    <div className="flex gap-1">
+      {[1, 2, 3, 4, 5].map((i) => (
+        <svg
+          key={i}
+          className={`w-4 h-4 ${i <= rating ? 'text-amber-400 fill-current' : 'text-zinc-700 fill-current'}`}
+          viewBox="0 0 20 20"
+        >
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
       ))}
     </div>
@@ -47,46 +51,60 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default function ReviewsSection() {
-  const [page, setPage] = useState(0)
+  const [page] = useState(0)
   const pageSize = 3
-  const totalPages = Math.ceil(reviews.length / pageSize)
   const visible = reviews.slice(page * pageSize, page * pageSize + pageSize)
 
   return (
-    <section className="bg-[#F6F5F2] py-24 border-t border-zinc-200/80 relative z-10">
-      <div className="max-w-[1400px] mx-auto px-6">
+    <section className="bg-white py-24 border-t border-zinc-200 relative z-10 overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-black text-black mb-4 uppercase tracking-widest">Customer Arsenal</h2>
+        <div className="text-center mb-14">
+          <span className="text-[#E50914] font-display text-xs tracking-[0.25em] uppercase font-bold block mb-2">
+            ATHLETE ENDORSEMENTS
+          </span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-zinc-900 mb-3 uppercase tracking-wider">
+            CUSTOMER REVIEWS & TASTE TEST
+          </h2>
           <div className="flex items-center justify-center gap-2 mb-2">
             <StarRating rating={5} />
+            <span className="text-zinc-700 text-xs font-bold ml-1">4.9 / 5.0 VERIFIED RATING</span>
           </div>
-          <p className="text-zinc-600 text-sm font-medium">from verified athletes</p>
+          <p className="text-zinc-500 text-xs uppercase tracking-widest font-display">
+            FROM 10,000+ VERIFIED INDIAN ATHLETES
+          </p>
         </div>
 
         {/* Review cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {visible.map(review => (
-            <div key={review.id} className="bg-[#FAF9F6] border border-zinc-300/70 rounded-2xl p-8 shadow-sm hover:shadow-md hover:border-zinc-400/60 transition-all flex flex-col justify-between">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {visible.map((review) => (
+            <div
+              key={review.id}
+              className="bg-zinc-50 border border-zinc-200 rounded-md p-7 transition-all duration-300 hover:border-[#E50914] hover:shadow-[0_10px_30px_rgba(0,0,0,0.06)] flex flex-col justify-between"
+            >
               <div>
                 <StarRating rating={review.rating} />
-                <h3 className="font-bold text-black mt-4 mb-3 text-lg leading-snug">{review.title}</h3>
-                <p className="text-zinc-600 text-sm leading-relaxed mb-6">{review.text}</p>
+                <h3 className="font-display text-xl text-zinc-900 mt-4 mb-2 tracking-wide uppercase leading-snug">
+                  {review.title}
+                </h3>
+                <p className="text-zinc-600 text-sm leading-relaxed mb-6">
+                  &ldquo;{review.text}&rdquo;
+                </p>
               </div>
               
               <div className="pt-4 border-t border-zinc-200 flex items-center justify-between">
                 <div>
-                  <div className="font-bold text-black text-sm">{review.name}</div>
-                  <div className="text-zinc-400 text-xs mt-1 uppercase tracking-wider">{review.date}</div>
+                  <div className="font-bold text-zinc-900 text-sm flex items-center gap-1.5">
+                    {review.name}
+                    <svg className="w-3.5 h-3.5 text-[#E50914]" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div className="text-zinc-400 text-[10px] mt-0.5 uppercase tracking-wider font-semibold">
+                    {review.date} • Verified Athlete
+                  </div>
                 </div>
-                <div
-                  className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-sm border"
-                  style={{
-                    backgroundColor: review.productColor + '15',
-                    color: review.productColor === '#C9A84C' ? '#b89228' : review.productColor,
-                    borderColor: review.productColor + '40'
-                  }}
-                >
+                <div className="text-[10px] font-display font-bold uppercase tracking-widest px-2.5 py-1 rounded-sm bg-red-50 text-[#E50914] border border-red-200">
                   {review.product}
                 </div>
               </div>

@@ -48,7 +48,7 @@ const articlesContent: Record<string, {
     readTime: '6 min read',
     author: 'Dr. Sarah Jameson',
     emoji: '🫀',
-    accent: '#C9A84C',
+    accent: '#E50914',
     content: [
       'In the pursuit of bigger lifts, faster run times, or leaner physiques, athletes place a massive load on their internal organs. While high protein intakes, pre-workout stimulants, and heavy supplementation support performance, they require the liver and kidneys to work overtime.',
       'The liver acts as your body\'s primary chemical processing plant. It breaks down supplements, metabolizes protein, and filters waste. When overloaded, liver enzymes rise, which can impact energy levels, joint health, and overall performance.',
@@ -69,7 +69,7 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
         <div className="pt-32 text-center py-20">
           <h1 className="text-3xl font-black uppercase">Article Not Found</h1>
           <p className="text-zinc-500 mt-2">The article you are looking for does not exist.</p>
-          <Link href="/blogs/news" className="mt-6 inline-block bg-[#F6F5F2] hover:bg-[#C9A84C] text-black px-6 py-3 font-bold rounded transition-colors">
+          <Link href="/blogs/news" className="mt-6 inline-block bg-[#E50914] hover:bg-red-600 text-white font-display text-base tracking-wider px-6 py-3 rounded-sm uppercase transition-colors">
             Back to Blog
           </Link>
         </div>
@@ -120,7 +120,7 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
 
         {/* Back Link */}
         <div className="mt-16 pt-8 border-t border-zinc-900">
-          <Link href="/blogs/news" className="text-sm font-bold uppercase tracking-wider text-[#C9A84C] hover:underline flex items-center gap-2">
+          <Link href="/blogs/news" className="text-sm font-bold uppercase tracking-wider text-[#E50914] hover:underline flex items-center gap-2">
             ← Back to All Articles
           </Link>
         </div>
