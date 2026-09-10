@@ -2,6 +2,7 @@
 import { useRef, useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { optimizeCloudinaryUrl } from '@/lib/cloudinary'
 
 interface SeriesCard {
   id: number
@@ -19,7 +20,7 @@ const CARDS: SeriesCard[] = [
     title: 'Whey Concentrate',
     price: '$42.05',
     href: '/products/psycho-whey-valrhona-chocolate-1kg',
-    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788959168/psycho_nutrition/psycho_whey_valrhona_chocolate_front_hero.jpg',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959168/psycho_nutrition/psycho_whey_valrhona_chocolate_front_hero.jpg',
     badges: [
       { label: '24G PURE PROTEIN', className: 'absolute left-3 top-[32%] z-10' },
       { label: '5.28G BCAAS', className: 'absolute left-3 bottom-[32%] z-10' },
@@ -32,7 +33,7 @@ const CARDS: SeriesCard[] = [
     title: 'Whey Isolate',
     price: '$52.56',
     href: '/products/psycho-isolate-chocolate-frappe-1kg',
-    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788959140/psycho_nutrition/psycho_isolate_chocolate_frappe_front_hero.jpg',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959140/psycho_nutrition/psycho_isolate_chocolate_frappe_front_hero.jpg',
     badges: [
       { label: '30G ISOLATE', className: 'absolute right-3 top-[32%] z-10' },
       { label: '2.6G LEUCINE', className: 'absolute left-3 bottom-[32%] z-10' },
@@ -45,7 +46,7 @@ const CARDS: SeriesCard[] = [
     title: 'Insane Whey 2kg',
     price: '$80.96',
     href: '/products/psycho-insane-whey-2kg-valrhona-chocolate',
-    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788963008/psycho_nutrition/psycho_insane_whey_2kg_valrhona_chocolate_front_hero.jpg',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788963008/psycho_nutrition/psycho_insane_whey_2kg_valrhona_chocolate_front_hero.jpg',
     badges: [
       { label: '58 FULL SERVINGS', className: 'absolute left-3 top-[30%] z-10' },
       { label: 'NO AMINO SPIKING', className: 'absolute right-3 top-[42%] z-10' },
@@ -58,7 +59,7 @@ const CARDS: SeriesCard[] = [
     title: 'Ripped ISO 2kg',
     price: '$100.93',
     href: '/products/psycho-iso-2kg-chocolate-frappe',
-    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788959083/psycho_nutrition/psycho_iso_2kg_chocolate_frappe_front_hero.jpg',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959083/psycho_nutrition/psycho_iso_2kg_chocolate_frappe_front_hero.jpg',
     badges: [
       { label: '30G PURE ISOLATE', className: 'absolute right-3 top-[32%] z-10' },
       { label: '56 PRO SERVINGS', className: 'absolute left-3 top-[42%] z-10' },
@@ -221,7 +222,8 @@ export default function FeaturedSeriesShowcase() {
                       alt={card.title}
                       fill
                       className="object-contain p-6 group-hover:scale-105 transition-transform duration-700 ease-out"
-                      sizes="26vw"
+                      sizes="(max-width: 640px) 60vw, 380px"
+                      unoptimized={true}
                     />
                   </div>
 
@@ -250,10 +252,12 @@ export default function FeaturedSeriesShowcase() {
                     {/* Left: Thumbnail */}
                     <div className="relative w-12 h-12 flex-shrink-0 bg-[#f4f4f5] rounded-lg overflow-hidden flex items-center justify-center border border-zinc-200">
                       <Image
-                        src={card.image}
+                        src={optimizeCloudinaryUrl(card.image, { width: 100 })}
                         alt=""
                         fill
                         className="object-contain p-1"
+                        sizes="48px"
+                        unoptimized={true}
                       />
                     </div>
 

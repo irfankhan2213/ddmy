@@ -7,7 +7,7 @@ interface OurProductsBannerProps {
 }
 
 export default function OurProductsBanner({ 
-  imageSrc = '/images/banner_whey.png',
+  imageSrc = 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959168/psycho_nutrition/psycho_whey_valrhona_chocolate_front_hero.jpg',
   altText = 'Our Products Lineup' 
 }: OurProductsBannerProps) {
   return (
@@ -39,6 +39,7 @@ export default function OurProductsBanner({
                 fill
                 className="object-contain object-right drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]"
                 priority
+                unoptimized={true}
               />
             </div>
           </div>

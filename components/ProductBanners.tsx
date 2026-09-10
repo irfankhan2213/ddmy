@@ -4,10 +4,10 @@ import Link from 'next/link'
 
 const bannerData = [
   {
-    title: 'Crank Pre-Workout',
+    title: 'Insane Whey',
     subtitle: 'EXPLOSIVE ENERGY',
-    image: '/images/new-product.png',
-    href: '/products/crank-pre-workout-250g',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_500/v1788963008/psycho_nutrition/psycho_insane_whey_2kg_valrhona_chocolate_front_hero.jpg',
+    href: '/products/psycho-insane-whey-2kg-valrhona-chocolate',
     bg: 'linear-gradient(180deg, #1e0208 0%, #080002 100%)',
     accentColor: '#f43f5e',
     callouts: [
@@ -25,8 +25,8 @@ const bannerData = [
   {
     title: 'Whey Isolate',
     subtitle: 'PURE RECOVERY',
-    image: '/images/new-product.png',
-    href: '/products/whey-protein-isolate-2kg',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_500/v1788959140/psycho_nutrition/psycho_isolate_chocolate_frappe_front_hero.jpg',
+    href: '/products/psycho-isolate-chocolate-frappe-1kg',
     bg: 'linear-gradient(180deg, #1c0505 0%, #070000 100%)',
     accentColor: '#E50914',
     callouts: [
@@ -42,10 +42,10 @@ const bannerData = [
     )
   },
   {
-    title: 'Anabolic Gainer',
-    subtitle: 'MASSIVE GAINS',
-    image: '/images/new-product.png',
-    href: '/products/anabolic-gainer-5kg',
+    title: 'Ripped ISO',
+    subtitle: 'SHRED CONDITIONING',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_500/v1788959083/psycho_nutrition/psycho_iso_2kg_chocolate_frappe_front_hero.jpg',
+    href: '/products/psycho-iso-2kg-chocolate-frappe',
     bg: 'linear-gradient(180deg, #021a0e 0%, #000703 100%)',
     accentColor: '#10b981',
     callouts: [
@@ -61,10 +61,10 @@ const bannerData = [
     )
   },
   {
-    title: 'Fish Oil Softgels',
+    title: 'Whey Concentrate',
     subtitle: 'DAILY ESSENTIALS',
-    image: '/images/new-product.png',
-    href: '/products/fish-oil-softgel',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_500/v1788959168/psycho_nutrition/psycho_whey_valrhona_chocolate_front_hero.jpg',
+    href: '/products/psycho-whey-valrhona-chocolate-1kg',
     bg: 'linear-gradient(180deg, #021124 0%, #00040a 100%)',
     accentColor: '#3b82f6',
     callouts: [
@@ -113,6 +113,8 @@ export default function ProductBanners() {
                     alt={banner.title}
                     fill
                     className="object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)]"
+                    sizes="180px"
+                    unoptimized={true}
                   />
                 </div>
               </div>

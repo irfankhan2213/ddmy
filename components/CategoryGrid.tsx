@@ -93,12 +93,9 @@ export default function CategoryGrid() {
 
                   {/* Floating Glassmorphic Box (Matching Image 2) */}
                   <div className="absolute inset-x-3 sm:inset-x-5 bottom-3 sm:bottom-5 z-20 bg-white/45 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-5 text-center shadow-lg border border-white/40">
-                    <h4 className="font-extrabold text-xs sm:text-sm md:text-base tracking-wider uppercase text-zinc-950 mb-0.5 font-display">
+                    <h4 className="font-extrabold text-xs sm:text-sm md:text-base tracking-wider uppercase text-zinc-950 mb-2 sm:mb-3 font-display">
                       {cat.label}
                     </h4>
-                    <p className="text-[10px] sm:text-xs text-zinc-800 font-medium mb-2 sm:mb-3">
-                      Total: {cat.count}
-                    </p>
                     <span className="inline-block bg-[#ccff00] text-black font-bold text-[10px] sm:text-xs uppercase px-4 sm:px-7 py-1.5 sm:py-2 rounded-full shadow-md group-hover:brightness-105 transition-all">
                       View all
                     </span>
@@ -122,12 +119,9 @@ export default function CategoryGrid() {
 
                   {/* Floating Glassmorphic Box (Matching Image 2) */}
                   <div className="absolute inset-x-3 sm:inset-x-8 bottom-3 sm:bottom-5 z-20 bg-white/45 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-5 text-center shadow-lg border border-white/40">
-                    <h4 className="font-extrabold text-xs sm:text-sm md:text-base tracking-wider uppercase text-zinc-950 mb-0.5 font-display">
+                    <h4 className="font-extrabold text-xs sm:text-sm md:text-base tracking-wider uppercase text-zinc-950 mb-2 sm:mb-3 font-display">
                       {cat.label}
                     </h4>
-                    <p className="text-[10px] sm:text-xs text-zinc-800 font-medium mb-2 sm:mb-3">
-                      Total: {cat.count}
-                    </p>
                     <span className="inline-block bg-[#ccff00] text-black font-bold text-[10px] sm:text-xs uppercase px-4 sm:px-7 py-1.5 sm:py-2 rounded-full shadow-md group-hover:brightness-105 transition-all">
                       View all
                     </span>

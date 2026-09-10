@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 import { products, Product } from '@/data/products'
 import Link from 'next/link'
 import Image from 'next/image'
+import { optimizeCloudinaryUrl } from '@/lib/cloudinary'
 
 export default function CollectionPage({ params }: { params: { id: string } }) {
   const collectionId = params.id
@@ -164,11 +165,12 @@ export default function CollectionPage({ params }: { params: { id: string } }) {
                         Sale!
                       </span>
                       <Image
-                        src={product.image}
+                        src={optimizeCloudinaryUrl(product.image, { width: 600 })}
                         alt={product.name}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        unoptimized={true}
                       />
                     </Link>
 
@@ -207,7 +209,7 @@ export default function CollectionPage({ params }: { params: { id: string } }) {
                             }`}
                           >
                             <div className="relative w-5 h-5">
-                              <Image src={thumb} alt="Preview" fill className="object-contain" />
+                              <Image src={optimizeCloudinaryUrl(thumb, { width: 80 })} alt="Preview" fill className="object-contain" sizes="20px" unoptimized={true} />
                             </div>
                           </div>
                         ))}

@@ -29,16 +29,6 @@ const badges = [
     ),
     label: '100% AUTHENTIC',
   },
-  {
-    icon: (
-      <svg viewBox="0 0 60 60" className="w-10 h-10">
-        <circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" strokeWidth="3"/>
-        <path d="M30 2 L30 58 M2 30 L58 30" fill="none" stroke="currentColor" strokeWidth="3"/>
-        <circle cx="30" cy="30" r="10" fill="currentColor"/>
-      </svg>
-    ),
-    label: 'MADE IN INDIA',
-  },
 ]
 
 const repeatedBadges = [...badges, ...badges, ...badges, ...badges, ...badges]

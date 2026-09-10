@@ -5,7 +5,7 @@ import cloudinaryImages from '@/data/cloudinary-images.json'
 
 const MAIN_BANNER_URL =
   cloudinaryImages['main_banner.png'] ||
-  'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788964851/psycho_nutrition/psycho_main_hero_banner_1788964833.png'
+  'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_1920/v1788964851/psycho_nutrition/psycho_main_hero_banner_1788964833.png'
 
 export default function HeroSlider() {
   return (
@@ -19,7 +19,7 @@ export default function HeroSlider() {
           alt="Psycho Nutrition - Performance Nutrition"
           fill
           priority
-          quality={100}
+          sizes="(max-width: 768px) 100vw, 1920px"
           unoptimized={true}
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
         />

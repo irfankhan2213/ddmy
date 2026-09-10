@@ -3,6 +3,7 @@ import { useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Product } from '@/data/products'
+import { optimizeCloudinaryUrl } from '@/lib/cloudinary'
 
 function StarRating({ rating = 5 }: { rating?: number }) {
   return (
@@ -31,11 +32,12 @@ function ProductCard({ product }: { product: Product }) {
         className="block relative w-full aspect-square rounded-2xl overflow-hidden bg-black transition-all duration-300 group-hover:shadow-md"
       >
         <Image
-          src={product.image}
+          src={optimizeCloudinaryUrl(product.image, { width: 500 })}
           alt={product.name}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 280px, 310px"
+          unoptimized={true}
         />
 
         {/* Black "Sale!" pill in top right corner (matching Nitrogen reference) */}
@@ -79,10 +81,12 @@ function ProductCard({ product }: { product: Product }) {
             >
               <div className="relative w-full h-full rounded-full overflow-hidden bg-zinc-900">
                 <Image
-                  src={thumb.url || product.image}
+                  src={optimizeCloudinaryUrl(thumb.url || product.image, { width: 80 })}
                   alt="thumbnail preview"
                   fill
                   className="object-cover"
+                  sizes="28px"
+                  unoptimized={true}
                 />
               </div>
             </div>

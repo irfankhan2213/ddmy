@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 import { products, Product } from '@/data/products'
 import Link from 'next/link'
 import Image from 'next/image'
+import { optimizeCloudinaryUrl } from '@/lib/cloudinary'
 
 export default function ProductDetailPage({ params }: { params: { id: string } }) {
   const productId = params.id
@@ -93,12 +94,13 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
               {/* Main Image Viewport */}
               <div className="relative w-full h-[88%] flex items-center justify-center">
                 <Image
-                  src={activeImage.url}
+                  src={optimizeCloudinaryUrl(activeImage.url, { width: 1000 })}
                   alt={activeImage.altText || product.name}
                   fill
                   priority
                   className="object-contain filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.12)] transition-all duration-500"
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  unoptimized={true}
                 />
               </div>
 
@@ -130,11 +132,12 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                   >
                     <div className="relative w-full h-full">
                       <Image
-                        src={img.url}
+                        src={optimizeCloudinaryUrl(img.url, { width: 160 })}
                         alt={img.view}
                         fill
                         className="object-contain p-1"
                         sizes="100px"
+                        unoptimized={true}
                       />
                     </div>
                     <span className="absolute bottom-1 inset-x-1 bg-black/75 backdrop-blur-xs text-white text-[9px] font-display font-medium uppercase px-1 py-0.5 rounded text-center truncate pointer-events-none">
@@ -438,11 +441,12 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                       </span>
                     )}
                     <Image
-                      src={item.image}
+                      src={optimizeCloudinaryUrl(item.image, { width: 500 })}
                       alt={item.name}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, 33vw"
+                      unoptimized={true}
                     />
                   </Link>
 

@@ -5,15 +5,15 @@ import cloudinaryImages from '@/data/cloudinary-images.json'
 
 const ANATOMY_IMAGE_URL =
   cloudinaryImages['best_seller_anatomy.png'] ||
-  'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788965297/psycho_nutrition/psycho_best_seller_citrulline_anatomy_1788965261.png'
+  'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_1000/v1788965297/psycho_nutrition/psycho_best_seller_citrulline_anatomy_1788965261.png'
 
 const features = [
   {
     id: 1,
-    title: '100% Pure Micronized L-Citrulline',
+    title: 'Pure L-Citrulline',
     bullets: [
-      '100% Pure Free-Form Fermented Amino Acid',
-      'Zero Fillers, Zero Sugars & Maximum Bioavailability',
+      'Nitric Oxide Precursor',
+      'Dietary Supplement',
     ],
     top: '36%',
     width: '45%',
@@ -23,9 +23,9 @@ const features = [
     id: 2,
     title: 'Pump • Endurance • Recovery',
     bullets: [
-      'Massive Pumps: Maximizes Nitric Oxide & Vasodilation',
-      'Peak Endurance: Buffers Lactic Acid & Delays Fatigue',
-      'Rapid Recovery: Accelerates Nutrient Delivery & Tissue Repair',
+      'Supports Intense Muscle Pumps',
+      'Promotes Athletic Training Endurance',
+      'Aids Fast Post-Workout Recovery',
     ],
     top: '65%',
     width: '42%',
@@ -33,11 +33,11 @@ const features = [
   },
   {
     id: 3,
-    title: 'Clinical 40-Serving Precision',
+    title: '40 Servings • Net Weight 100g',
     bullets: [
-      '2,500mg Pure Active L-Citrulline per Scoop',
-      'Net Weight 100gm (40 High-Potency Servings)',
-      '100% Dietary Supplement – Unflavored & Highly Stackable',
+      '40 Measured Servings per Tub',
+      'Net Weight 100gm Container',
+      'Easily Stackable with Any Pre-Workout',
     ],
     top: '75%',
     width: '46%',

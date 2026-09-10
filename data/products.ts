@@ -60,16 +60,16 @@ export const products: Product[] = [
     category: 'Protein',
     href: '/products/psycho-whey-valrhona-chocolate-1kg',
     accent: '#E50914',
-    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788959168/psycho_nutrition/psycho_whey_valrhona_chocolate_front_hero.jpg',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959168/psycho_nutrition/psycho_whey_valrhona_chocolate_front_hero.jpg',
     gallery: [
       {
         view: 'Front Hero 3/4 Floating View',
-        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788959168/psycho_nutrition/psycho_whey_valrhona_chocolate_front_hero.jpg',
+        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959168/psycho_nutrition/psycho_whey_valrhona_chocolate_front_hero.jpg',
         altText: 'Psycho Nutrition Whey Protein Concentrate 1kg Pouch front view'
       },
       {
         view: 'Back Nutrition Facts & Verification',
-        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788959150/psycho_nutrition/psycho_whey_valrhona_chocolate_back_view.jpg',
+        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959150/psycho_nutrition/psycho_whey_valrhona_chocolate_back_view.jpg',
         altText: 'Psycho Nutrition Whey Protein Concentrate 1kg Pouch back nutrition facts label'
       }
     ],
@@ -114,16 +114,16 @@ export const products: Product[] = [
     category: 'Protein',
     href: '/products/psycho-isolate-chocolate-frappe-1kg',
     accent: '#E50914',
-    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788959140/psycho_nutrition/psycho_isolate_chocolate_frappe_front_hero.jpg',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959140/psycho_nutrition/psycho_isolate_chocolate_frappe_front_hero.jpg',
     gallery: [
       {
         view: 'Front Hero 3/4 Floating View',
-        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788959140/psycho_nutrition/psycho_isolate_chocolate_frappe_front_hero.jpg',
+        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959140/psycho_nutrition/psycho_isolate_chocolate_frappe_front_hero.jpg',
         altText: 'Psycho Nutrition 1 Whey Isolate 1kg front view'
       },
       {
         view: 'Back Nutrition Facts & Verification',
-        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788959127/psycho_nutrition/psycho_isolate_chocolate_frappe_back_view.jpg',
+        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959127/psycho_nutrition/psycho_isolate_chocolate_frappe_back_view.jpg',
         altText: 'Psycho Nutrition 1 Whey Isolate 1kg back nutrition facts label'
       }
     ],
@@ -168,16 +168,16 @@ export const products: Product[] = [
     category: 'Protein',
     href: '/products/psycho-insane-whey-2kg-valrhona-chocolate',
     accent: '#E50914',
-    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788963008/psycho_nutrition/psycho_insane_whey_2kg_valrhona_chocolate_front_hero.jpg',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788963008/psycho_nutrition/psycho_insane_whey_2kg_valrhona_chocolate_front_hero.jpg',
     gallery: [
       {
         view: 'Front Tub 3D Splash View',
-        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788963008/psycho_nutrition/psycho_insane_whey_2kg_valrhona_chocolate_front_hero.jpg',
+        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788963008/psycho_nutrition/psycho_insane_whey_2kg_valrhona_chocolate_front_hero.jpg',
         altText: 'Psycho Nutrition Insane Whey 2kg Tub front hero angle in chocolate splash'
       },
       {
         view: 'Supplement Facts & Verification View',
-        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788963013/psycho_nutrition/psycho_insane_whey_2kg_valrhona_chocolate_facts.jpg',
+        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788963013/psycho_nutrition/psycho_insane_whey_2kg_valrhona_chocolate_facts.jpg',
         altText: 'Psycho Nutrition Insane Whey 2kg Tub side supplement facts and verification seal'
       }
     ],
@@ -222,16 +222,16 @@ export const products: Product[] = [
     category: 'Protein',
     href: '/products/psycho-iso-2kg-chocolate-frappe',
     accent: '#E50914',
-    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788959083/psycho_nutrition/psycho_iso_2kg_chocolate_frappe_front_hero.jpg',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959083/psycho_nutrition/psycho_iso_2kg_chocolate_frappe_front_hero.jpg',
     gallery: [
       {
         view: 'Front Tub 3D View',
-        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788959083/psycho_nutrition/psycho_iso_2kg_chocolate_frappe_front_hero.jpg',
+        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959083/psycho_nutrition/psycho_iso_2kg_chocolate_frappe_front_hero.jpg',
         altText: 'Psycho Nutrition Ripped ISO 2kg Tub front hero angle'
       },
       {
         view: 'Side Supplement Facts & Certifications',
-        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1788959101/psycho_nutrition/psycho_iso_2kg_chocolate_frappe_side_facts.jpg',
+        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959101/psycho_nutrition/psycho_iso_2kg_chocolate_frappe_side_facts.jpg',
         altText: 'Psycho Nutrition Ripped ISO 2kg Tub side supplement facts'
       }
     ],

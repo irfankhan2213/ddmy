@@ -41,7 +41,7 @@ export default function ContactPage() {
         </p>
 
         {/* Contact Info Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
           {/* Card 1: Headquarters */}
           <div className="bg-zinc-950/80 border border-zinc-900 rounded-xl p-6 text-center flex flex-col items-center">
             <div className="w-10 h-10 rounded-full bg-[#E50914]/10 text-[#E50914] flex items-center justify-center mb-3">
@@ -58,24 +58,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          {/* Card 2: Phone */}
-          <div className="bg-zinc-950/80 border border-zinc-900 rounded-xl p-6 text-center flex flex-col items-center">
-            <div className="w-10 h-10 rounded-full bg-[#E50914]/10 text-[#E50914] flex items-center justify-center mb-3">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-            </div>
-            <h3 className="font-display font-bold text-sm tracking-wider uppercase text-white mb-1">Direct Line</h3>
-            <a 
-              href="tel:1-844-446-7888" 
-              className="text-xs font-semibold text-zinc-300 hover:text-[#E50914] transition-colors block mt-1"
-            >
-              1-844-GHOST-88 (446-7888)
-            </a>
-            <span className="text-[10px] text-zinc-500 mt-1 block">Mon–Sat, 9AM–6PM PST</span>
-          </div>
-
-          {/* Card 3: Email */}
+          {/* Card 2: Email */}
           <div className="bg-zinc-950/80 border border-zinc-900 rounded-xl p-6 text-center flex flex-col items-center">
             <div className="w-10 h-10 rounded-full bg-[#E50914]/10 text-[#E50914] flex items-center justify-center mb-3">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
