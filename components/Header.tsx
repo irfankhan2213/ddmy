@@ -37,8 +37,8 @@ export default function Header() {
 
   return (
     <header id="site-header" className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
-      atTop ? 'top-10 bg-white/95 backdrop-blur-md border-b border-zinc-200' : 'top-0'
-    } ${scrolled && !atTop ? 'bg-white/98 backdrop-blur-xl border-b border-zinc-200 shadow-[0_4px_20px_rgba(0,0,0,0.06)]' : ''} ${
+      atTop ? 'top-10 bg-white border-b border-zinc-200' : 'top-0'
+    } ${scrolled && !atTop ? 'bg-white border-b border-zinc-200 shadow-[0_4px_20px_rgba(0,0,0,0.06)]' : ''} ${
       hideHeader ? '-translate-y-full' : 'translate-y-0'
     }`}>
       <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 xl:px-16 h-[100px] sm:h-[112px] md:h-[128px] grid grid-cols-[auto_1fr_auto] items-center gap-4 sm:gap-6 md:gap-8">
@@ -71,7 +71,7 @@ export default function Header() {
             </button>
             
             {/* Animated Dropdown */}
-            <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-0 w-64 bg-white/98 backdrop-blur-2xl border border-zinc-200 rounded-b-md shadow-2xl z-50 overflow-hidden transition-all duration-200 origin-top ${shopDropdown ? 'opacity-100 scale-y-100 pointer-events-auto' : 'opacity-0 scale-y-95 pointer-events-none'}`}>
+            <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-0 w-64 bg-white border border-zinc-200 rounded-b-md shadow-2xl z-50 overflow-hidden transition-all duration-200 origin-top ${shopDropdown ? 'opacity-100 scale-y-100 pointer-events-auto' : 'opacity-0 scale-y-95 pointer-events-none'}`}>
               <div className="py-2 border-t-2 border-[#E50914]">
                 {[
                   { label: 'All Formulations', href: '/collections/shop-all' },
@@ -146,7 +146,7 @@ export default function Header() {
       </div>
 
       {/* Search bar */}
-      <div className={`absolute top-full left-0 right-0 bg-white/98 backdrop-blur-2xl border-t border-zinc-200 shadow-xl overflow-hidden transition-all duration-300 origin-top ${searchOpen ? 'opacity-100 scale-y-100 h-20' : 'opacity-0 scale-y-95 h-0'}`}>
+      <div className={`absolute top-full left-0 right-0 bg-white border-t border-zinc-200 shadow-xl overflow-hidden transition-all duration-300 origin-top ${searchOpen ? 'opacity-100 scale-y-100 h-20' : 'opacity-0 scale-y-95 h-0'}`}>
         <div className="max-w-[800px] mx-auto px-6 h-full flex items-center">
           <div className="relative w-full">
             <input
@@ -164,7 +164,7 @@ export default function Header() {
       </div>
 
       {/* Mobile menu */}
-      <div className={`lg:hidden absolute top-full left-0 right-0 bg-white/98 backdrop-blur-2xl border-t border-zinc-200 shadow-2xl overflow-hidden transition-all duration-300 ${mobileOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`lg:hidden absolute top-full left-0 right-0 bg-white border-t border-zinc-200 shadow-2xl overflow-hidden transition-all duration-300 ${mobileOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="py-2 overflow-y-auto max-h-[80vh]">
           {[
             { label: 'Home', href: '/' },

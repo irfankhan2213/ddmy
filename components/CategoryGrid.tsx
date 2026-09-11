@@ -61,10 +61,13 @@ export default function CategoryGrid() {
           viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
         >
-          {/* Top row: 3 cards */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 mb-3 sm:mb-6">
+          {/* Top row: 3 cards — swipe carousel on mobile, grid on desktop */}
+          <div
+            className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 mb-3 sm:gap-6 sm:mb-6 md:grid md:grid-cols-3 md:overflow-visible md:pb-0 no-scrollbar"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
             {cards.slice(0, 3).map((cat) => (
-              <motion.div key={cat.href} variants={itemVariants}>
+              <motion.div key={cat.href} variants={itemVariants} className="min-w-[74vw] sm:min-w-[54vw] shrink-0 snap-center md:min-w-0">
                 <Link
                   href={cat.href}
                   className="group relative overflow-hidden rounded-xl sm:rounded-2xl h-[260px] sm:h-[340px] md:h-[420px] bg-[#0d0d10] border border-white/5 block shadow-md hover:shadow-xl hover:border-red-600/30 transition-all duration-300"
@@ -97,10 +100,13 @@ export default function CategoryGrid() {
             ))}
           </div>
 
-          {/* Bottom row: remaining cards */}
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-6">
+          {/* Bottom row: remaining cards — swipe carousel on mobile, grid on desktop */}
+          <div
+            className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 sm:gap-6 md:grid md:grid-cols-2 md:overflow-visible md:pb-0 no-scrollbar"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
             {cards.slice(3).map((cat) => (
-              <motion.div key={cat.href} variants={itemVariants}>
+              <motion.div key={cat.href} variants={itemVariants} className="min-w-[74vw] sm:min-w-[54vw] shrink-0 snap-center md:min-w-0">
                 <Link
                   href={cat.href}
                   className="group relative overflow-hidden rounded-xl sm:rounded-2xl h-[260px] sm:h-[340px] md:h-[420px] bg-[#0d0d10] border border-white/5 block shadow-md hover:shadow-xl hover:border-red-600/30 transition-all duration-300"
