@@ -9,40 +9,42 @@ const MAIN_BANNER_URL =
   'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_1920/v1788964851/psycho_nutrition/psycho_main_hero_banner_1788964833.png'
 
 export default function HeroSlider() {
-  // Mirror Header.tsx scroll state so the banner sits flush under the nav:
-  // at the top the offset clears announcement (40px) + header, once scrolled
-  // it clears just the docked header, and collapses when the header hides.
-  const [atTop, setAtTop] = useState(true)
-  const [hideHeader, setHideHeader] = useState(false)
+  // Measure the real header height at runtime so the banner always sits
+  // flush under the nav: announcement + header at the top, docked header
+  // once scrolled, zero when the header slides away on scroll-down.
+  // Static classes below are only the pre-mount fallback.
+  const [offset, setOffset] = useState<number | null>(null)
 
   useEffect(() => {
-    let lastScrollY = window.scrollY
-
-    const onScroll = () => {
-      const currentScrollY = window.scrollY
-
-      setAtTop(currentScrollY <= 36)
-
-      if (currentScrollY > lastScrollY && currentScrollY > 120) {
-        setHideHeader(true)
-      } else {
-        setHideHeader(false)
-      }
-
-      lastScrollY = currentScrollY
+    const measure = () => {
+      const el = document.getElementById('site-header')
+      setOffset(el ? Math.max(0, Math.round(el.getBoundingClientRect().bottom)) : 0)
     }
 
-    onScroll()
+    let raf = 0
+    const onScroll = () => {
+      if (raf) return
+      raf = requestAnimationFrame(() => {
+        raf = 0
+        measure()
+      })
+    }
+
+    measure()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    window.addEventListener('resize', measure)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', measure)
+      if (raf) cancelAnimationFrame(raf)
+    }
   }, [])
 
   return (
-    <div className={`bg-black transition-[padding] duration-300 ${
-      hideHeader ? 'pt-0' : atTop
-        ? 'pt-[124px] sm:pt-[136px] md:pt-[150px]'
-        : 'pt-[84px] sm:pt-[96px] md:pt-[110px]'
-    }`}>
+    <div
+      className="bg-black transition-[padding] duration-300 pt-[140px] sm:pt-[152px] md:pt-[168px]"
+      style={offset !== null ? { paddingTop: offset } : undefined}
+    >
     <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] overflow-hidden bg-black select-none border-b border-zinc-900 group">
         <Link
           href="/collections/shop-all"

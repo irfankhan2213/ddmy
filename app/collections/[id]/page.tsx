@@ -82,7 +82,7 @@ export default function CollectionPage({ params }: { params: { id: string } }) {
       <AnnouncementBar />
       <Header />
 
-      <div className="pt-[140px] sm:pt-[152px] md:pt-[166px] max-w-[1400px] mx-auto px-6 pb-20">
+      <div className="pt-[140px] sm:pt-[152px] md:pt-[168px] max-w-[1400px] mx-auto px-6 pb-20">
         {/* Breadcrumb / Title */}
         <div className="mb-10">
           <div className="text-zinc-500 text-xs uppercase tracking-wider mb-2">
