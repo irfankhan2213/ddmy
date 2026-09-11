@@ -61,13 +61,17 @@ export default function CategoryGrid() {
           viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
         >
-          {/* Top row: 3 cards — swipe carousel on mobile, grid on desktop */}
+          {/* Single swipe carousel on mobile (all collections), 3+2 grid on desktop */}
           <div
-            className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 mb-3 sm:gap-6 sm:mb-6 md:grid md:grid-cols-3 md:overflow-visible md:pb-0 no-scrollbar"
+            className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 sm:gap-6 md:grid md:grid-cols-6 md:overflow-visible md:pb-0 no-scrollbar"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {cards.slice(0, 3).map((cat) => (
-              <motion.div key={cat.href} variants={itemVariants} className="min-w-[74vw] sm:min-w-[54vw] shrink-0 snap-center md:min-w-0">
+            {cards.map((cat, i) => (
+              <motion.div
+                key={cat.href}
+                variants={itemVariants}
+                className={`min-w-[74vw] sm:min-w-[54vw] shrink-0 snap-center md:min-w-0 ${i < 3 ? 'md:col-span-2' : 'md:col-span-3'}`}
+              >
                 <Link
                   href={cat.href}
                   className="group relative overflow-hidden rounded-xl sm:rounded-2xl h-[260px] sm:h-[340px] md:h-[420px] bg-[#0d0d10] border border-white/5 block shadow-md hover:shadow-xl hover:border-red-600/30 transition-all duration-300"
@@ -78,52 +82,13 @@ export default function CategoryGrid() {
                     alt={cat.name}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    sizes="(max-width: 768px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 74vw, 33vw"
                     unoptimized={true}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none" />
 
                   {/* Floating Glassmorphic Box */}
                   <div className="absolute inset-x-3 sm:inset-x-5 bottom-3 sm:bottom-5 z-20 bg-white/45 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-5 text-center shadow-lg border border-white/40">
-                    <h4 className="font-extrabold text-xs sm:text-sm md:text-base tracking-wider uppercase text-zinc-950 mb-1 font-display">
-                      {cat.name}
-                    </h4>
-                    <p className="text-zinc-800 text-[10px] sm:text-xs font-medium mb-2 sm:mb-3">
-                      Total: {cat.count}
-                    </p>
-                    <span className="inline-block bg-[#ccff00] text-black font-bold text-[10px] sm:text-xs uppercase px-4 sm:px-7 py-1.5 sm:py-2 rounded-full shadow-md group-hover:brightness-105 transition-all">
-                      View all
-                    </span>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Bottom row: remaining cards — swipe carousel on mobile, grid on desktop */}
-          <div
-            className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 sm:gap-6 md:grid md:grid-cols-2 md:overflow-visible md:pb-0 no-scrollbar"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            {cards.slice(3).map((cat) => (
-              <motion.div key={cat.href} variants={itemVariants} className="min-w-[74vw] sm:min-w-[54vw] shrink-0 snap-center md:min-w-0">
-                <Link
-                  href={cat.href}
-                  className="group relative overflow-hidden rounded-xl sm:rounded-2xl h-[260px] sm:h-[340px] md:h-[420px] bg-[#0d0d10] border border-white/5 block shadow-md hover:shadow-xl hover:border-red-600/30 transition-all duration-300"
-                >
-                  {/* Collection image */}
-                  <Image
-                    src={optimizeCloudinaryUrl(cat.image, { width: 800 })}
-                    alt={cat.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    sizes="(max-width: 768px) 50vw, 50vw"
-                    unoptimized={true}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none" />
-
-                  {/* Floating Glassmorphic Box */}
-                  <div className="absolute inset-x-3 sm:inset-x-8 bottom-3 sm:bottom-5 z-20 bg-white/45 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-5 text-center shadow-lg border border-white/40">
                     <h4 className="font-extrabold text-xs sm:text-sm md:text-base tracking-wider uppercase text-zinc-950 mb-1 font-display">
                       {cat.name}
                     </h4>

@@ -2,46 +2,8 @@
 import { useRef, useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { products } from '@/data/products'
 import { optimizeCloudinaryUrl } from '@/lib/cloudinary'
-
-interface SeriesCard {
-  id: number
-  title: string
-  price: string
-  href: string
-  image: string
-}
-
-const CARDS: SeriesCard[] = [
-  {
-    id: 1,
-    title: 'Whey Concentrate',
-    price: '$42.05',
-    href: '/products/psycho-whey-valrhona-chocolate-1kg',
-    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959168/psycho_nutrition/psycho_whey_valrhona_chocolate_front_hero.jpg',
-  },
-  {
-    id: 2,
-    title: 'Whey Isolate',
-    price: '$52.56',
-    href: '/products/psycho-isolate-chocolate-frappe-1kg',
-    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959140/psycho_nutrition/psycho_isolate_chocolate_frappe_front_hero.jpg',
-  },
-  {
-    id: 3,
-    title: 'Insane Whey 2kg',
-    price: '$80.96',
-    href: '/products/psycho-insane-whey-2kg-valrhona-chocolate',
-    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788963008/psycho_nutrition/psycho_insane_whey_2kg_valrhona_chocolate_front_hero.jpg',
-  },
-  {
-    id: 4,
-    title: 'Ripped ISO 2kg',
-    price: '$100.93',
-    href: '/products/psycho-iso-2kg-chocolate-frappe',
-    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959083/psycho_nutrition/psycho_iso_2kg_chocolate_frappe_front_hero.jpg',
-  },
-]
 
 export default function FeaturedSeriesShowcase() {
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -50,7 +12,7 @@ export default function FeaturedSeriesShowcase() {
 
   // Auto-scroll loop
   useEffect(() => {
-    if (CARDS.length === 0) return
+    if (products.length === 0) return
     const el = scrollRef.current
     if (!el) return
     let rafId: number
@@ -72,14 +34,14 @@ export default function FeaturedSeriesShowcase() {
   }, [])
 
   useEffect(() => {
-    if (CARDS.length === 0) return
+    if (products.length === 0) return
     const el = scrollRef.current
     if (!el) return
     const onScroll = () => {
       const half = el.scrollWidth / 2
       const pos = el.scrollLeft % half
-      const cardWidth = half / CARDS.length
-      setActiveIndex(Math.round(pos / cardWidth) % CARDS.length)
+      const cardWidth = half / products.length
+      setActiveIndex(Math.round(pos / cardWidth) % products.length)
     }
     el.addEventListener('scroll', onScroll, { passive: true })
     return () => el.removeEventListener('scroll', onScroll)
@@ -148,7 +110,7 @@ export default function FeaturedSeriesShowcase() {
       </div>
 
       {/* ── AUTO-SCROLL CARD STRIP (MATCHING IMAGE 3) ── */}
-      {CARDS.length > 0 && (
+      {products.length > 0 && (
         <>
           <div className="relative overflow-hidden py-6 sm:py-14">
 
@@ -182,18 +144,18 @@ export default function FeaturedSeriesShowcase() {
               onMouseEnter={() => { isPausedRef.current = true }}
               onMouseLeave={() => { isPausedRef.current = false }}
             >
-              {[...CARDS, ...CARDS].map((card, idx) => (
+              {[...products, ...products].map((product, idx) => (
                 <Link
-                  key={`${card.id}-${idx}`}
-                  href={card.href}
+                  key={`${product.id}-${idx}`}
+                  href={product.href}
                   className="group relative flex-shrink-0 overflow-hidden rounded-2xl block bg-gradient-to-b from-[#111116] via-[#09090c] to-[#040405] shadow-xl hover:shadow-2xl transition-all duration-300"
                   style={{ width: '60vw', minWidth: 220, maxWidth: 380, height: 'clamp(320px, 60vw, 480px)' }}
                 >
                   {/* Product poster image */}
                   <div className="absolute inset-0 p-6 flex items-center justify-center">
                     <Image
-                      src={card.image}
-                      alt={card.title}
+                      src={optimizeCloudinaryUrl(product.image, { width: 600 })}
+                      alt={product.name}
                       fill
                       className="object-contain p-6 group-hover:scale-105 transition-transform duration-700 ease-out"
                       sizes="(max-width: 640px) 60vw, 380px"
@@ -204,19 +166,19 @@ export default function FeaturedSeriesShowcase() {
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/40 pointer-events-none" />
 
-                  {/* Card title — top centered (matching Image 3) */}
+                  {/* Card title — top centered */}
                   <div className="absolute top-6 inset-x-6 text-center z-10">
                     <span className="text-white font-display font-bold text-lg sm:text-2xl md:text-3xl tracking-wider uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                      {card.title}
+                      {product.name}
                     </span>
                   </div>
 
-                  {/* Floating White Info Card at Bottom (Matching Image 3) */}
+                  {/* Floating White Info Card at Bottom */}
                   <div className="absolute inset-x-4 bottom-4 z-20 bg-white rounded-xl p-3 flex items-center justify-between shadow-2xl transition-transform duration-300 group-hover:-translate-y-1">
                     {/* Left: Thumbnail */}
                     <div className="relative w-12 h-12 flex-shrink-0 bg-[#f4f4f5] rounded-lg overflow-hidden flex items-center justify-center border border-zinc-200">
                       <Image
-                        src={optimizeCloudinaryUrl(card.image, { width: 100 })}
+                        src={optimizeCloudinaryUrl(product.image, { width: 100 })}
                         alt=""
                         fill
                         className="object-contain p-1"
@@ -228,10 +190,10 @@ export default function FeaturedSeriesShowcase() {
                     {/* Middle: Title & Price */}
                     <div className="flex-1 min-w-0 px-3">
                       <p className="font-bold text-sm text-zinc-950 truncate font-sans">
-                        {card.title}
+                        {product.name}
                       </p>
                       <p className="text-xs font-bold text-zinc-900">
-                        {card.price}
+                        {product.price > 0 ? `$${product.price.toFixed(2)}` : 'Price on request'}
                       </p>
                     </div>
 
@@ -250,12 +212,12 @@ export default function FeaturedSeriesShowcase() {
 
           {/* Indicators */}
           <div className="flex items-center justify-center gap-2 pb-6 sm:pb-14 bg-white">
-            {CARDS.map((_, i) => (
+            {products.map((_, i) => (
               <button
                 key={i}
                 onClick={() => {
                   if (scrollRef.current) {
-                    const cardWidth = scrollRef.current.scrollWidth / (CARDS.length * 2)
+                    const cardWidth = scrollRef.current.scrollWidth / (products.length * 2)
                     scrollRef.current.scrollTo({ left: cardWidth * i, behavior: 'smooth' })
                   }
                 }}
