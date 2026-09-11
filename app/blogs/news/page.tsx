@@ -43,7 +43,7 @@ export default function BlogPage() {
       <AnnouncementBar />
       <Header />
 
-      <div className="pt-28 max-w-[1000px] mx-auto px-6 pb-20">
+      <div className="pt-[144px] sm:pt-[156px] md:pt-[170px] max-w-[1000px] mx-auto px-6 pb-20">
         {/* Breadcrumbs */}
         <div className="text-zinc-500 text-xs uppercase tracking-wider mb-8 text-center font-medium">
           <Link href="/" className="hover:text-zinc-900 transition-colors">Home</Link>

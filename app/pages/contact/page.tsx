@@ -28,7 +28,7 @@ export default function ContactPage() {
       <AnnouncementBar />
       <Header />
 
-      <div className="pt-24 max-w-[800px] mx-auto px-6 pb-20">
+      <div className="pt-[140px] sm:pt-[152px] md:pt-[166px] max-w-[800px] mx-auto px-6 pb-20">
         {/* Breadcrumbs */}
         <div className="text-zinc-500 text-xs uppercase tracking-wider mb-8 text-center">
           <Link href="/" className="hover:text-white transition-colors">Home</Link> /{' '}

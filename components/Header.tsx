@@ -41,7 +41,7 @@ export default function Header() {
     } ${scrolled && !atTop ? 'bg-white/98 backdrop-blur-xl border-b border-zinc-200 shadow-[0_4px_20px_rgba(0,0,0,0.06)]' : ''} ${
       hideHeader ? '-translate-y-full' : 'translate-y-0'
     }`}>
-      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 xl:px-16 h-[60px] sm:h-[70px] md:h-[80px] grid grid-cols-[auto_1fr_auto] items-center gap-4 sm:gap-6 md:gap-8">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 xl:px-16 h-[84px] sm:h-[96px] md:h-[110px] grid grid-cols-[auto_1fr_auto] items-center gap-4 sm:gap-6 md:gap-8">
         {/* Logo (Left) - Inverted to black on crisp white */}
         <Link href="/" className="flex-shrink-0 transition-transform duration-300 hover:scale-105 flex items-center">
           <Image
@@ -50,7 +50,7 @@ export default function Header() {
             width={180}
             height={68}
             priority
-            className="h-7 sm:h-9 md:h-11 w-auto object-contain brightness-0"
+            className="h-10 sm:h-12 md:h-14 w-auto object-contain brightness-0"
           />
         </Link>
 
@@ -61,7 +61,7 @@ export default function Header() {
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#E50914] transition-all duration-300 group-hover:w-full"></span>
           </Link>
 
-          <div className="relative py-6" onMouseEnter={() => setShopDropdown(true)} onMouseLeave={() => setShopDropdown(false)}>
+          <div className="relative py-10" onMouseEnter={() => setShopDropdown(true)} onMouseLeave={() => setShopDropdown(false)}>
             <button className="flex items-center gap-1.5 text-zinc-900 text-[16px] font-display font-bold tracking-[0.14em] hover:text-[#E50914] transition-colors uppercase relative group">
               PRODUCTS
               <svg className={`w-3.5 h-3.5 transition-transform duration-300 ${shopDropdown ? 'rotate-180 text-[#E50914]' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -128,7 +128,7 @@ export default function Header() {
           
           <Link
             href="/collections/shop-all"
-            className="hidden md:inline-flex items-center gap-2 bg-[#E50914] hover:bg-black text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-sm font-display text-[10px] sm:text-xs tracking-widest uppercase transition-all duration-200 shadow-sm"
+            className="hidden md:inline-flex items-center gap-2 bg-[#E50914] hover:bg-black text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-sm font-display text-[11px] sm:text-sm tracking-widest uppercase transition-all duration-200 shadow-sm"
           >
             EXPLORE ARSENAL
           </Link>

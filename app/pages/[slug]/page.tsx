@@ -37,7 +37,7 @@ export default function InfoPage({ params }: { params: { slug: string } }) {
       <main className="min-h-screen bg-black text-white flex flex-col justify-between">
         <AnnouncementBar />
         <Header />
-        <div className="pt-32 text-center py-20">
+        <div className="pt-[152px] sm:pt-[164px] md:pt-[178px] text-center py-20">
           <h1 className="text-3xl font-black uppercase">Page Not Found</h1>
           <p className="text-zinc-500 mt-2">The page you are looking for does not exist.</p>
           <Link href="/" className="mt-6 inline-block bg-white text-black px-6 py-3 font-bold rounded">
@@ -54,7 +54,7 @@ export default function InfoPage({ params }: { params: { slug: string } }) {
       <AnnouncementBar />
       <Header />
 
-      <div className="pt-24 max-w-[800px] mx-auto px-6 pb-20">
+      <div className="pt-[140px] sm:pt-[152px] md:pt-[166px] max-w-[800px] mx-auto px-6 pb-20">
         {/* Breadcrumbs */}
         <div className="text-zinc-500 text-xs uppercase tracking-wider mb-8">
           <Link href="/" className="hover:text-white transition-colors">Home</Link> /{' '}

@@ -14,7 +14,7 @@ import { bestSellers } from '@/data/products'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-zinc-900">
+    <main className="min-h-screen bg-black text-zinc-900">
       {/* ======================================= */}
       {/* BLOCK 1: THE INTRODUCTION              */}
       {/* ======================================= */}
@@ -23,8 +23,8 @@ export default function Home() {
       <AnnouncementBar />
       <Header />
 
-      {/* Hero section */}
-      <div className="pt-[120px]">
+      {/* Hero section - padding matches announcement (40px) + taller header (84/96/110px), bg-black so no white bar shows */}
+      <div className="pt-[124px] sm:pt-[136px] md:pt-[150px] bg-black">
         <HeroSlider />
       </div>
 

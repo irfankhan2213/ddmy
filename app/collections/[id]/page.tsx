@@ -82,7 +82,7 @@ export default function CollectionPage({ params }: { params: { id: string } }) {
       <AnnouncementBar />
       <Header />
 
-      <div className="pt-24 max-w-[1400px] mx-auto px-6 pb-20">
+      <div className="pt-[140px] sm:pt-[152px] md:pt-[166px] max-w-[1400px] mx-auto px-6 pb-20">
         {/* Breadcrumb / Title */}
         <div className="mb-10">
           <div className="text-zinc-500 text-xs uppercase tracking-wider mb-2">
@@ -95,7 +95,7 @@ export default function CollectionPage({ params }: { params: { id: string } }) {
         <div className="flex flex-col lg:flex-row gap-10">
           {/* Left Sidebar - Filters */}
           <div className="w-full lg:w-64 flex-shrink-0">
-            <div className="border border-zinc-200 rounded-xl p-6 bg-zinc-50 sticky top-28">
+            <div className="border border-zinc-200 rounded-xl p-6 bg-zinc-50 sticky top-[162px]">
               <h2 className="text-lg font-display font-bold tracking-wide uppercase mb-6 border-b border-zinc-200 pb-3 text-zinc-900">
                 Filter & Sort
               </h2>
