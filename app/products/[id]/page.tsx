@@ -171,20 +171,28 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
               </span>
             </div>
 
-            {/* Price & Savings in USD */}
+            {/* Price & Savings in USD (hidden until pricing is set) */}
             <div className="flex items-baseline gap-3 pb-6 border-b border-zinc-200">
-              <span className="text-3xl sm:text-4xl font-display font-bold text-[#E50914] tracking-wide">
-                ${product.price.toFixed(2)}
-              </span>
-              {product.salePrice && product.salePrice > product.price && (
+              {product.price > 0 ? (
                 <>
-                  <span className="text-base text-zinc-400 line-through">
-                    ${product.salePrice.toFixed(2)}
+                  <span className="text-3xl sm:text-4xl font-display font-bold text-[#E50914] tracking-wide">
+                    ${product.price.toFixed(2)}
                   </span>
-                  <span className="text-emerald-700 text-xs font-display font-bold px-2.5 py-1 bg-emerald-50 border border-emerald-200 rounded-sm uppercase tracking-wider">
-                    {Math.round(((product.salePrice - product.price) / product.salePrice) * 100)}% SAVINGS
-                  </span>
+                  {product.salePrice && product.salePrice > product.price && (
+                    <>
+                      <span className="text-base text-zinc-400 line-through">
+                        ${product.salePrice.toFixed(2)}
+                      </span>
+                      <span className="text-emerald-700 text-xs font-display font-bold px-2.5 py-1 bg-emerald-50 border border-emerald-200 rounded-sm uppercase tracking-wider">
+                        {Math.round(((product.salePrice - product.price) / product.salePrice) * 100)}% SAVINGS
+                      </span>
+                    </>
+                  )}
                 </>
+              ) : (
+                <span className="text-2xl sm:text-3xl font-display font-bold text-zinc-900 tracking-wide uppercase">
+                  Price on request
+                </span>
               )}
             </div>
 
@@ -370,11 +378,13 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                 Ingredients Breakdown
               </h4>
               <p className="text-xs leading-relaxed text-zinc-700">
-                {product.ingredients || 'Protein Blend (91%) [Whey Protein Concentrate, Whey Protein Isolate] (Emulsifier: INS 322i), Natural & Artificial Flavours, Sodium Chloride, Thickeners (INS 466, INS 415, INS 407), Sweeteners (INS 955, INS 950).'}
+                {product.ingredients || 'Refer to the product label for the full ingredients list and nutritional panel.'}
               </p>
-              <p className="text-[11px] font-bold text-red-700 mt-3 uppercase tracking-wider">
-                Allergen Warning: Contains Milk and Soy (Lecithin).
-              </p>
+              {product.category === 'Protein' && (
+                <p className="text-[11px] font-bold text-red-700 mt-3 uppercase tracking-wider">
+                  Allergen Warning: Contains Milk and Soy (Lecithin).
+                </p>
+              )}
             </div>
 
             {/* Directions for Use */}
@@ -463,15 +473,21 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                       {'★★★★★'}
                     </div>
 
-                    {/* Price in USD */}
-                    <div className="flex items-baseline justify-center gap-2 mb-2">
-                      <span className="text-base font-bold text-[#E50914]">${item.price.toFixed(2)}</span>
-                      {item.salePrice && item.salePrice > item.price && (
-                        <span className="text-xs text-zinc-500 line-through">
-                          ${item.salePrice.toFixed(2)}
-                        </span>
-                      )}
-                    </div>
+                    {/* Price in USD (hidden until pricing is set) */}
+                    {item.price > 0 ? (
+                      <div className="flex items-baseline justify-center gap-2 mb-2">
+                        <span className="text-base font-bold text-[#E50914]">${item.price.toFixed(2)}</span>
+                        {item.salePrice && item.salePrice > item.price && (
+                          <span className="text-xs text-zinc-500 line-through">
+                            ${item.salePrice.toFixed(2)}
+                          </span>
+                        )}
+                      </div>
+                    ) : (
+                      <span className="block text-[11px] font-display font-bold uppercase tracking-[0.2em] text-zinc-400 mb-2">
+                        Price on request
+                      </span>
+                    )}
 
                     <Link
                       href={`/products/${item.id}`}

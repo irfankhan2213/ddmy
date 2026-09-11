@@ -3,7 +3,7 @@ import { useState, useMemo } from 'react'
 import AnnouncementBar from '@/components/AnnouncementBar'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { products, Product } from '@/data/products'
+import { getCollectionName, getCollectionProducts } from '@/data/collections'
 import Link from 'next/link'
 import Image from 'next/image'
 import { optimizeCloudinaryUrl } from '@/lib/cloudinary'
@@ -12,40 +12,10 @@ export default function CollectionPage({ params }: { params: { id: string } }) {
   const collectionId = params.id
 
   // Determine collection name
-  const collectionName = useMemo(() => {
-    switch (collectionId) {
-      case 'shop-all': return 'Shop All'
-      case 'pre-workout': return 'Pre-Workout'
-      case 'protein': return 'Protein'
-      case 'mass-gainer': return 'Mass Gainer'
-      case 'weight-gainer': return 'Weight Gainer'
-      case 'amino-acids': return 'Amino Acids'
-      case 'fish-oils': return 'Fish Oils'
-      case 'vitamins-supplements': return 'Vitamins & Supplements'
-      case 'essentials': return 'Essentials'
-      default: return 'Products'
-    }
-  }, [collectionId])
+  const collectionName = useMemo(() => getCollectionName(collectionId), [collectionId])
 
   // Filter products based on collection category
-  const collectionProducts = useMemo(() => {
-    if (collectionId === 'shop-all') {
-      return products
-    }
-    const catMap: Record<string, string> = {
-      'pre-workout': 'Pre-Workout',
-      'protein': 'Protein',
-      'mass-gainer': 'Mass Gainer',
-      'weight-gainer': 'Weight Gainer',
-      'amino-acids': 'Amino Acids',
-      'fish-oils': 'Fish Oils',
-      'vitamins-supplements': 'Vitamins & Supplements',
-      'essentials': 'Essentials',
-    }
-    const targetCat = catMap[collectionId]
-    if (!targetCat) return products
-    return products.filter(p => p.category === targetCat)
-  }, [collectionId])
+  const collectionProducts = useMemo(() => getCollectionProducts(collectionId), [collectionId])
 
   // State for filters
   const [inStockOnly, setInStockOnly] = useState(false)
@@ -161,9 +131,11 @@ export default function CollectionPage({ params }: { params: { id: string } }) {
                   <div key={product.id} className="group flex flex-col items-center">
                     {/* Image Area - Borderless with rounded corners & Sale badge */}
                     <Link href={`/products/${product.id}`} className="relative w-full aspect-square bg-black rounded-2xl overflow-hidden block mb-3.5 group-hover:shadow-md transition-all duration-300">
-                      <span className="absolute top-3.5 right-3.5 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full z-10 tracking-tight">
-                        Sale!
-                      </span>
+                      {product.price > 0 && (
+                        <span className="absolute top-3.5 right-3.5 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full z-10 tracking-tight">
+                          Sale!
+                        </span>
+                      )}
                       <Image
                         src={optimizeCloudinaryUrl(product.image, { width: 600 })}
                         alt={product.name}
@@ -191,13 +163,19 @@ export default function CollectionPage({ params }: { params: { id: string } }) {
                         ))}
                       </div>
 
-                      {/* Centered Price in Crimson Red + Dark Strikethrough in USD */}
-                      <div className="flex items-baseline justify-center gap-2 mb-2">
-                        <span className="text-base sm:text-lg font-bold text-[#E50914]">${product.price.toFixed(2)}</span>
-                        <span className="text-xs sm:text-sm text-zinc-500 line-through">
-                          ${(product.salePrice || product.price * 1.25).toFixed(2)}
+                      {/* Centered Price in Crimson Red + Dark Strikethrough in USD (hidden until pricing is set) */}
+                      {product.price > 0 ? (
+                        <div className="flex items-baseline justify-center gap-2 mb-2">
+                          <span className="text-base sm:text-lg font-bold text-[#E50914]">${product.price.toFixed(2)}</span>
+                          <span className="text-xs sm:text-sm text-zinc-500 line-through">
+                            ${(product.salePrice || product.price * 1.25).toFixed(2)}
+                          </span>
+                        </div>
+                      ) : (
+                        <span className="block text-[11px] font-display font-bold uppercase tracking-[0.2em] text-zinc-400 mb-2">
+                          Price on request
                         </span>
-                      </div>
+                      )}
 
                       {/* Centered Circular Variant Swatches */}
                       <div className="flex items-center justify-center gap-1.5 mt-1 pb-2">

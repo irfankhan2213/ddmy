@@ -76,13 +76,10 @@ export default function Header() {
                 {[
                   { label: 'All Formulations', href: '/collections/shop-all' },
                   { label: 'Pre-Workout & Pumps', href: '/collections/pre-workout' },
-                  { label: 'Whey Protein Isolates', href: '/collections/protein' },
-                  { label: 'Anabolic Mass Gainers', href: '/collections/mass-gainer' },
-                  { label: 'Weight Gainer', href: '/collections/weight-gainer' },
-                  { label: 'Amino Acids & EAAs', href: '/collections/amino-acids' },
-                  { label: 'Omega 3 Fish Oils', href: '/collections/fish-oils' },
-                  { label: 'Vitamins & ZMA', href: '/collections/vitamins-supplements' },
-                  { label: 'Daily Essentials', href: '/collections/essentials' },
+                  { label: 'Whey Protein & Isolates', href: '/collections/protein' },
+                  { label: 'Pump & Performance', href: '/collections/performance' },
+                  { label: 'Aminos & Recovery', href: '/collections/recovery' },
+                  { label: 'Vitality & Wellness', href: '/collections/vitality' },
                 ].map(item => (
                   <Link key={item.href} href={item.href} className="block px-6 py-3 text-sm font-semibold text-zinc-700 hover:bg-zinc-50 hover:text-[#E50914] hover:pl-8 transition-all duration-200">
                     {item.label}
@@ -102,8 +99,8 @@ export default function Header() {
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#E50914] transition-all duration-300 group-hover:w-full"></span>
           </Link>
 
-          <Link href="/collections/mass-gainer" className="text-zinc-900 text-[16px] font-display font-bold tracking-[0.14em] hover:text-[#E50914] transition-colors uppercase relative group py-2">
-            MASS GAINER
+          <Link href="/collections/performance" className="text-zinc-900 text-[16px] font-display font-bold tracking-[0.14em] hover:text-[#E50914] transition-colors uppercase relative group py-2">
+            PERFORMANCE
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#E50914] transition-all duration-300 group-hover:w-full"></span>
           </Link>
 
@@ -174,9 +171,9 @@ export default function Header() {
             { label: 'All Products', href: '/collections/shop-all' },
             { label: 'Pre-Workout', href: '/collections/pre-workout' },
             { label: 'Protein', href: '/collections/protein' },
-            { label: 'Mass Gainer', href: '/collections/mass-gainer' },
-            { label: 'Fish Oils', href: '/collections/fish-oils' },
-            { label: 'Vitamins & Supplements', href: '/collections/vitamins-supplements' },
+            { label: 'Pump & Performance', href: '/collections/performance' },
+            { label: 'Aminos & Recovery', href: '/collections/recovery' },
+            { label: 'Vitality & Wellness', href: '/collections/vitality' },
             { label: 'Contact', href: '/pages/contact' },
           ].map(item => (
             <Link

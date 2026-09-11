@@ -72,13 +72,18 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/collections/mass-gainer" className="hover:text-[#E50914] transition-colors">
-                Anabolic Mass Matrix
+              <Link href="/collections/performance" className="hover:text-[#E50914] transition-colors">
+                Pump & Performance
               </Link>
             </li>
             <li>
-              <Link href="/collections/vitamins-supplements" className="hover:text-[#E50914] transition-colors">
-                Vitamins & Performance
+              <Link href="/collections/recovery" className="hover:text-[#E50914] transition-colors">
+                Aminos & Recovery
+              </Link>
+            </li>
+            <li>
+              <Link href="/collections/vitality" className="hover:text-[#E50914] transition-colors">
+                Vitality & Wellness
               </Link>
             </li>
           </ul>
