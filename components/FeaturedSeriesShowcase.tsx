@@ -10,8 +10,6 @@ interface SeriesCard {
   price: string
   href: string
   image: string
-  badges: { label: string; className: string }[]
-  badgeColor: string
 }
 
 const CARDS: SeriesCard[] = [
@@ -21,12 +19,6 @@ const CARDS: SeriesCard[] = [
     price: '$42.05',
     href: '/products/psycho-whey-valrhona-chocolate-1kg',
     image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959168/psycho_nutrition/psycho_whey_valrhona_chocolate_front_hero.jpg',
-    badges: [
-      { label: '24G PURE PROTEIN', className: 'absolute left-3 top-[32%] z-10' },
-      { label: '5.28G BCAAS', className: 'absolute left-3 bottom-[32%] z-10' },
-      { label: '4.1G GLUTAMINE', className: 'absolute right-3 bottom-[26%] z-10' },
-    ],
-    badgeColor: 'bg-[#E50914] text-white',
   },
   {
     id: 2,
@@ -34,12 +26,6 @@ const CARDS: SeriesCard[] = [
     price: '$52.56',
     href: '/products/psycho-isolate-chocolate-frappe-1kg',
     image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959140/psycho_nutrition/psycho_isolate_chocolate_frappe_front_hero.jpg',
-    badges: [
-      { label: '30G ISOLATE', className: 'absolute right-3 top-[32%] z-10' },
-      { label: '2.6G LEUCINE', className: 'absolute left-3 bottom-[32%] z-10' },
-      { label: 'ULTRA-LOW CARB', className: 'absolute right-3 bottom-[26%] z-10' },
-    ],
-    badgeColor: 'bg-zinc-900/90 border border-zinc-700 text-white',
   },
   {
     id: 3,
@@ -47,12 +33,6 @@ const CARDS: SeriesCard[] = [
     price: '$80.96',
     href: '/products/psycho-insane-whey-2kg-valrhona-chocolate',
     image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788963008/psycho_nutrition/psycho_insane_whey_2kg_valrhona_chocolate_front_hero.jpg',
-    badges: [
-      { label: '58 FULL SERVINGS', className: 'absolute left-3 top-[30%] z-10' },
-      { label: 'NO AMINO SPIKING', className: 'absolute right-3 top-[42%] z-10' },
-      { label: '11.4G EAAS', className: 'absolute right-3 bottom-[26%] z-10' },
-    ],
-    badgeColor: 'bg-[#E50914] text-white',
   },
   {
     id: 4,
@@ -60,12 +40,6 @@ const CARDS: SeriesCard[] = [
     price: '$100.93',
     href: '/products/psycho-iso-2kg-chocolate-frappe',
     image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_800/v1788959083/psycho_nutrition/psycho_iso_2kg_chocolate_frappe_front_hero.jpg',
-    badges: [
-      { label: '30G PURE ISOLATE', className: 'absolute right-3 top-[32%] z-10' },
-      { label: '56 PRO SERVINGS', className: 'absolute left-3 top-[42%] z-10' },
-      { label: 'SHRED CONDITIONING', className: 'absolute left-3 bottom-[26%] z-10' },
-    ],
-    badgeColor: 'bg-zinc-900/90 border border-zinc-700 text-white',
   },
 ]
 
@@ -236,16 +210,6 @@ export default function FeaturedSeriesShowcase() {
                       {card.title}
                     </span>
                   </div>
-
-                  {/* Feature callout pill badges */}
-                  {card.badges.map((b, bi) => (
-                    <span
-                      key={bi}
-                      className={`${b.className} ${card.badgeColor} text-[10px] md:text-[11px] font-display font-bold px-2.5 py-1 uppercase tracking-wider rounded shadow-md pointer-events-none`}
-                    >
-                      {b.label}
-                    </span>
-                  ))}
 
                   {/* Floating White Info Card at Bottom (Matching Image 3) */}
                   <div className="absolute inset-x-4 bottom-4 z-20 bg-white rounded-xl p-3 flex items-center justify-between shadow-2xl transition-transform duration-300 group-hover:-translate-y-1">

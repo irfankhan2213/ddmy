@@ -23,10 +23,8 @@ export default function Home() {
       <AnnouncementBar />
       <Header />
 
-      {/* Hero section - padding matches announcement (40px) + taller header (84/96/110px), bg-black so no white bar shows */}
-      <div className="pt-[124px] sm:pt-[136px] md:pt-[150px] bg-black">
-        <HeroSlider />
-      </div>
+      {/* Hero section - offset handled inside HeroSlider to stay flush with header */}
+      <HeroSlider />
 
       {/* Trust Badges */}
       <ScrollReveal direction="up" delay={100}>
