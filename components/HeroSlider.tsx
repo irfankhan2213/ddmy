@@ -1,36 +1,31 @@
-'use client';
+'use client'
+import Link from 'next/link'
+import Image from 'next/image'
+import cloudinaryImages from '@/data/cloudinary-images.json'
 
-import React from 'react';
-import Image from 'next/image';
+const MAIN_BANNER_URL =
+  cloudinaryImages['main_banner.png'] ||
+  'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_1920/v1788964851/psycho_nutrition/psycho_main_hero_banner_1788964833.png'
 
-const HeroSlider = () => {
-    return (
-        <section className="relative w-full overflow-hidden bg-black">
-            {/* Desktop Banner Image */}
-            <div className="hidden md:block relative w-full h-[550px] lg:h-[650px] xl:h-[750px]">
-                <Image
-                    src="/banner.webp"
-                    alt="Psycho Nutrition Products Banner"
-                    fill
-                    priority
-                    sizes="100vw"
-                    className="object-cover object-center"
-                />
-            </div>
-
-            {/* Mobile Banner Image */}
-            <div className="block md:hidden relative w-full aspect-[4/5] max-h-[550px]">
-                <Image
-                    src="/banner.webp"
-                    alt="Psycho Nutrition Products Banner"
-                    fill
-                    priority
-                    sizes="100vw"
-                    className="object-cover object-center"
-                />
-            </div>
-        </section>
-    );
-};
-
-export default HeroSlider;
+export default function HeroSlider() {
+  return (
+    <div className="bg-black">
+      <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] overflow-hidden bg-black select-none border-b border-zinc-900 group">
+        <Link
+          href="/collections/shop-all"
+          className="block relative w-full h-full cursor-pointer overflow-hidden"
+        >
+          <Image
+            src={MAIN_BANNER_URL}
+            alt="Psycho Nutrition - Performance Nutrition"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 1920px"
+            unoptimized={true}
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+          />
+        </Link>
+      </div>
+    </div>
+  )
+}
