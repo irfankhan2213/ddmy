@@ -61,9 +61,10 @@ export default function BlogPage() {
         {/* Article list */}
         <div className="space-y-6">
           {articles.map(article => (
-            <article
+            <Link
               key={article.id}
-              className="border border-zinc-200 bg-zinc-50 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-6 hover:border-[#E50914] shadow-sm hover:shadow-md transition-all group"
+              href={`/blogs/news/${article.id}`}
+              className="border border-zinc-200 bg-zinc-50 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-6 hover:border-[#E50914] shadow-sm hover:shadow-md transition-all group block"
             >
               {/* Graphic Icon representation */}
               <div
@@ -99,7 +100,7 @@ export default function BlogPage() {
                   </svg>
                 </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

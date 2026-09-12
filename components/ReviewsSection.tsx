@@ -1,5 +1,4 @@
 'use client'
-import { useState } from 'react'
 
 const reviews = [
   {
@@ -7,8 +6,8 @@ const reviews = [
     name: 'Aman Sharma',
     rating: 5,
     title: 'Extreme pumps and clean energy!',
-    text: 'Crank pre-workout is a game changer. The pump is insane, and the formula is ultra smooth. Zero post-workout crash or jitters.',
-    product: 'CRANK Pre-Workout',
+    text: 'Killer Clown is a game changer. The pump is insane, and the pineapple mango flavour is ultra smooth. Zero post-workout crash or jitters.',
+    product: 'Killer Clown Pre-Workout',
     productColor: '#E50914',
     date: '2 weeks ago',
   },
@@ -27,8 +26,8 @@ const reviews = [
     name: 'Pooja Roy',
     rating: 5,
     title: 'Authentic supplements, trust verified',
-    text: 'Was skeptical initially, but the packaging has a scratch code to verify authenticity. The daily vitamins and ZMA help sleep and recovery.',
-    product: 'ZMA Capsules',
+    text: 'Was skeptical initially, but the packaging has a scratch code to verify authenticity. Testo Pro has genuinely helped my strength and stamina.',
+    product: 'Testo Pro',
     productColor: '#E50914',
     date: '3 weeks ago',
   },
@@ -51,9 +50,7 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default function ReviewsSection() {
-  const [page] = useState(0)
-  const pageSize = 3
-  const visible = reviews.slice(page * pageSize, page * pageSize + pageSize)
+  const visible = reviews
 
   return (
     <section className="bg-white py-10 sm:py-24 border-t border-zinc-200 relative z-10 overflow-hidden">

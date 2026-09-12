@@ -39,7 +39,7 @@ const articlesContent: Record<string, {
       'When picking a protein powder, the options can be overwhelming. The primary choice most lifters face is between Whey Protein Isolate and Whey Protein Concentrate. While both derive from dairy, the refinement process sets them apart dramatically.',
       'Whey Protein Isolate undergoes a rigorous filtration process that removes almost all fat, cholesterol, and lactose. What remains is a highly purified powder that contains 90% or more protein by weight. This makes it extremely fast-digesting and perfect for post-workout muscle recovery when your body needs amino acids immediately.',
       'Whey Protein Concentrate, on the other hand, is less processed and typically contains 70-80% protein. The remaining percentage consists of fats, carbs, and lactose. While concentrate is more budget-friendly, it can cause bloating or digestive issues for lactose-sensitive individuals.',
-      'If you are monitoring calories closely or want a protein that digests smoothly without bloating, Isolate is the clear winner. With just 115 calories and 28 grams of pure isolate per scoop, ISO-CRUSH provides maximum purity and utility for lean muscle building.',
+      'If you are monitoring calories closely or want a protein that digests smoothly without bloating, Isolate is the clear winner. With 140 calories and 30 grams of pure isolate protein per scoop, our Ripped ISO provides maximum purity and utility for lean muscle building.',
     ],
   },
   'importance-of-organ-health': {

@@ -16,6 +16,11 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    const subject = encodeURIComponent(`Website inquiry from ${formData.name}`)
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'Not provided'}\n\nMessage:\n${formData.message}`
+    )
+    window.location.href = `mailto:psychonutrition@yahoo.com?subject=${subject}&body=${body}`
     setSubmitted(true)
     setTimeout(() => {
       setSubmitted(false)
