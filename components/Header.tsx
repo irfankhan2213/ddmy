@@ -101,8 +101,8 @@ export default function Header() {
           scrolled ? 'shadow-[0_4px_20px_rgba(0,0,0,0.06)]' : ''
         }`}
       >
-        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 xl:px-16 h-[68px] sm:h-[76px] md:h-[88px] grid grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-6">
-          {/* Logo (Left) */}
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 xl:px-16 h-[72px] sm:h-[80px] md:h-[92px] flex items-center justify-between lg:grid lg:grid-cols-[auto_1fr_auto] gap-3 sm:gap-6">
+          {/* Logo (Firmly anchored on Left) */}
           <Link
             href="/"
             className="flex-shrink-0 flex items-center transition-transform duration-200 hover:scale-105"
@@ -114,10 +114,10 @@ export default function Header() {
             <Image
               src="/images/logo.png"
               alt="Psycho Nutrition"
-              width={160}
+              width={190}
               height={56}
               priority
-              className="h-8 sm:h-10 md:h-12 w-auto object-contain brightness-0"
+              className="h-10 sm:h-12 md:h-14 w-auto object-contain brightness-0"
             />
           </Link>
 
