@@ -347,14 +347,36 @@ export const products: Product[] = [
         altText: 'Psycho Nutrition Murphy pre-workout front view'
       }
     ],
+    size: '300 gm',
+    servingsCount: 30,
+    servingSize: '1 Scoop (10g)',
     description: 'Murphy unleashed — a hardcore pre-workout for athletes who refuse light sessions. Formulated to drive brutal training intensity, lasting energy and relentless drive from first rep to last.',
     features: [
-      'Hardcore pre-training intensity formula',
-      'Sustained energy for long sessions',
-      'Training drive and focus support',
+      '4g Citrulline Malate + 2g Beta-Alanine per serving',
+      '325mg caffeine anhydrous energy matrix',
+      'Nitrate, CDP-choline and BioPerine pump-focus complex',
       'Scan-to-verify authenticity seal'
     ],
-    usageDirections: 'Mix 1 scoop with 250-300 ml of cold water 20-30 minutes before training. Start with half a scoop to assess tolerance.',
+    supplementFacts: {
+      headline: 'Hardcore Pre-Training Complex (per 10g scoop)',
+      rows: [
+        { label: 'Citrulline Malate 2:1', value: '4 g' },
+        { label: 'Beta-Alanine', value: '2 g' },
+        { label: 'L-Tyrosine', value: '0.5 g' },
+        { label: 'Caffeine Anhydrous', value: '325 mg' },
+        { label: 'Dicaffeine Malate', value: '25 mg' },
+        { label: 'Alpha-Yohimbine HCl 98%', value: '0.5 mg' },
+        { label: 'DMAA HCl', value: '20 mg' },
+        { label: 'N,N-DMPEA', value: '50 mg' },
+        { label: 'CDP-Choline', value: '50 mg' },
+        { label: 'Nitrates (Sodium Nitrate)', value: '300 mg' },
+        { label: 'Alpha-GPC', value: '100 mg' },
+        { label: 'BioPerine', value: '5 mg' },
+        { label: 'Arginine', value: '1000 mg' },
+      ],
+    },
+    ingredients: 'Erythritol, Maltodextrin, Citric Acid, Malic Acid, Acesulfame-K, Sucralose, Natural & Artificial Flavours, Silicon Dioxide, Lake Colour (as per flavour).',
+    usageDirections: 'As a powerful pre-training enhancement supplement, use 1 scoop in 5-18 oz of cold water 15-20 mins pre training. Do not exceed 2 scoops in a 24 hrs period.',
     certifications: ['Lab Tested', 'GMP Certified', 'Authenticity QR Verification']
   },
   {
@@ -506,16 +528,25 @@ export const products: Product[] = [
       }
     ],
     size: '60 Capsules',
-    servingsCount: 60,
-    description: 'L-Citrulline in convenient rapid-release capsules — 60 capsules per bottle. Supports blood flow and nitric oxide production, skin clearance and training energy without mixing a drink.',
+    servingsCount: 30,
+    servingSize: '2 Capsules',
+    description: 'L-Citrulline DL-Malate in convenient rapid-release capsules — 60 capsules per bottle. Supports blood flow and nitric oxide production, skin clearance and training energy without mixing a drink.',
     features: [
-      'L-Citrulline in easy capsule form',
-      '60 capsules per bottle',
-      'Supports blood flow and pump',
-      'Supports skin clearance and energy'
+      'Free-form L-Citrulline DL-Malate',
+      'Fuels muscle pumps and blood flow',
+      'Maximizes N.O. production and nutrient delivery',
+      'Building block of protein for performance'
     ],
-    usageDirections: 'Take the suggested serving with water 20-30 minutes before training, or as directed on the label.',
-    certifications: ['Lab Tested', 'GMP Certified', 'Authenticity QR Verification']
+    supplementFacts: {
+      headline: 'Free-Form Citrulline (per serving)',
+      rows: [
+        { label: 'Calories', value: '0' },
+        { label: 'L-Citrulline', value: '1000 mg' },
+      ],
+    },
+    ingredients: 'Stearic Acid, Microcrystalline Cellulose, Croscarmellose Sodium, Silicon Dioxide, Magnesium Stearate, Pharmaceutical Glaze (Shellac, Povidone).',
+    usageDirections: 'Take the suggested serving with water daily, or as directed on the label.',
+    certifications: ['Dope Free', 'Gluten Free', 'Made in USA', 'GMP Certified']
   },
   {
     id: 'psycho-l-arginine-powder-100g',
