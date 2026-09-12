@@ -366,6 +366,40 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                 </div>
               </div>
             ) : null}
+
+            {/* Generic label facts table (non-protein formulas) */}
+            {product.supplementFacts && (
+              <div className="border border-zinc-900 rounded-xl overflow-hidden shadow-xs bg-white mt-6">
+                <div className="bg-black text-white p-4">
+                  <h4 className="font-display font-extrabold text-xl uppercase tracking-wider">Supplement Facts</h4>
+                  <p className="text-xs text-zinc-400 mt-0.5">
+                    Serving Size: {product.servingSize || 'See label'} | Servings Per Container: {product.servingsCount || 'See label'}
+                  </p>
+                </div>
+
+                {product.supplementFacts.headline && (
+                  <div className="px-4 py-2.5 font-bold bg-red-50/40 text-zinc-950 text-sm border-b border-zinc-200">
+                    {product.supplementFacts.headline}
+                  </div>
+                )}
+
+                <div className="divide-y divide-zinc-200 text-sm">
+                  <div className="flex justify-between px-4 py-2.5 font-bold bg-zinc-50">
+                    <span>Amount Per Serving</span>
+                  </div>
+                  {product.supplementFacts.rows.map((row, ri) => (
+                    <div key={ri} className="flex justify-between gap-4 px-4 py-2 text-zinc-700">
+                      <span>{row.label}</span>
+                      <span className="font-semibold text-zinc-950 whitespace-nowrap">{row.value}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="p-3 bg-zinc-50 text-[11px] text-zinc-500 border-t border-zinc-200">
+                  *Daily Value (DV) not established for these nutrients. Read the full label, warnings and directions before use.
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Right: Ingredients, Directions & Benefits (5 cols) */}

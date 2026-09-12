@@ -19,6 +19,16 @@ export interface NutritionFacts {
   cholesterol: number
 }
 
+export interface SupplementFactRow {
+  label: string
+  value: string
+}
+
+export interface SupplementFacts {
+  headline?: string
+  rows: SupplementFactRow[]
+}
+
 export interface Product {
   id: string
   name: string
@@ -44,6 +54,7 @@ export interface Product {
   ingredients?: string
   usageDirections?: string
   certifications?: string[]
+  supplementFacts?: SupplementFacts
 }
 
 export const products: Product[] = [
@@ -286,15 +297,35 @@ export const products: Product[] = [
         altText: 'Psycho Nutrition Killer Clown Loaded pre-workout Pineapple Mango front view'
       }
     ],
+    size: '300 gm',
+    servingsCount: 30,
+    servingSize: '1 Scoop (10g)',
     description: 'Limited edition Killer Clown Loaded pre-workout in Pineapple Mango. Built for lifters who train loud — explosive training energy, skin-splitting pumps and razor-sharp focus before every session.',
     flavors: ['Pineapple Mango'],
     features: [
       'Limited edition Killer Clown series artwork',
       'Pineapple Mango flavour profile',
-      'Pre-training energy, pump and focus formula',
-      'Scan-to-verify authenticity seal'
+      '6g Citrulline Malate + 2g Beta-Alanine per serving',
+      'Focus, pump, strength and growth complex'
     ],
-    usageDirections: 'Mix 1 scoop with 250-300 ml of cold water 20-30 minutes before training. Start with half a scoop to assess tolerance.',
+    supplementFacts: {
+      headline: 'Game-Changing Prime Ingredients (per 10g scoop)',
+      rows: [
+        { label: 'Calories', value: '5 kcal' },
+        { label: 'Vitamin B12', value: '100 mcg' },
+        { label: 'Sodium', value: '45 mg' },
+        { label: 'Citrulline Malate 2:1', value: '6000 mg' },
+        { label: 'Beta-Alanine', value: '2000 mg' },
+        { label: 'AlphaSize Alpha-GPC 50%', value: '200 mg' },
+        { label: 'Taurine', value: '200 mg' },
+        { label: 'Himalayan Rock Salt', value: '200 mg' },
+        { label: 'Deer Antler Velvet Extract', value: '100 mg' },
+        { label: 'AstraGin', value: '50 mg' },
+        { label: 'Senactiv + Rosa Roxburghii', value: '25 mg' },
+      ],
+    },
+    ingredients: 'Citrulline Malate 2:1, Beta-Alanine, AlphaSize Alpha-GPC, Taurine, Himalayan Rock Salt, Deer Antler Velvet Extract, AstraGin, Senactiv, Rosa Roxburghii Fruit Extract, Vitamin B12, Natural Flavours, Calcium Silicate, Silicon Dioxide, Sucralose, Beta Carotene (for color).',
+    usageDirections: 'Mix 1 well-rounded scoop in 6-8 oz of cold water 15-30 minutes prior to physical activity. Do not exceed 2 servings in a 24-hour period.',
     certifications: ['Limited Edition', 'Lab Tested', 'Authenticity QR Verification']
   },
   {
@@ -347,7 +378,7 @@ export const products: Product[] = [
     ],
     size: '300 gm',
     servingsCount: 30,
-    servingSize: '1 Scoop',
+    servingSize: '1 Scoop (10g)',
     description: 'Whizz Extreme Legend pre-workout in Pineapple — 300 gm of fast-acting training fuel. Engineered for explosive energy, tunnel-vision focus and powerful muscle pumps.',
     flavors: ['Pineapple'],
     features: [
@@ -356,7 +387,23 @@ export const products: Product[] = [
       'Explosive pre-training energy and focus',
       'Pump-driving performance blend'
     ],
-    usageDirections: 'Mix 1 scoop (approx. 10 g) with 250-300 ml of cold water 20-30 minutes before training.',
+    supplementFacts: {
+      headline: 'Legend Pump + Smart Energy Complex (per 10g scoop)',
+      rows: [
+        { label: 'L-Citrulline (Vegan Fermented)', value: '2000 mg' },
+        { label: 'Beta-Alanine', value: '1600 mg' },
+        { label: 'Nitrosigine (Arginine Silicate)', value: '1000 mg' },
+        { label: 'Senactiv (Botanical Extracts)', value: '50 mg' },
+        { label: 'L-Tyrosine', value: '800 mg' },
+        { label: 'Taurine', value: '800 mg' },
+        { label: 'Alpha-GPC', value: '300 mg' },
+        { label: 'Natural Caffeine', value: '250 mg' },
+        { label: 'Theobromine', value: '100 mg' },
+        { label: 'AstraGin', value: '50 mg' },
+        { label: 'Rauwolfia Root Extract', value: '1.5 mg' },
+      ],
+    },
+    usageDirections: 'Mix 1 scoop with 250-300 ml of cold water 20-30 minutes before training.',
     certifications: ['Lab Tested', 'GMP Certified', 'Authenticity QR Verification']
   },
   {
@@ -380,15 +427,24 @@ export const products: Product[] = [
     ],
     size: '300 gm',
     servingsCount: 60,
-    servingSize: '1 Scoop (5 g)',
-    description: 'Crea-3 is 100% pure unflavored creatine — 60 servings per 300 gm tub. Supports strength power, energy and endurance, tendon recovery and brain health. For aging adults, cognitive function and exercise performance.',
+    servingSize: '1 Scoop (5g)',
+    description: 'Crea-3 is 100% pure unflavored creatine — 60 servings per 300 gm tub. Triple creatine matrix (HCl + Micronized + Monohydrate) for strength power, energy, endurance and recovery with zero fillers, carbs or fats.',
     features: [
-      '100% pure unflavored creatine, 60 servings',
-      'Improves energy and endurance',
-      'Supports tendon recovery and strength power',
-      'Supports brain health and cognitive function'
+      'Triple creatine matrix: HCl + Micronized + Mono',
+      '5g total creatine per serving, 60 servings',
+      'Zero fillers, carbs or fats',
+      'Strength, ATP energy and recovery support'
     ],
-    usageDirections: 'Mix 1 scoop (5 g) with water or your post-workout shake daily. Maintain consistent daily use for best results.',
+    supplementFacts: {
+      headline: 'Triple Creatine Matrix (per 5g scoop)',
+      rows: [
+        { label: 'Sodium', value: '5 mg' },
+        { label: 'Creatine HCl', value: '2000 mg' },
+        { label: 'Creatine Micronized', value: '1995 mg' },
+        { label: 'Creatine Monohydrate', value: '1000 mg' },
+      ],
+    },
+    usageDirections: 'Mix one level scoop (5g) with 200 ml of water immediately following your workout.',
     certifications: ['100% Pure', 'Lab Tested', 'GMP Certified', 'Authenticity QR Verification']
   },
   {
@@ -412,15 +468,23 @@ export const products: Product[] = [
     ],
     size: '100 gm',
     servingsCount: 40,
-    servingSize: '1 Scoop',
+    servingSize: '1 Scoop (2.5g)',
     description: 'Pure L-Citrulline powder — 40 servings per 100 gm tub. A nitric oxide precursor that supports intense muscle pumps, training endurance and fast post-workout recovery. Easily stacks with any pre-workout.',
     features: [
-      'Pure L-Citrulline nitric oxide precursor',
+      'Pure free-acid L-Citrulline, 2500mg per serving',
       '40 measured servings per tub',
-      'Supports muscle pumps and training endurance',
-      'Aids fast post-workout recovery'
+      'Zero fillers, carbs or fats',
+      'Supports pumps, ATP synthesis and recovery'
     ],
-    usageDirections: 'Mix 1 serving with 200-250 ml of cold water 20-30 minutes before training, or stack with your pre-workout.',
+    supplementFacts: {
+      headline: 'Ultra-Pure Free-Acid Citrulline (per 2.5g scoop)',
+      rows: [
+        { label: 'Total Fat', value: '0 g' },
+        { label: 'Total Carbohydrate', value: '0 g' },
+        { label: 'Citrulline', value: '2500 mg' },
+      ],
+    },
+    usageDirections: 'Mix one level scoop (2.5g) with 200 ml of water following your workout.',
     certifications: ['Lab Tested', 'GMP Certified', 'Authenticity QR Verification']
   },
   {
@@ -473,15 +537,23 @@ export const products: Product[] = [
     ],
     size: '100 gm',
     servingsCount: 20,
-    servingSize: '1 Scoop',
+    servingSize: '1 Scoop (5g)',
     description: 'L-Arginine powder — 20 servings per 100 gm tub. Built for more pump and better performance, supporting strength, endurance, circulation and recovery around every workout.',
     features: [
-      'L-Arginine pump and performance powder',
+      'Ultra-pure free-acid L-Arginine, 5000mg per serving',
       '20 servings per 100 gm tub',
-      'Supports strength, endurance and circulation',
-      'Supports post-training recovery'
+      'Zero fillers, carbs or fats',
+      'Supports strength, circulation and recovery'
     ],
-    usageDirections: 'Mix 1 serving with 200-250 ml of cold water 20-30 minutes before training.',
+    supplementFacts: {
+      headline: 'Ultra-Pure Free-Acid L-Arginine (per 5g scoop)',
+      rows: [
+        { label: 'Total Fat', value: '0 g' },
+        { label: 'Total Carbohydrate', value: '0 g' },
+        { label: 'L-Arginine', value: '5000 mg' },
+      ],
+    },
+    usageDirections: 'Mix one level scoop (5g) with 200 ml of water.',
     certifications: ['Lab Tested', 'GMP Certified', 'Authenticity QR Verification']
   },
   {
@@ -566,16 +638,32 @@ export const products: Product[] = [
     ],
     size: '500 gm',
     servingsCount: 55,
-    servingSize: '1 Scoop',
+    servingSize: '1 Scoop (9g)',
     description: 'EAA Energy in Blue Raspberry — 55 servings per 500 gm tub. Full-spectrum essential amino acids with energizing support to fuel training, protect lean muscle and speed up recovery.',
     flavors: ['Blue Raspberry'],
     features: [
-      'Full-spectrum EAA amino formula',
-      '55 servings per 500 gm tub',
-      'Blue Raspberry flavour',
+      'Full-spectrum 9-amino EAA profile per scoop',
+      '2500mg L-Leucine + 2000mg L-Glutamine',
+      '55 servings per 500 gm tub, zero sugars',
       'Energy, hydration and recovery support'
     ],
-    usageDirections: 'Mix 1 scoop with 300-400 ml of cold water during training or throughout the day.',
+    supplementFacts: {
+      headline: 'EAA Amino-Hydrate Profile (per 9g scoop)',
+      rows: [
+        { label: 'Energy', value: '27 kcal' },
+        { label: 'Carbohydrates', value: '3.8 g / 100g' },
+        { label: 'L-Leucine', value: '2500 mg' },
+        { label: 'L-Glutamine', value: '2000 mg' },
+        { label: 'L-Isoleucine', value: '1000 mg' },
+        { label: 'L-Valine', value: '1000 mg' },
+        { label: 'L-Lysine', value: '500 mg' },
+        { label: 'L-Threonine', value: '250 mg' },
+        { label: 'L-Histidine', value: '250 mg' },
+        { label: 'L-Phenylalanine', value: '170 mg' },
+        { label: 'L-Methionine', value: '75 mg' },
+      ],
+    },
+    usageDirections: 'Mix 1 full scoop with 8-10 oz of water. Drink immediately after mixing.',
     certifications: ['Lab Tested', 'GMP Certified', 'Authenticity QR Verification']
   },
   {
@@ -598,16 +686,33 @@ export const products: Product[] = [
     ],
     size: '500 gm',
     servingsCount: 72,
-    servingSize: '1 Scoop',
-    description: 'BCAA Blender in Pina Colada — 72 servings per 500 gm tub. Branched-chain amino acids built to hydrate, fuel and recover: hydrate, recover, perform, repeat.',
+    servingSize: '1 Scoop (7g)',
+    description: 'BCAA Blender in Pina Colada — 72 servings per 500 gm tub. Branched-chain amino acids plus glutamine and citrulline built to hydrate, fuel and recover: hydrate, recover, perform, repeat.',
     flavors: ['Pina Colada'],
     features: [
-      'BCAA recovery and hydration formula',
-      '72 servings per 500 gm tub',
-      'Pina Colada flavour',
-      'Hydrate, recover, perform, repeat'
+      '3600mg BCAAs per scoop (1800/900/900)',
+      '900mg L-Glutamine + 500mg Citrulline',
+      'Electrolyte minerals + Vitamin B6',
+      '72 servings per 500 gm tub, zero sugars'
     ],
-    usageDirections: 'Mix 1 scoop with 300-400 ml of cold water during training or throughout the day.',
+    supplementFacts: {
+      headline: 'BCAA Amino-Hydrate Profile (per 7g scoop)',
+      rows: [
+        { label: 'Energy', value: '0 kcal' },
+        { label: 'Carbohydrates', value: '0.24 g' },
+        { label: 'BCAAs (Total)', value: '3600 mg' },
+        { label: 'L-Leucine', value: '1800 mg' },
+        { label: 'L-Isoleucine', value: '900 mg' },
+        { label: 'L-Valine', value: '900 mg' },
+        { label: 'L-Glutamine', value: '900 mg' },
+        { label: 'Citrulline', value: '500 mg' },
+        { label: 'Calcium', value: '37.8 mg' },
+        { label: 'Potassium', value: '108.25 mg' },
+        { label: 'Sodium', value: '115.5 mg' },
+        { label: 'Vitamin B6', value: '0.5 mg' },
+      ],
+    },
+    usageDirections: 'Mix 1 full scoop with 8-10 oz of water. Drink immediately after mixing.',
     certifications: ['Lab Tested', 'GMP Certified', 'Authenticity QR Verification']
   },
   {
@@ -629,15 +734,25 @@ export const products: Product[] = [
       }
     ],
     size: '150 Capsules',
-    servingsCount: 150,
+    servingsCount: 30,
+    servingSize: '5 Capsules',
     description: 'Collagen Peptide formula — 150 capsules per bottle. Supports skin health, helps decrease inflammation, and supports joint, bone and muscle health for athletes who demand longevity.',
     features: [
       'Collagen peptide daily formula',
-      '150 capsules per bottle',
-      'Helps improve skin health',
-      'Supports joints, bones and muscles'
+      '150 capsules per bottle (30 servings)',
+      '2.5g collagen peptides per serving',
+      'Supports skin, joints, bones and muscles'
     ],
-    usageDirections: 'Take the suggested serving with water daily, or as directed on the label.',
+    supplementFacts: {
+      headline: 'Collagen Recovery Panel (per 5-capsule serving)',
+      rows: [
+        { label: 'Calories', value: '10 kcal' },
+        { label: 'Protein', value: '2 g' },
+        { label: 'Collagen Peptide Powder', value: '2.5 g' },
+      ],
+    },
+    ingredients: 'Collagen Powder (99%), Microcrystalline Cellulose, Gelatin (Capsule), Silica, Vegetable Magnesium Stearate.',
+    usageDirections: 'As a dietary supplement, adults take 5 capsules daily with meals or as directed by a healthcare practitioner.',
     certifications: ['Lab Tested', 'GMP Certified', 'Authenticity QR Verification']
   },
   {
@@ -660,15 +775,38 @@ export const products: Product[] = [
       }
     ],
     size: '90 Capsules',
-    servingsCount: 90,
+    servingsCount: 45,
+    servingSize: '2 Capsules',
     description: 'Testo Pro Advanced Testo Booster — 90 capsules per bottle. Built for better muscle mass and increased stamina using safe, tested ingredients for daily male vitality.',
     features: [
       'Advanced daily testo support formula',
-      '90 capsules per bottle',
-      'Supports muscle mass and stamina',
-      'Safe and tested ingredients'
+      '90 capsules per bottle (45 servings)',
+      'Tribulus 250mg + DIM 100mg per serving',
+      'Zinc, magnesium, fenugreek and longjack complex'
     ],
-    usageDirections: 'Take the suggested serving with water daily, or as directed on the label.',
+    supplementFacts: {
+      headline: 'Advanced Male Vitality Panel (per 2-capsule serving)',
+      rows: [
+        { label: 'Vitamin B6', value: '5 mg' },
+        { label: 'Folate', value: '250 mcg DFE' },
+        { label: 'Vitamin B12', value: '25 mcg' },
+        { label: 'Magnesium', value: '225 mg' },
+        { label: 'Zinc', value: '7.5 mg' },
+        { label: 'Selenium', value: '25 mg' },
+        { label: 'Tribulus Terrestris Extract', value: '250 mg' },
+        { label: 'DIM (Diindolylmethane)', value: '100 mg' },
+        { label: 'L-Arginine HCl', value: '75 mg' },
+        { label: 'Avena Sativa', value: '50 mg' },
+        { label: 'Shilajit Extract', value: '50 mg' },
+        { label: 'Fenugreek Seed', value: '50 mg' },
+        { label: 'Longjack Root', value: '50 mg' },
+        { label: 'Epimedium Extract', value: '50 mg' },
+        { label: 'Ginkgo Biloba Leaf', value: '25 mg' },
+        { label: 'Saw Palmetto Berry', value: '25 mg' },
+        { label: 'Cnidium Monnieri', value: '15 mg' },
+      ],
+    },
+    usageDirections: 'Adult men, take 2 capsules every day on a light or empty stomach. Cycle 8 weeks on and 2 weeks off.',
     certifications: ['Lab Tested', 'GMP Certified', 'Authenticity QR Verification']
   },
   {
