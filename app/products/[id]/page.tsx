@@ -28,7 +28,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
       <main className="min-h-screen bg-white text-zinc-900 flex flex-col justify-between">
         <AnnouncementBar />
         <Header />
-        <div className="pt-[152px] sm:pt-[164px] md:pt-[178px] text-center py-24 px-6">
+        <div className="text-center py-16 sm:py-24 px-6">
           <span className="text-red-600 font-display text-xs tracking-widest uppercase font-bold block mb-2">
             CATALOG NOTIFICATION
           </span>
@@ -59,7 +59,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
       <AnnouncementBar />
       <Header />
 
-      <div className="pt-[144px] sm:pt-[156px] md:pt-[170px] max-w-[1440px] mx-auto px-6 pb-24">
+      <div className="pt-6 sm:pt-8 md:pt-10 max-w-[1440px] mx-auto px-4 sm:px-6 pb-24">
         {/* Breadcrumb Navigation */}
         <nav className="text-zinc-500 text-xs uppercase tracking-wider mb-8 font-medium flex items-center flex-wrap gap-2">
           <Link href="/" className="hover:text-zinc-900 transition-colors">Home</Link>
@@ -191,7 +191,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                 </>
               ) : (
                 <span className="text-2xl sm:text-3xl font-display font-bold text-zinc-900 tracking-wide uppercase">
-                  Price on request
+                  PRICE ON REQUEST
                 </span>
               )}
             </div>
@@ -519,7 +519,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                       </div>
                     ) : (
                       <span className="block text-[11px] font-display font-bold uppercase tracking-[0.2em] text-zinc-400 mb-2">
-                        Price on request
+                        PRICE ON REQUEST
                       </span>
                     )}
 

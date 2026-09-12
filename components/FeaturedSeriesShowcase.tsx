@@ -48,7 +48,9 @@ export default function FeaturedSeriesShowcase() {
   }, [])
 
   const scroll = (dir: 'l' | 'r') => {
+    isPausedRef.current = true
     scrollRef.current?.scrollBy({ left: dir === 'l' ? -320 : 320, behavior: 'smooth' })
+    setTimeout(() => { isPausedRef.current = false }, 3000)
   }
 
   return (
@@ -139,10 +141,12 @@ export default function FeaturedSeriesShowcase() {
             {/* Scroll container */}
             <div
               ref={scrollRef}
-              className="flex gap-4 sm:gap-8 overflow-x-auto px-4 sm:px-6 scrollbar-hide"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              className="flex gap-4 sm:gap-8 overflow-x-auto px-4 sm:px-6 scrollbar-hide touch-pan-x overscroll-x-contain"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
               onMouseEnter={() => { isPausedRef.current = true }}
               onMouseLeave={() => { isPausedRef.current = false }}
+              onTouchStart={() => { isPausedRef.current = true }}
+              onTouchEnd={() => { setTimeout(() => { isPausedRef.current = false }, 3000) }}
             >
               {[...products, ...products].map((product, idx) => (
                 <Link
@@ -192,8 +196,8 @@ export default function FeaturedSeriesShowcase() {
                       <p className="font-bold text-sm text-zinc-950 truncate font-sans">
                         {product.name}
                       </p>
-                      <p className="text-xs font-bold text-zinc-900">
-                        {product.price > 0 ? `$${product.price.toFixed(2)}` : 'Price on request'}
+                      <p className="text-xs font-bold text-zinc-900 uppercase tracking-wider">
+                        {product.price > 0 ? `$${product.price.toFixed(2)}` : 'PRICE ON REQUEST'}
                       </p>
                     </div>
 

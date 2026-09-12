@@ -25,7 +25,7 @@ function ProductCard({ product }: { product: Product }) {
   const originalPrice = product.originalPrice || product.salePrice || Math.round(product.price * 1.2)
 
   return (
-    <div className="group flex-shrink-0 w-[280px] md:w-[310px] flex flex-col bg-transparent transition-transform duration-300">
+    <div className="group flex-shrink-0 w-[230px] sm:w-[270px] md:w-[310px] flex flex-col bg-transparent transition-transform duration-300 snap-start">
       {/* Media Container: Clean rounded-2xl with NO outer card border */}
       <Link 
         href={product.href} 
@@ -74,7 +74,7 @@ function ProductCard({ product }: { product: Product }) {
           </div>
         ) : (
           <span className="text-[11px] font-display font-bold uppercase tracking-[0.2em] text-zinc-400 mt-1">
-            Price on request
+            PRICE ON REQUEST
           </span>
         )}
 
@@ -116,20 +116,23 @@ export default function ProductsCarousel({ title, products }: Props) {
 
   const scroll = (dir: 'left' | 'right') => {
     if (!scrollRef.current) return
-    const amount = 320
+    const card = scrollRef.current.querySelector('.group') as HTMLElement | null
+    const cardWidth = card ? card.offsetWidth : 280
+    const gap = window.innerWidth < 640 ? 16 : 24
+    const amount = (cardWidth + gap) * (window.innerWidth < 640 ? 1 : 2)
     scrollRef.current.scrollBy({ left: dir === 'right' ? amount : -amount, behavior: 'smooth' })
   }
 
   return (
-    <section className="py-16 bg-white relative border-t border-zinc-200 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 relative z-10">
+    <section className="py-12 sm:py-16 bg-white relative border-t border-zinc-200 overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 relative z-10">
         {/* Header with Title and Nav Arrows */}
-        <div className="flex items-end justify-between mb-8 pb-4 border-b border-zinc-200">
+        <div className="flex items-end justify-between mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-zinc-200">
           <div>
             <span className="text-[#E50914] font-display text-xs tracking-[0.25em] uppercase font-bold block mb-1">
               THE ARSENAL
             </span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold tracking-wider uppercase text-zinc-900">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold tracking-wider uppercase text-zinc-900">
               {title || 'FEATURED ARSENAL'}
             </h2>
           </div>
@@ -138,7 +141,7 @@ export default function ProductsCarousel({ title, products }: Props) {
             <button
               onClick={() => scroll('left')}
               aria-label="Previous products"
-              className="w-10 h-10 rounded-sm bg-white border border-zinc-300 text-zinc-800 hover:border-[#E50914] hover:text-[#E50914] hover:bg-zinc-50 transition-all duration-200 flex items-center justify-center shadow-sm"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-sm bg-white border border-zinc-300 text-zinc-800 hover:border-[#E50914] hover:text-[#E50914] hover:bg-zinc-50 active:scale-95 transition-all flex items-center justify-center shadow-sm"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
@@ -147,7 +150,7 @@ export default function ProductsCarousel({ title, products }: Props) {
             <button
               onClick={() => scroll('right')}
               aria-label="Next products"
-              className="w-10 h-10 rounded-sm bg-white border border-zinc-300 text-zinc-800 hover:border-[#E50914] hover:text-[#E50914] hover:bg-zinc-50 transition-all duration-200 flex items-center justify-center shadow-sm"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-sm bg-white border border-zinc-300 text-zinc-800 hover:border-[#E50914] hover:text-[#E50914] hover:bg-zinc-50 active:scale-95 transition-all flex items-center justify-center shadow-sm"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
@@ -166,8 +169,8 @@ export default function ProductsCarousel({ title, products }: Props) {
         ) : (
           <div
             ref={scrollRef}
-            className="flex gap-8 overflow-x-auto scrollbar-hide pb-4 pt-1"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            className="flex gap-4 sm:gap-6 md:gap-8 overflow-x-auto scrollbar-hide pb-4 pt-1 snap-x snap-mandatory touch-pan-x overscroll-x-contain"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
           >
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />

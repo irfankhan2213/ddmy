@@ -21,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -28,6 +29,21 @@ body {
   color: #fff;
   font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Mobile Touch & Momentum Scroll Optimization */
+.scroll-touch {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.touch-pan-x {
+  touch-action: pan-x;
+}
+
+.overscroll-x-contain {
+  overscroll-behavior-x: contain;
 }
 
 /* Typography Helpers */
@@ -46,6 +62,8 @@ body {
   animation: ticker 22s linear infinite;
   display: flex;
   width: max-content;
+  will-change: transform;
+  user-select: none;
 }
 
 .ticker-track:hover {
@@ -62,6 +80,8 @@ body {
   animation: badgeTicker 25s linear infinite;
   display: flex;
   width: max-content;
+  will-change: transform;
+  user-select: none;
 }
 
 /* Hero slider */

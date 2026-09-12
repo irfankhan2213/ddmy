@@ -52,7 +52,7 @@ export default function CollectionPage({ params }: { params: { id: string } }) {
       <AnnouncementBar />
       <Header />
 
-      <div className="pt-[140px] sm:pt-[152px] md:pt-[168px] max-w-[1400px] mx-auto px-6 pb-20">
+      <div className="pt-6 sm:pt-8 md:pt-10 max-w-[1400px] mx-auto px-4 sm:px-6 pb-20">
         {/* Breadcrumb / Title */}
         <div className="mb-10">
           <div className="text-zinc-500 text-xs uppercase tracking-wider mb-2">
@@ -83,22 +83,24 @@ export default function CollectionPage({ params }: { params: { id: string } }) {
                 </label>
               </div>
 
-              {/* Price Range Filter */}
-              <div className="mb-6 border-t border-zinc-200 pt-6">
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-sm font-display font-bold uppercase tracking-wider text-zinc-900">Max Price</span>
-                  <span className="text-sm font-bold text-[#E50914]">${maxPrice}</span>
+              {/* Price Range Filter (only shown if products have priced amounts) */}
+              {maxAvailablePrice > 0 && (
+                <div className="mb-6 border-t border-zinc-200 pt-6">
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="text-sm font-display font-bold uppercase tracking-wider text-zinc-900">Max Price</span>
+                    <span className="text-sm font-bold text-[#E50914]">${maxPrice}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max={maxAvailablePrice}
+                    step="1"
+                    value={maxPrice}
+                    onChange={(e) => setMaxPrice(Number(e.target.value))}
+                    className="w-full accent-[#E50914] bg-zinc-200"
+                  />
                 </div>
-                <input
-                  type="range"
-                  min="0"
-                  max={maxAvailablePrice}
-                  step="1"
-                  value={maxPrice}
-                  onChange={(e) => setMaxPrice(Number(e.target.value))}
-                  className="w-full accent-[#E50914] bg-zinc-200"
-                />
-              </div>
+              )}
 
               {/* Sort By Dropdown */}
               <div className="border-t border-zinc-200 pt-6">
@@ -111,8 +113,12 @@ export default function CollectionPage({ params }: { params: { id: string } }) {
                   className="w-full bg-white border border-zinc-200 text-zinc-800 rounded px-3 py-2 text-sm outline-none focus:border-[#E50914]"
                 >
                   <option value="best-selling">Best selling</option>
-                  <option value="price-low-high">Price, low to high</option>
-                  <option value="price-high-low">Price, high to low</option>
+                  {maxAvailablePrice > 0 && (
+                    <>
+                      <option value="price-low-high">Price, low to high</option>
+                      <option value="price-high-low">Price, high to low</option>
+                    </>
+                  )}
                   <option value="alphabetical-az">Alphabetically, A-Z</option>
                 </select>
               </div>
@@ -173,7 +179,7 @@ export default function CollectionPage({ params }: { params: { id: string } }) {
                         </div>
                       ) : (
                         <span className="block text-[11px] font-display font-bold uppercase tracking-[0.2em] text-zinc-400 mb-2">
-                          Price on request
+                          PRICE ON REQUEST
                         </span>
                       )}
 
