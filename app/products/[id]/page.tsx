@@ -175,7 +175,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* ── LEFT: INTERACTIVE IMAGE GALLERY (6 COLS) ── */}
-          <div className="lg:col-span-6 relative sticky top-28">
+          <div className="lg:col-span-6 relative lg:sticky lg:top-28">
             {/* Primary Main Image Frame */}
             <div className="relative w-full aspect-square bg-[#f5f5f7] rounded-2xl overflow-hidden border border-zinc-200/80 p-8 shadow-sm flex flex-col items-center justify-center">
               {product.badge && (
@@ -569,7 +569,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
               {relatedProducts.map((item) => (
                 <div key={item.id} className="group flex flex-col items-center">
                   {/* Image Card */}
