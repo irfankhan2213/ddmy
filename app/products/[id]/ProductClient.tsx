@@ -140,7 +140,7 @@ export default function ProductClient({ productId }: { productId: string }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* ── LEFT: INTERACTIVE IMAGE GALLERY (6 COLS) ── */}
-          <div className="lg:col-span-6 relative lg:sticky lg:top-28">
+          <div className="lg:col-span-6 relative">
             {/* Primary Main Image Frame */}
             <div className="relative w-full aspect-square bg-[#f5f5f7] rounded-2xl overflow-hidden border border-zinc-200/80 p-8 shadow-sm flex flex-col items-center justify-center">
               {product.badge && (

@@ -157,7 +157,7 @@ function SearchContent() {
         <span className="text-[#E50914] font-display text-xs tracking-[0.25em] uppercase font-bold block mb-2">
           LABORATORY CATALOG SEARCH
         </span>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-wider text-zinc-900 mb-6">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-wider text-zinc-900 mb-6 break-words">
           {initialQuery ? `RESULTS FOR: "${initialQuery}"` : 'SEARCH THE ARSENAL'}
         </h1>
 
@@ -185,9 +185,9 @@ function SearchContent() {
       </div>
 
       {/* Filters and Controls */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-zinc-200 mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-zinc-200 mb-8 min-w-0">
         {/* Category Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scroll-touch">
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scroll-touch w-full sm:w-auto flex-nowrap" style={{ WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none' }}>
           {categories.map((cat) => (
             <button
               key={cat}
