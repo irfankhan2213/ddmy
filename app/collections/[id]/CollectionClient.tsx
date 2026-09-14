@@ -125,9 +125,9 @@ export default function CollectionClient({
           ) : (
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
               {processedProducts.map((product) => (
-                <div key={product.id} className="group flex flex-col items-center">
+                <div key={product.id} className="group flex flex-col items-center min-w-0">
                   {/* Image Area - Borderless with rounded corners & Sale badge */}
-                  <Link href={`/products/${product.id}`} className="relative w-full aspect-square bg-black rounded-2xl overflow-hidden block mb-3.5 group-hover:shadow-md transition-all duration-300">
+                  <Link href={`/products/${product.id}`} className="relative w-full aspect-square bg-black rounded-2xl overflow-hidden block mb-3.5 group-hover:shadow-md transition-all duration-300 min-w-0">
                     {product.price > 0 && (
                       <span className="absolute top-3.5 right-3.5 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full z-10 tracking-tight">
                         Sale!
@@ -144,9 +144,9 @@ export default function CollectionClient({
                   </Link>
 
                   {/* Centered Product Details */}
-                  <div className="text-center w-full px-2">
-                    <Link href={`/products/${product.id}`} className="block">
-                      <h3 className="font-sans font-bold text-zinc-900 text-base sm:text-lg hover:text-[#E50914] transition-colors truncate">
+                  <div className="text-center w-full px-2 min-w-0">
+                    <Link href={`/products/${product.id}`} className="block w-full min-w-0">
+                      <h3 className="font-sans font-bold text-zinc-900 text-base sm:text-lg hover:text-[#E50914] transition-colors truncate w-full">
                         {product.name}
                       </h3>
                     </Link>

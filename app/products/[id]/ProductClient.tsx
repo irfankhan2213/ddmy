@@ -536,11 +536,11 @@ export default function ProductClient({ productId }: { productId: string }) {
 
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
               {relatedProducts.map((item) => (
-                <div key={item.id} className="group flex flex-col items-center">
+                <div key={item.id} className="group flex flex-col items-center min-w-0">
                   {/* Image Card */}
                   <Link 
                     href={`/products/${item.id}`} 
-                    className="relative w-full aspect-square bg-black rounded-2xl overflow-hidden block mb-4 group-hover:shadow-md transition-all duration-300"
+                    className="relative w-full aspect-square bg-black rounded-2xl overflow-hidden block mb-4 group-hover:shadow-md transition-all duration-300 min-w-0"
                   >
                     {item.badge && (
                       <span className="absolute top-3.5 right-3.5 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full z-10 tracking-tight">
@@ -558,9 +558,9 @@ export default function ProductClient({ productId }: { productId: string }) {
                   </Link>
 
                   {/* Details */}
-                  <div className="text-center w-full px-2">
-                    <Link href={`/products/${item.id}`} className="block">
-                      <h4 className="font-sans font-bold text-zinc-950 text-base hover:text-[#E50914] transition-colors truncate">
+                  <div className="text-center w-full px-2 min-w-0">
+                    <Link href={`/products/${item.id}`} className="block min-w-0">
+                      <h4 className="font-sans font-bold text-zinc-950 text-base hover:text-[#E50914] transition-colors truncate w-full">
                         {item.name}
                       </h4>
                     </Link>

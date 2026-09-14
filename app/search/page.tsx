@@ -29,10 +29,10 @@ function ProductGridCard({ product }: { product: Product }) {
   const originalPrice = product.originalPrice || (product.price > 0 ? Math.round(product.price * 1.2) : 0)
 
   return (
-    <div className="group flex flex-col bg-transparent transition-transform duration-300">
+    <div className="group flex flex-col bg-transparent transition-transform duration-300 min-w-0">
       <Link
         href={product.href}
-        className="block relative w-full aspect-square rounded-2xl overflow-hidden bg-black transition-all duration-300 group-hover:shadow-lg"
+        className="block relative w-full aspect-square rounded-2xl overflow-hidden bg-black transition-all duration-300 group-hover:shadow-lg min-w-0"
       >
         <Image
           src={optimizeCloudinaryUrl(product.image, { width: 500 })}
@@ -49,14 +49,14 @@ function ProductGridCard({ product }: { product: Product }) {
         )}
       </Link>
 
-      <div className="pt-4 flex flex-col items-center text-center">
-        <Link href={product.href} className="block group-hover:text-[#E50914] transition-colors">
-          <h3 className="text-zinc-900 font-bold text-base md:text-lg tracking-normal leading-snug line-clamp-1">
+      <div className="pt-4 flex flex-col items-center text-center min-w-0 w-full px-1">
+        <Link href={product.href} className="block group-hover:text-[#E50914] transition-colors w-full min-w-0">
+          <h3 className="text-zinc-900 font-bold text-sm sm:text-base md:text-lg tracking-normal leading-snug truncate w-full">
             {product.name}
           </h3>
         </Link>
 
-        <span className="text-[10px] font-display font-bold uppercase tracking-widest text-[#E50914] mt-0.5">
+        <span className="text-[9px] sm:text-[10px] font-display font-bold uppercase tracking-widest text-[#E50914] mt-0.5 truncate w-full">
           {product.category}
         </span>
 
@@ -153,31 +153,31 @@ function SearchContent() {
       </div>
 
       {/* Header & Search Input Box */}
-      <div className="max-w-2xl mx-auto text-center mb-10">
+      <div className="max-w-2xl mx-auto text-center mb-10 w-full min-w-0">
         <span className="text-[#E50914] font-display text-xs tracking-[0.25em] uppercase font-bold block mb-2">
           LABORATORY CATALOG SEARCH
         </span>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-wider text-zinc-900 mb-6 break-words">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-wider text-zinc-900 mb-6 break-words max-w-full">
           {initialQuery ? `RESULTS FOR: "${initialQuery}"` : 'SEARCH THE ARSENAL'}
         </h1>
 
-        <form onSubmit={handleSearch} className="relative flex items-center w-full max-w-full">
+        <form onSubmit={handleSearch} className="relative flex items-center w-full min-w-0">
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search by ingredient, formula, or goal..."
-            className="w-full bg-zinc-100 text-zinc-900 placeholder-zinc-400 pl-12 pr-28 py-3.5 sm:py-4 rounded-full outline-none border border-zinc-300 focus:border-[#E50914] focus:bg-white transition-all text-sm sm:text-base shadow-sm"
+            placeholder="Search by ingredient, formula..."
+            className="w-full bg-zinc-100 text-zinc-900 placeholder-zinc-400 pl-10 sm:pl-12 pr-24 sm:pr-28 py-3 sm:py-4 rounded-full outline-none border border-zinc-300 focus:border-[#E50914] focus:bg-white transition-all text-sm sm:text-base shadow-sm min-w-0"
           />
-          <div className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-zinc-400">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <circle cx="11" cy="11" r="8" strokeWidth={2}></circle>
               <line x1="16.5" y1="16.5" x2="22" y2="22" strokeWidth={2}></line>
             </svg>
           </div>
           <button
             type="submit"
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E50914] hover:bg-black text-white px-5 py-2.5 rounded-full font-display text-xs tracking-wider uppercase transition-colors"
+            className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-[#E50914] hover:bg-black text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-full font-display text-[10px] sm:text-xs tracking-wider uppercase transition-colors shrink-0"
           >
             Search
           </button>
