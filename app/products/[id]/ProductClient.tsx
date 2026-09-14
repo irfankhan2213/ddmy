@@ -551,8 +551,8 @@ export default function ProductClient({ productId }: { productId: string }) {
                       src={optimizeCloudinaryUrl(item.image, { width: 500 })}
                       alt={item.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-contain group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       unoptimized={true}
                     />
                   </Link>

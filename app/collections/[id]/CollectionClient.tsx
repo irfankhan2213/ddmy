@@ -134,11 +134,11 @@ export default function CollectionClient({
                       </span>
                     )}
                     <Image
-                      src={optimizeCloudinaryUrl(product.image, { width: 600 })}
+                      src={optimizeCloudinaryUrl(product.image, { width: 500 })}
                       alt={product.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-contain group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       unoptimized={true}
                     />
                   </Link>
