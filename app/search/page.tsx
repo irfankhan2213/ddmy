@@ -81,7 +81,7 @@ function ProductGridCard({ product }: { product: Product }) {
 
         <Link
           href={product.href}
-          className="mt-3 w-full text-center bg-zinc-900 hover:bg-[#E50914] text-white font-display text-[9px] sm:text-xs tracking-widest uppercase py-2.5 px-2 rounded transition-colors truncate"
+          className="mt-3 w-full text-center bg-zinc-900 hover:bg-[#E50914] text-white font-display text-[10px] sm:text-xs tracking-widest uppercase py-2.5 rounded transition-colors"
         >
           View Formulation
         </Link>
@@ -273,7 +273,7 @@ function SearchContent() {
 
 export default function SearchPage() {
   return (
-    <main className="min-h-screen bg-white text-zinc-900 flex flex-col justify-between overflow-x-hidden w-full max-w-[100vw]">
+    <main className="min-h-screen bg-white text-zinc-900 flex flex-col justify-between overflow-x-hidden">
       <AnnouncementBar />
       <Header />
       <Suspense
