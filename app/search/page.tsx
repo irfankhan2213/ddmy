@@ -161,7 +161,7 @@ function SearchContent() {
           {initialQuery ? `RESULTS FOR: "${initialQuery}"` : 'SEARCH THE ARSENAL'}
         </h1>
 
-        <form onSubmit={handleSearch} className="relative flex items-center">
+        <form onSubmit={handleSearch} className="relative flex items-center w-full max-w-full">
           <input
             type="text"
             value={query}
@@ -169,7 +169,7 @@ function SearchContent() {
             placeholder="Search by ingredient, formula, or goal..."
             className="w-full bg-zinc-100 text-zinc-900 placeholder-zinc-400 pl-12 pr-28 py-3.5 sm:py-4 rounded-full outline-none border border-zinc-300 focus:border-[#E50914] focus:bg-white transition-all text-sm sm:text-base shadow-sm"
           />
-          <div className="absolute left-4.5 top-1/2 -translate-y-1/2 text-zinc-400">
+          <div className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <circle cx="11" cy="11" r="8" strokeWidth={2}></circle>
               <line x1="16.5" y1="16.5" x2="22" y2="22" strokeWidth={2}></line>
@@ -185,9 +185,9 @@ function SearchContent() {
       </div>
 
       {/* Filters and Controls */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-zinc-200 mb-8 min-w-0">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-zinc-200 mb-8 w-full max-w-full overflow-hidden">
         {/* Category Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scroll-touch w-full sm:w-auto flex-nowrap" style={{ WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none' }}>
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scroll-touch w-full flex-nowrap" style={{ WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {categories.map((cat) => (
             <button
               key={cat}
