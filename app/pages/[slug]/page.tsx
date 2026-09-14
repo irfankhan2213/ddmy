@@ -1,5 +1,4 @@
-'use client'
-import { useMemo } from 'react'
+import { Metadata } from 'next'
 import AnnouncementBar from '@/components/AnnouncementBar'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -29,15 +28,36 @@ const pagesContent: Record<string, {
   },
 }
 
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const page = pagesContent[params.slug]
+  if (!page) return {}
+
+  const url = `https://thepsychonutrition.com/pages/${params.slug}`
+
+  return {
+    title: `${page.title} | Psycho Nutrition`,
+    description: `Read our ${page.title} to learn more about Psycho Nutrition.`,
+    openGraph: {
+      title: `${page.title} | Psycho Nutrition`,
+      description: `Read our ${page.title} to learn more about Psycho Nutrition.`,
+      url,
+      type: 'website',
+    },
+    alternates: {
+      canonical: url,
+    }
+  }
+}
+
 export default function InfoPage({ params }: { params: { slug: string } }) {
-  const page = useMemo(() => pagesContent[params.slug], [params.slug])
+  const page = pagesContent[params.slug]
 
   if (!page) {
     return (
       <main className="min-h-screen bg-black text-white flex flex-col justify-between">
         <AnnouncementBar />
         <Header />
-        <div className="pt-[152px] sm:pt-[164px] md:pt-[178px] text-center py-20">
+        <div className="text-center py-16 sm:py-24">
           <h1 className="text-3xl font-black uppercase">Page Not Found</h1>
           <p className="text-zinc-500 mt-2">The page you are looking for does not exist.</p>
           <Link href="/" className="mt-6 inline-block bg-white text-black px-6 py-3 font-bold rounded">
@@ -54,7 +74,7 @@ export default function InfoPage({ params }: { params: { slug: string } }) {
       <AnnouncementBar />
       <Header />
 
-      <div className="pt-[140px] sm:pt-[152px] md:pt-[168px] max-w-[800px] mx-auto px-6 pb-20">
+      <div className="pt-6 sm:pt-8 md:pt-10 max-w-[800px] mx-auto px-4 sm:px-6 pb-20">
         {/* Breadcrumbs */}
         <div className="text-zinc-500 text-xs uppercase tracking-wider mb-8">
           <Link href="/" className="hover:text-white transition-colors">Home</Link> /{' '}

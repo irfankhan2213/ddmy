@@ -7,20 +7,20 @@ export default function Footer() {
     <footer className="bg-white text-zinc-900 border-t border-zinc-200 py-8 sm:py-16 px-4 sm:px-6">
       <div className="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10">
         {/* Column 1: Logo */}
-        <div className="flex flex-col gap-3 sm:gap-4 col-span-2 md:col-span-1">
-          <Link href="/" className="inline-flex flex-col leading-none group mb-2">
+        <div className="flex flex-col items-start text-left gap-3 sm:gap-4 col-span-2 md:col-span-1">
+          <Link href="/" className="inline-flex flex-col items-start leading-none group mb-2 text-left">
             <Image
               src="/images/logo.png"
               alt="Psycho Nutrition"
-              width={160}
+              width={170}
               height={60}
-              className="h-9 md:h-11 w-auto object-contain mb-2 brightness-0"
+              className="h-9 sm:h-10 md:h-12 w-auto object-contain mb-2 brightness-0"
             />
-            <span className="text-[#E50914] text-[10px] font-display font-bold tracking-[0.3em] uppercase mt-1">
+            <span className="text-[#E50914] text-[10px] sm:text-xs font-display font-bold tracking-[0.3em] uppercase mt-1 text-left">
               Pure Performance • Las Vegas, NV
             </span>
           </Link>
-          <p className="text-zinc-500 text-xs max-w-xs leading-relaxed">
+          <p className="text-zinc-500 text-xs max-w-xs leading-relaxed text-left">
             Engineered sports nutrition crafted for athletes who demand clinical purity, transparent dosing, and uncompromising performance.
           </p>
         </div>

@@ -13,8 +13,38 @@ import Footer from '@/components/Footer'
 import { bestSellers } from '@/data/products'
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Psycho Nutrition",
+        "url": "https://thepsychonutrition.com",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://thepsychonutrition.com/collections/shop-all?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "name": "Psycho Nutrition",
+        "url": "https://thepsychonutrition.com",
+        "logo": "https://thepsychonutrition.com/images/logo.png",
+        "sameAs": [
+          "https://www.instagram.com/psychonutrition",
+          "https://www.facebook.com/psychonutrition"
+        ]
+      }
+    ]
+  };
+
   return (
     <main className="min-h-screen bg-black text-zinc-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ======================================= */}
       {/* BLOCK 1: THE INTRODUCTION              */}
       {/* ======================================= */}

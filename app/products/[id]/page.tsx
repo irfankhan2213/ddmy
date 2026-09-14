@@ -7,6 +7,40 @@ import { products, Product } from '@/data/products'
 import Link from 'next/link'
 import Image from 'next/image'
 import { optimizeCloudinaryUrl } from '@/lib/cloudinary'
+import { Metadata } from 'next'
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const product = products.find(p => p.id === params.id)
+  if (!product) return {}
+
+  const url = `https://thepsychonutrition.com/products/${product.id}`
+
+  return {
+    title: product.name,
+    description: product.description,
+    openGraph: {
+      title: `${product.name} | Psycho Nutrition`,
+      description: product.description,
+      url,
+      images: [
+        {
+          url: product.image,
+          alt: product.name,
+        }
+      ],
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: product.name,
+      description: product.description,
+      images: [product.image],
+    },
+    alternates: {
+      canonical: url,
+    }
+  }
+}
 
 export default function ProductDetailPage({ params }: { params: { id: string } }) {
   const productId = params.id
@@ -28,7 +62,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
       <main className="min-h-screen bg-white text-zinc-900 flex flex-col justify-between">
         <AnnouncementBar />
         <Header />
-        <div className="pt-[152px] sm:pt-[164px] md:pt-[178px] text-center py-24 px-6">
+        <div className="text-center py-16 sm:py-24 px-6">
           <span className="text-red-600 font-display text-xs tracking-widest uppercase font-bold block mb-2">
             CATALOG NOTIFICATION
           </span>
@@ -54,12 +88,76 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
   const relatedProducts = products.filter(p => p.id !== product.id).slice(0, 3)
   const activeImage = galleryImages[activeImageIndex] || galleryImages[0]
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "image": product.image,
+    "description": product.description,
+    "brand": {
+      "@type": "Brand",
+      "name": "Psycho Nutrition"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": `https://thepsychonutrition.com/products/${product.id}`,
+      "priceCurrency": "USD",
+      "price": product.price > 0 ? product.price : 0,
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": product.reviewCount || 1
+    }
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://thepsychonutrition.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Arsenal",
+        "item": "https://thepsychonutrition.com/collections/shop-all"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": product.category,
+        "item": `https://thepsychonutrition.com/collections/${product.category.toLowerCase().replace(/\s+/g, '-')}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": product.name,
+        "item": `https://thepsychonutrition.com/products/${product.id}`
+      }
+    ]
+  };
+
   return (
     <main className="min-h-screen bg-white text-zinc-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <AnnouncementBar />
       <Header />
 
-      <div className="pt-[144px] sm:pt-[156px] md:pt-[170px] max-w-[1440px] mx-auto px-6 pb-24">
+      <div className="pt-6 sm:pt-8 md:pt-10 max-w-[1440px] mx-auto px-4 sm:px-6 pb-24">
         {/* Breadcrumb Navigation */}
         <nav className="text-zinc-500 text-xs uppercase tracking-wider mb-8 font-medium flex items-center flex-wrap gap-2">
           <Link href="/" className="hover:text-zinc-900 transition-colors">Home</Link>
@@ -191,7 +289,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                 </>
               ) : (
                 <span className="text-2xl sm:text-3xl font-display font-bold text-zinc-900 tracking-wide uppercase">
-                  Price on request
+                  PRICE ON REQUEST
                 </span>
               )}
             </div>
@@ -519,7 +617,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                       </div>
                     ) : (
                       <span className="block text-[11px] font-display font-bold uppercase tracking-[0.2em] text-zinc-400 mb-2">
-                        Price on request
+                        PRICE ON REQUEST
                       </span>
                     )}
 

@@ -63,8 +63,8 @@ export default function CategoryGrid() {
         >
           {/* Single swipe carousel on mobile (all collections), 3+2 grid on desktop */}
           <div
-            className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 sm:gap-6 md:grid md:grid-cols-6 md:overflow-visible md:pb-0 no-scrollbar"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 sm:gap-6 md:grid md:grid-cols-6 md:overflow-visible md:pb-0 no-scrollbar touch-pan-x overscroll-x-contain"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
           >
             {cards.map((cat, i) => (
               <motion.div

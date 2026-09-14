@@ -16,9 +16,37 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Psycho Nutrition – Elite Sports Supplements',
+  metadataBase: new URL('https://thepsychonutrition.com'),
+  title: {
+    default: 'Psycho Nutrition – Elite Sports Supplements',
+    template: '%s | Psycho Nutrition'
+  },
   description: 'Premium sports nutrition supplements by Psycho Nutrition. Pre-workouts, whey protein, mass gainers, vitamins & more. Lab tested, pure quality.',
-  keywords: 'Psycho Nutrition, psychonutrition, whey protein isolate, mass gainer, pre workout, creatine, sports supplements',
+  keywords: ['Psycho Nutrition', 'psychonutrition', 'whey protein isolate', 'mass gainer', 'pre workout', 'creatine', 'sports supplements'],
+  authors: [{ name: 'Psycho Nutrition' }],
+  creator: 'Psycho Nutrition',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://thepsychonutrition.com',
+    title: 'Psycho Nutrition – Elite Sports Supplements',
+    description: 'Premium sports nutrition supplements by Psycho Nutrition. Pre-workouts, whey protein, mass gainers, vitamins & more. Lab tested, pure quality.',
+    siteName: 'Psycho Nutrition',
+    images: [
+      {
+        url: '/images/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Psycho Nutrition',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Psycho Nutrition – Elite Sports Supplements',
+    description: 'Premium sports nutrition supplements by Psycho Nutrition. Pre-workouts, whey protein, mass gainers, vitamins & more. Lab tested, pure quality.',
+    images: ['/images/logo.png'],
+  },
   icons: {
     icon: '/images/logo.png',
     apple: '/images/logo.png',
