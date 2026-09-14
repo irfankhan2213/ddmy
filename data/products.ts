@@ -472,11 +472,11 @@ export const products: Product[] = [
     category: 'Performance',
     href: '/products/psycho-l-citrulline-powder-100g',
     accent: '#E50914',
-    image: '/images/products/psycho_l_citrulline_powder_hero.jpg',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1789389532/psycho_nutrition/psycho_l_citrulline_powder_hero.jpg',
     gallery: [
       {
         view: 'Front Hero View',
-        url: '/images/products/psycho_l_citrulline_powder_hero.jpg',
+        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1789389532/psycho_nutrition/psycho_l_citrulline_powder_hero.jpg',
         altText: 'Psycho Nutrition L-Citrulline powder front view'
       }
     ],
@@ -511,11 +511,11 @@ export const products: Product[] = [
     category: 'Performance',
     href: '/products/psycho-l-citrulline-capsules-60',
     accent: '#E50914',
-    image: '/images/products/psycho_l_citrulline_capsules_hero.jpg',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1789389530/psycho_nutrition/psycho_l_citrulline_capsules_hero.jpg',
     gallery: [
       {
         view: 'Front Hero View',
-        url: '/images/products/psycho_l_citrulline_capsules_hero.jpg',
+        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1789389530/psycho_nutrition/psycho_l_citrulline_capsules_hero.jpg',
         altText: 'Psycho Nutrition L-Citrulline 60 capsules front view'
       }
     ],
@@ -550,11 +550,11 @@ export const products: Product[] = [
     category: 'Performance',
     href: '/products/psycho-l-arginine-powder-100g',
     accent: '#E50914',
-    image: '/images/products/psycho_l_arginine_powder_hero.jpg',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1789389528/psycho_nutrition/psycho_l_arginine_powder_hero.jpg',
     gallery: [
       {
         view: 'Front Hero View',
-        url: '/images/products/psycho_l_arginine_powder_hero.jpg',
+        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1789389528/psycho_nutrition/psycho_l_arginine_powder_hero.jpg',
         altText: 'Psycho Nutrition L-Arginine powder front view'
       }
     ],
@@ -748,11 +748,11 @@ export const products: Product[] = [
     category: 'Recovery',
     href: '/products/psycho-collagen-peptide-powder',
     accent: '#E50914',
-    image: '/images/products/psycho_collagen_peptide_powder_hero.jpg',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1789389526/psycho_nutrition/psycho_collagen_peptide_powder_hero.jpg',
     gallery: [
       {
         view: 'Front Hero View',
-        url: '/images/products/psycho_collagen_peptide_powder_hero.jpg',
+        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1789389526/psycho_nutrition/psycho_collagen_peptide_powder_hero.jpg',
         altText: 'Psycho Nutrition Collagen peptide powder front view'
       }
     ],
