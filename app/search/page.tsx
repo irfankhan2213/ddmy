@@ -32,14 +32,14 @@ function ProductGridCard({ product }: { product: Product }) {
     <div className="group flex flex-col bg-transparent transition-transform duration-300 min-w-0">
       <Link
         href={product.href}
-        className="block relative w-full aspect-square rounded-2xl overflow-hidden bg-black transition-all duration-300 group-hover:shadow-lg min-w-0"
+        className="block relative w-full aspect-square rounded-2xl overflow-hidden bg-black transition-all duration-300 md:group-hover:shadow-lg min-w-0"
       >
         <Image
           src={optimizeCloudinaryUrl(product.image, { width: 500 })}
           alt={product.name}
           fill
-          className="object-contain transition-transform duration-500 group-hover:scale-105"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          className="object-contain transition-transform duration-500 md:group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 25vw"
           unoptimized={true}
         />
         {product.price > 0 && (
@@ -223,7 +223,7 @@ function SearchContent() {
 
       {/* Products Grid */}
       {filteredProducts.length > 0 ? (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
           {filteredProducts.map((product) => (
             <ProductGridCard key={product.id} product={product} />
           ))}

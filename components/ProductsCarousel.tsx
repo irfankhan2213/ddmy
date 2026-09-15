@@ -35,7 +35,7 @@ function ProductCard({ product }: { product: Product }) {
           src={optimizeCloudinaryUrl(product.image, { width: 500 })}
           alt={product.name}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover transition-transform duration-500 md:group-hover:scale-105"
           sizes="(max-width: 768px) 280px, 310px"
           unoptimized={true}
         />
@@ -90,7 +90,7 @@ function ProductCard({ product }: { product: Product }) {
               <div className="relative w-full h-full rounded-full overflow-hidden bg-zinc-900">
                 <Image
                   src={optimizeCloudinaryUrl(thumb.url || product.image, { width: 80 })}
-                  alt="thumbnail preview"
+                  alt={`${product.name} thumbnail preview`}
                   fill
                   className="object-cover"
                   sizes="28px"

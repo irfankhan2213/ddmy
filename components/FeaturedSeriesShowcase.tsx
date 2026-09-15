@@ -163,7 +163,7 @@ export default function FeaturedSeriesShowcase() {
                       src={optimizeCloudinaryUrl(product.image, { width: 600 })}
                       alt={product.name}
                       fill
-                      className="object-contain p-6 group-hover:scale-105 transition-transform duration-700 ease-out"
+                      className="object-contain p-6 md:group-hover:scale-105 transition-transform duration-700 ease-out"
                       sizes="(max-width: 640px) 60vw, 380px"
                       unoptimized={true}
                     />

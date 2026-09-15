@@ -105,7 +105,7 @@ export default function ProductBanners() {
             </div>
 
             {/* Floating Product Bottle in center */}
-            <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none transition-transform duration-500 group-hover:scale-105">
+            <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none transition-transform duration-500 md:group-hover:scale-105">
               <div className="relative w-[120px] h-[160px] sm:w-[150px] sm:h-[200px] md:w-[180px] md:h-[240px] mt-6 sm:mt-10 flex items-center justify-center">
                 <div className="relative w-full h-full">
                   <Image

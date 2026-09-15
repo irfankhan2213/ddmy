@@ -190,7 +190,7 @@ export default function BestSellerFeature() {
                 <div className="inline-flex items-center justify-center w-8 h-8 bg-[#E50914] text-white rounded-full font-display font-bold text-sm mb-3 shadow-[0_0_15px_rgba(229,9,20,0.6)]">
                   {f.id}
                 </div>
-                <h3 className="text-white font-display text-lg sm:text-xl mb-1.5 sm:mb-2 tracking-wide uppercase">{f.title}</h3>
+                <div className="text-white font-display text-lg sm:text-xl mb-1.5 sm:mb-2 tracking-wide uppercase font-bold">{f.title}</div>
                 <div className="space-y-1.5 text-zinc-400 text-xs font-medium">
                   {f.bullets.map((b, i) => (
                     <div key={i}>{b}</div>

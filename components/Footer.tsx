@@ -27,7 +27,7 @@ export default function Footer() {
 
         {/* Column 2: Quick Links */}
         <div>
-          <h4 className="font-display font-bold text-sm sm:text-base uppercase tracking-wider text-zinc-900 mb-3 sm:mb-5">Quick Links</h4>
+          <h2 className="font-display font-bold text-sm sm:text-base uppercase tracking-wider text-zinc-900 mb-3 sm:mb-5">Quick Links</h2>
           <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-zinc-600">
             <li>
               <Link href="/collections/shop-all" className="hover:text-[#E50914] transition-colors">
@@ -59,7 +59,7 @@ export default function Footer() {
 
         {/* Column 3: Categories */}
         <div>
-          <h4 className="font-display font-bold text-sm sm:text-base uppercase tracking-wider text-zinc-900 mb-3 sm:mb-5">Formulations</h4>
+          <h2 className="font-display font-bold text-sm sm:text-base uppercase tracking-wider text-zinc-900 mb-3 sm:mb-5">Formulations</h2>
           <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-zinc-600">
             <li>
               <Link href="/collections/pre-workout" className="hover:text-[#E50914] transition-colors">
@@ -91,7 +91,7 @@ export default function Footer() {
 
         {/* Column 4: Contact & Athlete Support */}
         <div className="col-span-2 md:col-span-1">
-          <h4 className="font-display font-bold text-sm sm:text-base uppercase tracking-wider text-zinc-900 mb-3 sm:mb-5">Athlete Support</h4>
+          <h2 className="font-display font-bold text-sm sm:text-base uppercase tracking-wider text-zinc-900 mb-3 sm:mb-5">Athlete Support</h2>
           <ul className="space-y-3 text-sm text-zinc-600">
             <li className="flex items-start gap-2.5">
               <div className="w-7 h-7 rounded-sm bg-red-50 text-[#E50914] flex items-center justify-center flex-shrink-0 mt-0.5">

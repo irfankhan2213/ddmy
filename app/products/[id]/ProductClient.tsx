@@ -7,6 +7,7 @@ import { products, Product } from '@/data/products'
 import Link from 'next/link'
 import Image from 'next/image'
 import { optimizeCloudinaryUrl } from '@/lib/cloudinary'
+import { SITE_URL } from '@/lib/constants'
 
 export default function ProductClient({ productId }: { productId: string }) {
   const product = useMemo(() => products.find(p => p.id === productId), [productId])
@@ -65,7 +66,7 @@ export default function ProductClient({ productId }: { productId: string }) {
     },
     "offers": {
       "@type": "Offer",
-      "url": `https://thepsychonutrition.com/products/${product.id}`,
+      "url": `${SITE_URL}/products/${product.id}`,
       "priceCurrency": "USD",
       "price": product.price > 0 ? product.price : 0,
       "availability": "https://schema.org/InStock",
@@ -86,25 +87,25 @@ export default function ProductClient({ productId }: { productId: string }) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://thepsychonutrition.com"
+        "item": SITE_URL
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Arsenal",
-        "item": "https://thepsychonutrition.com/collections/shop-all"
+        "item": `${SITE_URL}/collections/shop-all`
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": product.category,
-        "item": `https://thepsychonutrition.com/collections/${product.category.toLowerCase().replace(/\s+/g, '-')}`
+        "item": `${SITE_URL}/collections/${product.category.toLowerCase().replace(/\s+/g, '-')}`
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": product.name,
-        "item": `https://thepsychonutrition.com/products/${product.id}`
+        "item": `${SITE_URL}/products/${product.id}`
       }
     ]
   };
@@ -155,13 +156,13 @@ export default function ProductClient({ productId }: { productId: string }) {
               </span>
 
               {/* Main Image Viewport */}
-              <div className="relative w-full h-[88%] flex items-center justify-center">
+              <div className="relative w-full flex-1 flex items-center justify-center min-h-0 py-4">
                 <Image
                   src={optimizeCloudinaryUrl(activeImage.url, { width: 1000 })}
                   alt={activeImage.altText || product.name}
                   fill
                   priority
-                  className="object-contain filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.12)] transition-all duration-500"
+                  className="object-contain md:filter md:drop-shadow-xl"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   unoptimized={true}
                 />
@@ -535,33 +536,33 @@ export default function ProductClient({ productId }: { productId: string }) {
             </div>
 
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
-              {relatedProducts.map((item) => (
-                <div key={item.id} className="group flex flex-col items-center min-w-0">
+              {relatedProducts.map((rel) => (
+                <div key={rel.id} className="group flex flex-col items-center min-w-0">
                   {/* Image Card */}
                   <Link 
-                    href={`/products/${item.id}`} 
-                    className="relative w-full aspect-square bg-black rounded-2xl overflow-hidden block mb-4 group-hover:shadow-md transition-all duration-300 min-w-0"
+                    href={`/products/${rel.id}`} 
+                    className="relative w-full aspect-square bg-black rounded-2xl overflow-hidden block mb-4 md:group-hover:shadow-md transition-all duration-300 min-w-0"
                   >
-                    {item.badge && (
+                    {rel.badge && (
                       <span className="absolute top-3.5 right-3.5 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full z-10 tracking-tight">
-                        {item.badge}
+                        {rel.badge}
                       </span>
                     )}
                     <Image
-                      src={optimizeCloudinaryUrl(item.image, { width: 500 })}
-                      alt={item.name}
+                      src={optimizeCloudinaryUrl(rel.image, { width: 500 })}
+                      alt={rel.name}
                       fill
-                      className="object-contain group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-contain md:group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       unoptimized={true}
                     />
                   </Link>
 
                   {/* Details */}
                   <div className="text-center w-full px-2 min-w-0">
-                    <Link href={`/products/${item.id}`} className="block min-w-0">
+                    <Link href={`/products/${rel.id}`} className="block min-w-0">
                       <h4 className="font-sans font-bold text-zinc-950 text-base hover:text-[#E50914] transition-colors truncate w-full">
-                        {item.name}
+                        {rel.name}
                       </h4>
                     </Link>
 
@@ -571,12 +572,12 @@ export default function ProductClient({ productId }: { productId: string }) {
                     </div>
 
                     {/* Price in USD (hidden until pricing is set) */}
-                    {item.price > 0 ? (
+                    {rel.price > 0 ? (
                       <div className="flex items-baseline justify-center gap-2 mb-2">
-                        <span className="text-base font-bold text-[#E50914]">${item.price.toFixed(2)}</span>
-                        {item.salePrice && item.salePrice > item.price && (
+                        <span className="text-base font-bold text-[#E50914]">${rel.price.toFixed(2)}</span>
+                        {rel.salePrice && rel.salePrice > rel.price && (
                           <span className="text-xs text-zinc-500 line-through">
-                            ${item.salePrice.toFixed(2)}
+                            ${rel.salePrice.toFixed(2)}
                           </span>
                         )}
                       </div>
@@ -587,7 +588,7 @@ export default function ProductClient({ productId }: { productId: string }) {
                     )}
 
                     <Link
-                      href={`/products/${item.id}`}
+                      href={`/products/${rel.id}`}
                       className="inline-block mt-1 text-xs font-display font-bold uppercase tracking-widest text-zinc-800 hover:text-[#E50914] transition-colors"
                     >
                       View Formulation →

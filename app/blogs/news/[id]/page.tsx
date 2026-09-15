@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { articlesContent } from '@/data/articles'
+import { SITE_URL } from '@/lib/constants'
 
 export default function BlogDetailPage({ params }: { params: { id: string } }) {
   const article = useMemo(() => articlesContent[params.id], [params.id])
@@ -40,7 +41,7 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
       "name": "Psycho Nutrition",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://thepsychonutrition.com/images/logo.png"
+        "url": `${SITE_URL}/images/logo.png`
       }
     }
   } : null;

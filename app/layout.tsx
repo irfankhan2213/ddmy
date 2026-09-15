@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Bebas_Neue, Inter } from 'next/font/google'
 import './globals.css'
+import { SITE_URL } from '@/lib/constants'
 
 const bebasNeue = Bebas_Neue({
   weight: '400',
@@ -16,7 +17,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://thepsychonutrition.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Psycho Nutrition – Elite Sports Supplements',
     template: '%s | Psycho Nutrition'
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://thepsychonutrition.com',
+    url: SITE_URL,
     title: 'Psycho Nutrition – Elite Sports Supplements',
     description: 'Premium sports nutrition supplements by Psycho Nutrition. Pre-workouts, whey protein, mass gainers, vitamins & more. Lab tested, pure quality.',
     siteName: 'Psycho Nutrition',

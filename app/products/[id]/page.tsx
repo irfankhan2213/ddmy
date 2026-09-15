@@ -1,12 +1,13 @@
 import { products } from '@/data/products'
 import { Metadata } from 'next'
 import ProductClient from './ProductClient'
+import { SITE_URL } from '@/lib/constants'
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const product = products.find(p => p.id === params.id)
   if (!product) return {}
 
-  const url = `https://thepsychonutrition.com/products/${product.id}`
+  const url = `${SITE_URL}/products/${product.id}`
 
   return {
     title: product.name,

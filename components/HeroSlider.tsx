@@ -4,7 +4,7 @@ import Image from 'next/image'
 import cloudinaryImages from '@/data/cloudinary-images.json'
 
 const MAIN_BANNER_URL =
-  cloudinaryImages['main_banner.png'] ||
+  cloudinaryImages['main-banner.png'] ||
   'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_1920/v1788964851/psycho_nutrition/psycho_main_hero_banner_1788964833.png'
 
 export default function HeroSlider() {

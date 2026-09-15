@@ -11,6 +11,7 @@ import FeaturedSeriesShowcase from '@/components/FeaturedSeriesShowcase'
 import ScrollReveal from '@/components/ScrollReveal'
 import Footer from '@/components/Footer'
 import { bestSellers } from '@/data/products'
+import { SITE_URL } from '@/lib/constants'
 
 export default function Home() {
   const jsonLd = {
@@ -19,18 +20,18 @@ export default function Home() {
       {
         "@type": "WebSite",
         "name": "Psycho Nutrition",
-        "url": "https://thepsychonutrition.com",
+        "url": SITE_URL,
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://thepsychonutrition.com/collections/shop-all?q={search_term_string}",
+          "target": `${SITE_URL}/collections/shop-all?q={search_term_string}`,
           "query-input": "required name=search_term_string"
         }
       },
       {
         "@type": "Organization",
         "name": "Psycho Nutrition",
-        "url": "https://thepsychonutrition.com",
-        "logo": "https://thepsychonutrition.com/images/logo.png",
+        "url": SITE_URL,
+        "logo": `${SITE_URL}/images/logo.png`,
         "sameAs": [
           "https://www.instagram.com/psychonutrition",
           "https://www.facebook.com/psychonutrition"
@@ -41,6 +42,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-black text-zinc-900">
+      <h1 className="sr-only">Psycho Nutrition - Elite Sports Nutrition & Supplements</h1>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

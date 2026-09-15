@@ -81,7 +81,7 @@ export default function CategoryGrid() {
                     src={optimizeCloudinaryUrl(cat.image, { width: 700 })}
                     alt={cat.name}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="object-cover md:group-hover:scale-105 transition-transform duration-700 ease-out"
                     sizes="(max-width: 768px) 74vw, 33vw"
                     unoptimized={true}
                   />
@@ -89,9 +89,9 @@ export default function CategoryGrid() {
 
                   {/* Floating Glassmorphic Box */}
                   <div className="absolute inset-x-3 sm:inset-x-5 bottom-3 sm:bottom-5 z-20 bg-white/45 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-5 text-center shadow-lg border border-white/40">
-                    <h4 className="font-extrabold text-xs sm:text-sm md:text-base tracking-wider uppercase text-zinc-950 mb-1 font-display">
+                    <h3 className="font-extrabold text-xs sm:text-sm md:text-base tracking-wider uppercase text-zinc-950 mb-1 font-display">
                       {cat.name}
-                    </h4>
+                    </h3>
                     <p className="text-zinc-800 text-[10px] sm:text-xs font-medium mb-2 sm:mb-3">
                       Total: {cat.count}
                     </p>

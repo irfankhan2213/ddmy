@@ -3,6 +3,7 @@ import AnnouncementBar from '@/components/AnnouncementBar'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/constants'
 
 const pagesContent: Record<string, {
   title: string
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const page = pagesContent[params.slug]
   if (!page) return {}
 
-  const url = `https://thepsychonutrition.com/pages/${params.slug}`
+  const url = `${SITE_URL}/pages/${params.slug}`
 
   return {
     title: `${page.title} | Psycho Nutrition`,

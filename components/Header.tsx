@@ -352,7 +352,7 @@ export default function Header() {
                             src={optimizeCloudinaryUrl(product.image, { width: 100 })}
                             alt={product.name}
                             fill
-                            className="object-cover group-hover:scale-105 transition-transform"
+                            className="object-cover md:group-hover:scale-105 transition-transform"
                             unoptimized={true}
                           />
                         </div>

@@ -1,8 +1,9 @@
 import type { MetadataRoute } from 'next'
 import { products } from '@/data/products'
 import { collections } from '@/data/collections'
+import { SITE_URL } from '@/lib/constants'
 
-const BASE = 'https://thepsychonutrition.com'
+const BASE = SITE_URL
 
 const staticRoutes = [
   '',

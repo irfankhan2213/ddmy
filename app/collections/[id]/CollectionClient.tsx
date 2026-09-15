@@ -127,7 +127,7 @@ export default function CollectionClient({
               {processedProducts.map((product) => (
                 <div key={product.id} className="group flex flex-col items-center min-w-0">
                   {/* Image Area - Borderless with rounded corners & Sale badge */}
-                  <Link href={`/products/${product.id}`} className="relative w-full aspect-square bg-black rounded-2xl overflow-hidden block mb-3.5 group-hover:shadow-md transition-all duration-300 min-w-0">
+                  <Link href={`/products/${product.id}`} className="relative w-full aspect-square bg-black rounded-2xl overflow-hidden block mb-3.5 md:group-hover:shadow-md transition-all duration-300 min-w-0">
                     {product.price > 0 && (
                       <span className="absolute top-3.5 right-3.5 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full z-10 tracking-tight">
                         Sale!
@@ -137,7 +137,7 @@ export default function CollectionClient({
                       src={optimizeCloudinaryUrl(product.image, { width: 500 })}
                       alt={product.name}
                       fill
-                      className="object-contain group-hover:scale-105 transition-transform duration-500"
+                      className="object-contain md:group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       unoptimized={true}
                     />

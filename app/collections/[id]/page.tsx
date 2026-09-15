@@ -4,12 +4,13 @@ import Footer from '@/components/Footer'
 import { getCollectionName, getCollectionProducts } from '@/data/collections'
 import { Metadata } from 'next'
 import CollectionClient from './CollectionClient'
+import { SITE_URL } from '@/lib/constants'
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const collectionName = getCollectionName(params.id)
   if (!collectionName) return {}
 
-  const url = `https://thepsychonutrition.com/collections/${params.id}`
+  const url = `${SITE_URL}/collections/${params.id}`
 
   return {
     title: `${collectionName} | Psycho Nutrition`,
@@ -39,13 +40,13 @@ export default function CollectionPage({ params }: { params: { id: string } }) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://thepsychonutrition.com"
+        "item": SITE_URL
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": collectionName,
-        "item": `https://thepsychonutrition.com/collections/${collectionId}`
+        "item": `${SITE_URL}/collections/${collectionId}`
       }
     ]
   };
@@ -56,7 +57,7 @@ export default function CollectionPage({ params }: { params: { id: string } }) {
     "itemListElement": collectionProducts.map((product, index) => ({
       "@type": "ListItem",
       "position": index + 1,
-      "url": `https://thepsychonutrition.com/products/${product.id}`
+      "url": `${SITE_URL}/products/${product.id}`
     }))
   };
 

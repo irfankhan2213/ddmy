@@ -1,11 +1,11 @@
 import { Metadata } from 'next'
 import { getCollectionName } from '@/data/collections'
-
+import { SITE_URL } from '@/lib/constants'
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const collectionName = getCollectionName(params.id)
   if (!collectionName) return {}
 
-  const url = `https://thepsychonutrition.com/collections/${params.id}`
+  const url = `${SITE_URL}/collections/${params.id}`
 
   return {
     title: `${collectionName} Collection`,
