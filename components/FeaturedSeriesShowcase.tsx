@@ -185,7 +185,7 @@ export default function FeaturedSeriesShowcase() {
                     <div className="relative w-12 h-12 flex-shrink-0 bg-[#f4f4f5] rounded-lg overflow-hidden flex items-center justify-center border border-zinc-200">
                       <Image
                         src={optimizeCloudinaryUrl(product.image, { width: 100 })}
-                        alt=""
+                        alt={`${product.name} product thumbnail`}
                         fill
                         className="object-contain p-1"
                         sizes="48px"

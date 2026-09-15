@@ -184,7 +184,7 @@ export default function CollectionClient({
                           }`}
                         >
                           <div className="relative w-5 h-5">
-                            <Image src={optimizeCloudinaryUrl(thumb, { width: 80 })} alt="Preview" fill className="object-contain" sizes="20px" unoptimized={true} />
+                            <Image src={optimizeCloudinaryUrl(thumb, { width: 80 })} alt={`${product.name} variant preview`} fill className="object-contain" sizes="20px" unoptimized={true} />
                           </div>
                         </div>
                       ))}
