@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import cloudinaryImages from '@/data/cloudinary-images.json'
 
 const ANATOMY_IMAGE_URL =
-  cloudinaryImages['best_seller_anatomy.png'] ||
+  (cloudinaryImages as Record<string, string>)['best_seller_anatomy.png'] ||
   'https://res.cloudinary.com/q6k0oxwk/image/upload/f_auto,q_auto,w_1000/v1788965297/psycho_nutrition/psycho_best_seller_citrulline_anatomy_1788965261.png'
 
 const features = [

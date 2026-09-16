@@ -18,7 +18,7 @@ function uploadImage(filePath) {
     const boundary = '----WebKitFormBoundary7MA4YWxkTrZu0gW';
     let postData = '';
     
-    postData += `--${boundary}\r\nContent-Disposition: form-data; name="file"; filename="${path.basename(filePath)}"\r\nContent-Type: image/jpeg\r\n\r\n`;
+    postData += `--${boundary}\r\nContent-Disposition: form-data; name="file"; filename="${path.basename(filePath)}"\r\nContent-Type: image/png\r\n\r\n`;
     
     const fileData = fs.readFileSync(filePath);
     
