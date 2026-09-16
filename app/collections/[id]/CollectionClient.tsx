@@ -126,13 +126,8 @@ export default function CollectionClient({
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
               {processedProducts.map((product) => (
                 <div key={product.id} className="group flex flex-col items-center min-w-0">
-                  {/* Image Area - Borderless with rounded corners & Sale badge */}
+                  {/* Image Area - Borderless with rounded corners */}
                   <Link href={`/products/${product.id}`} className="relative w-full aspect-square bg-black rounded-2xl overflow-hidden block mb-3.5 md:group-hover:shadow-md transition-all duration-300 min-w-0">
-                    {product.price > 0 && (
-                      <span className="absolute top-3.5 right-3.5 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full z-10 tracking-tight">
-                        Sale!
-                      </span>
-                    )}
                     <Image
                       src={optimizeCloudinaryUrl(product.image, { width: 500 })}
                       alt={product.name}
@@ -160,13 +155,10 @@ export default function CollectionClient({
                       ))}
                     </div>
 
-                    {/* Centered Price in Crimson Red + Dark Strikethrough in USD (hidden until pricing is set) */}
+                    {/* Centered Price in Crimson Red in USD (hidden until pricing is set) */}
                     {product.price > 0 ? (
                       <div className="flex items-baseline justify-center gap-2 mb-2">
                         <span className="text-base sm:text-lg font-bold text-[#E50914]">${product.price.toFixed(2)}</span>
-                        <span className="text-xs sm:text-sm text-zinc-500 line-through">
-                          ${(product.salePrice || product.price * 1.25).toFixed(2)}
-                        </span>
                       </div>
                     ) : (
                       <span className="block text-[11px] font-display font-bold uppercase tracking-[0.2em] text-zinc-400 mb-2">

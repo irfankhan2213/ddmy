@@ -235,24 +235,12 @@ export default function ProductClient({ productId }: { productId: string }) {
               </span>
             </div>
 
-            {/* Price & Savings in USD (hidden until pricing is set) */}
+            {/* Price in USD (hidden until pricing is set) */}
             <div className="flex items-baseline gap-3 pb-6 border-b border-zinc-200">
               {product.price > 0 ? (
-                <>
-                  <span className="text-3xl sm:text-4xl font-display font-bold text-[#E50914] tracking-wide">
-                    ${product.price.toFixed(2)}
-                  </span>
-                  {product.salePrice && product.salePrice > product.price && (
-                    <>
-                      <span className="text-base text-zinc-400 line-through">
-                        ${product.salePrice.toFixed(2)}
-                      </span>
-                      <span className="text-emerald-700 text-xs font-display font-bold px-2.5 py-1 bg-emerald-50 border border-emerald-200 rounded-sm uppercase tracking-wider">
-                        {Math.round(((product.salePrice - product.price) / product.salePrice) * 100)}% SAVINGS
-                      </span>
-                    </>
-                  )}
-                </>
+                <span className="text-3xl sm:text-4xl font-display font-bold text-[#E50914] tracking-wide">
+                  ${product.price.toFixed(2)}
+                </span>
               ) : (
                 <span className="text-2xl sm:text-3xl font-display font-bold text-zinc-900 tracking-wide uppercase">
                   PRICE ON REQUEST
@@ -575,11 +563,6 @@ export default function ProductClient({ productId }: { productId: string }) {
                     {rel.price > 0 ? (
                       <div className="flex items-baseline justify-center gap-2 mb-2">
                         <span className="text-base font-bold text-[#E50914]">${rel.price.toFixed(2)}</span>
-                        {rel.salePrice && rel.salePrice > rel.price && (
-                          <span className="text-xs text-zinc-500 line-through">
-                            ${rel.salePrice.toFixed(2)}
-                          </span>
-                        )}
                       </div>
                     ) : (
                       <span className="block text-[11px] font-display font-bold uppercase tracking-[0.2em] text-zinc-400 mb-2">

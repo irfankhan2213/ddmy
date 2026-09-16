@@ -22,8 +22,6 @@ function StarRating({ rating = 5 }: { rating?: number }) {
 }
 
 function ProductCard({ product }: { product: Product }) {
-  const originalPrice = product.originalPrice || product.salePrice || Math.round(product.price * 1.2)
-
   return (
     <div className="group flex-shrink-0 w-[230px] sm:w-[270px] md:w-[310px] flex flex-col bg-transparent transition-transform duration-300 snap-start">
       {/* Media Container: Clean rounded-2xl with NO outer card border */}
@@ -39,13 +37,6 @@ function ProductCard({ product }: { product: Product }) {
           sizes="(max-width: 768px) 280px, 310px"
           unoptimized={true}
         />
-
-        {/* Black "Sale!" pill in top right corner (priced products only) */}
-        {product.price > 0 && (
-          <span className="absolute top-3 right-3 bg-black text-white text-[12px] font-bold px-3.5 py-1 rounded-full shadow-sm z-10 tracking-wide">
-            Sale!
-          </span>
-        )}
       </Link>
 
       {/* Details: strictly centered (matching Nitrogen reference) */}
@@ -60,17 +51,12 @@ function ProductCard({ product }: { product: Product }) {
         {/* 5 Solid Black Stars */}
         <StarRating rating={product.rating} />
 
-        {/* Pricing: Red Sale Price + Strikethrough Original Price in USD (hidden until pricing is set) */}
+        {/* Pricing: Clean MRP price in USD (hidden until pricing is set) */}
         {product.price > 0 ? (
           <div className="flex items-center justify-center gap-2 mt-1">
             <span className="text-[#E50914] font-bold text-base md:text-lg">
               ${product.price.toFixed(2)}
             </span>
-            {originalPrice > product.price && (
-              <span className="text-zinc-500 line-through text-sm font-medium">
-                ${originalPrice.toFixed(2)}
-              </span>
-            )}
           </div>
         ) : (
           <span className="text-[11px] font-display font-bold uppercase tracking-[0.2em] text-zinc-400 mt-1">

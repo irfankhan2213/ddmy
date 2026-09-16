@@ -26,8 +26,6 @@ function StarRating({ rating = 5 }: { rating?: number }) {
 }
 
 function ProductGridCard({ product }: { product: Product }) {
-  const originalPrice = product.originalPrice || (product.price > 0 ? Math.round(product.price * 1.2) : 0)
-
   return (
     <div className="group flex flex-col bg-transparent transition-transform duration-300 min-w-0">
       <Link
@@ -42,11 +40,6 @@ function ProductGridCard({ product }: { product: Product }) {
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 25vw"
           unoptimized={true}
         />
-        {product.price > 0 && (
-          <span className="absolute top-3 right-3 bg-black text-white text-[11px] font-bold px-3 py-0.5 rounded-full shadow-sm z-10">
-            Sale!
-          </span>
-        )}
       </Link>
 
       <div className="pt-4 flex flex-col items-center text-center min-w-0 w-full px-1">
@@ -67,11 +60,6 @@ function ProductGridCard({ product }: { product: Product }) {
             <span className="text-[#E50914] font-bold text-base">
               ${product.price.toFixed(2)}
             </span>
-            {originalPrice > product.price && (
-              <span className="text-zinc-400 line-through text-xs font-medium">
-                ${originalPrice.toFixed(2)}
-              </span>
-            )}
           </div>
         ) : (
           <span className="text-[11px] font-display font-bold uppercase tracking-[0.2em] text-zinc-400 mt-1">

@@ -3,7 +3,7 @@
 const reviews = [
   {
     id: 1,
-    name: 'Aman Sharma',
+    name: 'Marcus Vance',
     rating: 5,
     title: 'Extreme pumps and clean energy!',
     text: 'Killer Clown is a game changer. The pump is insane, and the pineapple mango flavour is ultra smooth. Zero post-workout crash or jitters.',
@@ -13,7 +13,7 @@ const reviews = [
   },
   {
     id: 2,
-    name: 'Vikram Singh',
+    name: 'Derek Miller',
     rating: 5,
     title: 'High quality whey isolate',
     text: 'Mixes super easily and doesn\'t cause bloating like other concentrates. The consistency is exceptionally rich. Highly recommended.',
@@ -23,7 +23,7 @@ const reviews = [
   },
   {
     id: 3,
-    name: 'Pooja Roy',
+    name: 'Sarah Jenkins',
     rating: 5,
     title: 'Authentic supplements, trust verified',
     text: 'Was skeptical initially, but the packaging has a scratch code to verify authenticity. Testo Pro has genuinely helped my strength and stamina.',
@@ -68,7 +68,7 @@ export default function ReviewsSection() {
             <span className="text-zinc-700 text-xs font-bold ml-1">4.9 / 5.0 VERIFIED RATING</span>
           </div>
           <p className="text-zinc-500 text-xs uppercase tracking-widest font-display">
-            FROM 10,000+ VERIFIED INDIAN ATHLETES
+            FROM 10,000+ VERIFIED ATHLETES WORLDWIDE
           </p>
         </div>
 
