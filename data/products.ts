@@ -898,7 +898,7 @@ export const products: Product[] = [
     id: 'psycho-tudca-nac-90caps',
     name: 'TUDCA + NAC (Added Glutathione)',
     series: 'Psycho Nutrition Psycho Nutrition Performance Capsule Series',
-    price: 34.99, // default placeholder
+    price: 46.74,
     rating: 5,
     reviewCount: Math.floor(Math.random() * 50) + 10,
     category: 'Liver & Metabolic Health',
@@ -934,7 +934,7 @@ export const products: Product[] = [
     id: 'psycho-tribulus-90caps',
     name: 'Tribulus (Ultra Testosterone)',
     series: 'Psycho Nutrition Psycho Nutrition Performance Capsule Series',
-    price: 34.99, // default placeholder
+    price: 23.88,
     rating: 5,
     reviewCount: Math.floor(Math.random() * 50) + 10,
     category: 'Hormonal Support & Male Vitality',
@@ -965,7 +965,7 @@ export const products: Product[] = [
     id: 'psycho-zma-90caps',
     name: 'ZMA (Zinc, Magnesium, Aspartate)',
     series: 'Psycho Nutrition Psycho Nutrition Performance Capsule Series',
-    price: 34.99, // default placeholder
+    price: 27,
     rating: 5,
     reviewCount: Math.floor(Math.random() * 50) + 10,
     category: 'Sleep & Anabolic Recovery',
@@ -1001,7 +1001,7 @@ export const products: Product[] = [
     id: 'psycho-collagen-150caps',
     name: 'Collagen (Peptide Powder)',
     series: 'Psycho Nutrition Psycho Nutrition Performance Capsule Series',
-    price: 34.99, // default placeholder
+    price: 23.88,
     rating: 5,
     reviewCount: Math.floor(Math.random() * 50) + 10,
     category: 'Joint, Skin & Connective Tissue Support',
