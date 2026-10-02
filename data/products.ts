@@ -894,6 +894,142 @@ export const products: Product[] = [
     usageDirections: 'Shake well. Take the suggested serving 20-30 minutes before training or cardio.',
     certifications: ['Lab Tested', 'GMP Certified', 'Authenticity QR Verification']
   }
+  {
+    id: 'psycho-tudca-nac-90caps',
+    name: 'TUDCA + NAC (Added Glutathione)',
+    series: 'Psycho Nutrition Psycho Nutrition Performance Capsule Series',
+    price: 34.99, // default placeholder
+    rating: 5,
+    reviewCount: Math.floor(Math.random() * 50) + 10,
+    category: 'Liver & Metabolic Health',
+    href: '/products/psycho-tudca-nac-90caps',
+    accent: '#000000',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948756/psycho_nutrition/psycho_tudca_nac_90caps_front_hero_1790948750.jpg',
+    gallery: [
+      { view: 'Front Hero', url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948756/psycho_nutrition/psycho_tudca_nac_90caps_front_hero_1790948750.jpg', altText: 'TUDCA + NAC (Added Glutathione) Front View' },
+      { view: 'Back Label', url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948758/psycho_nutrition/psycho_tudca_nac_90caps_back_view_1790948757.jpg', altText: 'TUDCA + NAC (Added Glutathione) Back Label' }
+    ],
+    size: '90 Capsules',
+    servingsCount: 45,
+    servingSize: '2 Capsules',
+    description: 'TUDCA + NAC (Added Glutathione) by Psycho Nutrition. Category: Liver & Metabolic Health.',
+    features: [
+      'Bulking Agent (Microcrystalline Cellulose), Anti-Caking Agent (Magnesium Stearate), Capsule Shell (Hydroxypropyl Methylcellulose, Colour (Brilliant Blue))'
+    ],
+    supplementFacts: {
+      rows: [
+        { label: 'Tudca Mg', value: '500' },
+        { label: 'Nac Mg', value: '435' },
+        { label: 'Glutathione Mg', value: '50' },
+        { label: 'Scute Root Mg', value: '3' },
+        { label: 'Barberry Mg', value: '2' },
+        { label: 'L Methionine Mg', value: '2' },
+        { label: 'Alpha Lipoic Acid Mg', value: '7' }
+      ]
+    },
+    ingredients: 'Bulking Agent (Microcrystalline Cellulose), Anti-Caking Agent (Magnesium Stearate), Capsule Shell (Hydroxypropyl Methylcellulose, Colour (Brilliant Blue))',
+    certifications: ["Gluten Free","GMP Certified","FDA Registered Facility","Manufactured in USA"]
+  },
+  {
+    id: 'psycho-tribulus-90caps',
+    name: 'Tribulus (Ultra Testosterone)',
+    series: 'Psycho Nutrition Psycho Nutrition Performance Capsule Series',
+    price: 34.99, // default placeholder
+    rating: 5,
+    reviewCount: Math.floor(Math.random() * 50) + 10,
+    category: 'Hormonal Support & Male Vitality',
+    href: '/products/psycho-tribulus-90caps',
+    accent: '#000000',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948759/psycho_nutrition/psycho_tribulus_90caps_front_hero_1790948759.jpg',
+    gallery: [
+      { view: 'Front Hero', url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948759/psycho_nutrition/psycho_tribulus_90caps_front_hero_1790948759.jpg', altText: 'Tribulus (Ultra Testosterone) Front View' },
+      { view: 'Back Label', url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948760/psycho_nutrition/psycho_tribulus_ref_back_1790948760.jpg', altText: 'Tribulus (Ultra Testosterone) Back Label' }
+    ],
+    size: '90 Capsules',
+    servingsCount: 45,
+    servingSize: '2 Capsules',
+    description: 'Tribulus (Ultra Testosterone) by Psycho Nutrition. Category: Hormonal Support & Male Vitality.',
+    features: [
+      'Microcrystalline Cellulose, Stearic Acid (vegetable source), Vegetarian and Silicon Dioxide'
+    ],
+    supplementFacts: {
+      rows: [
+        { label: 'Tribulus Terrestris Extract Mg', value: '1000' },
+        { label: 'Standardized Saponins Min Percent', value: '45' }
+      ]
+    },
+    ingredients: 'Microcrystalline Cellulose, Stearic Acid (vegetable source), Vegetarian and Silicon Dioxide',
+    certifications: ["Gluten Free","GMP Certified","FDA Registered Facility","Manufactured in USA"]
+  },
+  {
+    id: 'psycho-zma-90caps',
+    name: 'ZMA (Zinc, Magnesium, Aspartate)',
+    series: 'Psycho Nutrition Psycho Nutrition Performance Capsule Series',
+    price: 34.99, // default placeholder
+    rating: 5,
+    reviewCount: Math.floor(Math.random() * 50) + 10,
+    category: 'Sleep & Anabolic Recovery',
+    href: '/products/psycho-zma-90caps',
+    accent: '#000000',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948762/psycho_nutrition/psycho_zma_90caps_front_hero_1790948762.jpg',
+    gallery: [
+      { view: 'Front Hero', url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948762/psycho_nutrition/psycho_zma_90caps_front_hero_1790948762.jpg', altText: 'ZMA (Zinc, Magnesium, Aspartate) Front View' },
+      { view: 'Back Label', url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948763/psycho_nutrition/psycho_zma_ref_back_1790948763.jpg', altText: 'ZMA (Zinc, Magnesium, Aspartate) Back Label' }
+    ],
+    size: '90 Capsules',
+    servingsCount: 45,
+    servingSize: '2 Capsules',
+    description: 'ZMA (Zinc, Magnesium, Aspartate) by Psycho Nutrition. Category: Sleep & Anabolic Recovery.',
+    features: [
+      'Magnesium Oxide, Magnesium Aspartate, Capsule Shell (INS 464), Diluent [INS 460(i)], Zinc Sulphate, Binding Agent [INS 1201], Anti-sticking Agent [INS 470(iii)], Glidant, Pyridoxine Hydrochloride'
+    ],
+    supplementFacts: {
+      rows: [
+        { label: 'Vitamin B6 Mg', value: '15' },
+        { label: 'Vitamin B6 Dv Percent', value: '168' },
+        { label: 'Magnesium Mg', value: '450' },
+        { label: 'Magnesium Dv Percent', value: '107' },
+        { label: 'Zinc Mg', value: '30' },
+        { label: 'Zinc Dv Percent', value: '273' },
+        { label: 'Boron Mg', value: '3' }
+      ]
+    },
+    ingredients: 'Magnesium Oxide, Magnesium Aspartate, Capsule Shell (INS 464), Diluent [INS 460(i)], Zinc Sulphate, Binding Agent [INS 1201], Anti-sticking Agent [INS 470(iii)], Glidant, Pyridoxine Hydrochloride',
+    certifications: ["Gluten Free","GMP Certified","FDA Registered Facility","Manufactured in USA"]
+  },
+  {
+    id: 'psycho-collagen-150caps',
+    name: 'Collagen (Peptide Powder)',
+    series: 'Psycho Nutrition Psycho Nutrition Performance Capsule Series',
+    price: 34.99, // default placeholder
+    rating: 5,
+    reviewCount: Math.floor(Math.random() * 50) + 10,
+    category: 'Joint, Skin & Connective Tissue Support',
+    href: '/products/psycho-collagen-150caps',
+    accent: '#000000',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948764/psycho_nutrition/psycho_collagen_150caps_front_hero_1790948763.jpg',
+    gallery: [
+      { view: 'Front Hero', url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948764/psycho_nutrition/psycho_collagen_150caps_front_hero_1790948763.jpg', altText: 'Collagen (Peptide Powder) Front View' },
+      { view: 'Back Label', url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948766/psycho_nutrition/psycho_collagen_ref_back_1790948766.jpg', altText: 'Collagen (Peptide Powder) Back Label' }
+    ],
+    size: '150 Capsules',
+    servingsCount: 30,
+    servingSize: '5 Capsules',
+    description: 'Collagen (Peptide Powder) by Psycho Nutrition. Category: Joint, Skin & Connective Tissue Support.',
+    features: [
+      '99% pure Collagen Powder, microcrystalline cellulose, gelatin (capsule), silica, vegetable magnesium stearate'
+    ],
+    supplementFacts: {
+      rows: [
+        { label: 'Calories Kcal', value: '10' },
+        { label: 'Protein G', value: '2' },
+        { label: 'Collagen Peptide Powder Mg', value: '2500' }
+      ]
+    },
+    ingredients: '99% pure Collagen Powder, microcrystalline cellulose, gelatin (capsule), silica, vegetable magnesium stearate',
+    certifications: ["Gluten Free","GMP Certified","FDA Registered Facility","Manufactured in USA"]
+  },
+
 ]
 
 export const bestSellers: Product[] = products
