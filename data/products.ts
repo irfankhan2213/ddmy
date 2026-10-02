@@ -893,7 +893,7 @@ export const products: Product[] = [
     ],
     usageDirections: 'Shake well. Take the suggested serving 20-30 minutes before training or cardio.',
     certifications: ['Lab Tested', 'GMP Certified', 'Authenticity QR Verification']
-  }
+  },
   {
     id: 'psycho-tudca-nac-90caps',
     name: 'TUDCA + NAC (Added Glutathione)',
