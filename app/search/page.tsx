@@ -111,7 +111,21 @@ function SearchContent() {
     }
 
     if (selectedCategory !== 'All') {
-      list = list.filter((p) => p.category.toLowerCase() === selectedCategory.toLowerCase())
+      if (selectedCategory === 'Vitality') {
+        list = list.filter((p) =>
+          p.category.toLowerCase() === 'vitality' ||
+          p.category.toLowerCase().includes('liver') ||
+          p.category.toLowerCase().includes('hormonal') ||
+          p.category.toLowerCase().includes('sleep')
+        )
+      } else if (selectedCategory === 'Recovery') {
+        list = list.filter((p) =>
+          p.category.toLowerCase() === 'recovery' ||
+          p.category.toLowerCase().includes('joint')
+        )
+      } else {
+        list = list.filter((p) => p.category.toLowerCase() === selectedCategory.toLowerCase())
+      }
     }
 
     // Sort

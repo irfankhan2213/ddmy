@@ -897,13 +897,13 @@ export const products: Product[] = [
   {
     id: 'psycho-tudca-nac-90caps',
     name: 'TUDCA + NAC (Added Glutathione)',
-    series: 'Psycho Nutrition Psycho Nutrition Performance Capsule Series',
+    series: 'PERFORMANCE CAPSULE SERIES',
     price: 46.74,
     rating: 5,
-    reviewCount: Math.floor(Math.random() * 50) + 10,
+    reviewCount: 42,
     category: 'Liver & Metabolic Health',
     href: '/products/psycho-tudca-nac-90caps',
-    accent: '#000000',
+    accent: '#E50914',
     image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948756/psycho_nutrition/psycho_tudca_nac_90caps_front_hero_1790948750.jpg',
     gallery: [
       { view: 'Front Hero', url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948756/psycho_nutrition/psycho_tudca_nac_90caps_front_hero_1790948750.jpg', altText: 'TUDCA + NAC (Added Glutathione) Front View' },
@@ -912,34 +912,38 @@ export const products: Product[] = [
     size: '90 Capsules',
     servingsCount: 45,
     servingSize: '2 Capsules',
-    description: 'TUDCA + NAC (Added Glutathione) by Psycho Nutrition. Category: Liver & Metabolic Health.',
+    description: 'Advanced dual-action liver support and metabolic cellular defense formula. Combines clinical 500mg TUDCA with 435mg N-Acetyl Cysteine (NAC), 50mg L-Glutathione, and herbal botanicals for optimal organ health and detoxification.',
     features: [
-      'Bulking Agent (Microcrystalline Cellulose), Anti-Caking Agent (Magnesium Stearate), Capsule Shell (Hydroxypropyl Methylcellulose, Colour (Brilliant Blue))'
+      '500mg Pure TUDCA for advanced liver cell protection & bile flow support',
+      '435mg NAC precursor to master antioxidant Glutathione',
+      '50mg Added L-Glutathione for direct cellular defense',
+      'Scutellaria Baicalensis, Barberry & Alpha Lipoic Acid metabolic shield'
     ],
     supplementFacts: {
       rows: [
-        { label: 'Tudca Mg', value: '500' },
-        { label: 'Nac Mg', value: '435' },
-        { label: 'Glutathione Mg', value: '50' },
-        { label: 'Scute Root Mg', value: '3' },
-        { label: 'Barberry Mg', value: '2' },
-        { label: 'L Methionine Mg', value: '2' },
-        { label: 'Alpha Lipoic Acid Mg', value: '7' }
+        { label: 'TUDCA (Tauroursodeoxycholic Acid)', value: '500 mg' },
+        { label: 'NAC (N-Acetyl-L-Cysteine)', value: '435 mg' },
+        { label: 'L-Glutathione', value: '50 mg' },
+        { label: 'Scutellaria Baicalensis Extract (Root)', value: '3 mg' },
+        { label: 'Barberry', value: '2 mg' },
+        { label: 'L-Methionine', value: '2 mg' },
+        { label: 'Alpha Lipoic Acid', value: '7 mg' }
       ]
     },
     ingredients: 'Bulking Agent (Microcrystalline Cellulose), Anti-Caking Agent (Magnesium Stearate), Capsule Shell (Hydroxypropyl Methylcellulose, Colour (Brilliant Blue))',
+    usageDirections: 'As a dietary supplement, take 2 capsules daily with water and a meal, or as directed by your healthcare professional.',
     certifications: ["Gluten Free","GMP Certified","FDA Registered Facility","Manufactured in USA"]
   },
   {
     id: 'psycho-tribulus-90caps',
     name: 'Tribulus (Ultra Testosterone)',
-    series: 'Psycho Nutrition Psycho Nutrition Performance Capsule Series',
+    series: 'PERFORMANCE CAPSULE SERIES',
     price: 23.88,
     rating: 5,
-    reviewCount: Math.floor(Math.random() * 50) + 10,
+    reviewCount: 36,
     category: 'Hormonal Support & Male Vitality',
     href: '/products/psycho-tribulus-90caps',
-    accent: '#000000',
+    accent: '#E50914',
     image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948759/psycho_nutrition/psycho_tribulus_90caps_front_hero_1790948759.jpg',
     gallery: [
       { view: 'Front Hero', url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948759/psycho_nutrition/psycho_tribulus_90caps_front_hero_1790948759.jpg', altText: 'Tribulus (Ultra Testosterone) Front View' },
@@ -948,29 +952,32 @@ export const products: Product[] = [
     size: '90 Capsules',
     servingsCount: 45,
     servingSize: '2 Capsules',
-    description: 'Tribulus (Ultra Testosterone) by Psycho Nutrition. Category: Hormonal Support & Male Vitality.',
+    description: 'High-potency Tribulus Terrestris standardized extract formulated to support natural testosterone levels, improve stamina, and drive athletic strength gains.',
     features: [
-      'Microcrystalline Cellulose, Stearic Acid (vegetable source), Vegetarian and Silicon Dioxide'
+      'Double Strength 1,000mg Standardized Tribulus Terrestris extract per serving',
+      'Standardized to minimum 45% active saponins',
+      'Supports healthy testosterone levels, male vigor and training drive',
+      '100% Vegetarian capsule formula with zero artificial fillers'
     ],
     supplementFacts: {
       rows: [
-        { label: 'Tribulus Terrestris Extract Mg', value: '1000' },
-        { label: 'Standardized Saponins Min Percent', value: '45' }
+        { label: 'Tribulus Terrestris Extract (min. 45% Saponins)', value: '1000 mg' }
       ]
     },
     ingredients: 'Microcrystalline Cellulose, Stearic Acid (vegetable source), Vegetarian and Silicon Dioxide',
+    usageDirections: 'As a dietary supplement, take 2 capsules daily with water, preferably with a morning or pre-workout meal.',
     certifications: ["Gluten Free","GMP Certified","FDA Registered Facility","Manufactured in USA"]
   },
   {
     id: 'psycho-zma-90caps',
     name: 'ZMA (Zinc, Magnesium, Aspartate)',
-    series: 'Psycho Nutrition Psycho Nutrition Performance Capsule Series',
+    series: 'PERFORMANCE CAPSULE SERIES',
     price: 27,
     rating: 5,
-    reviewCount: Math.floor(Math.random() * 50) + 10,
+    reviewCount: 29,
     category: 'Sleep & Anabolic Recovery',
     href: '/products/psycho-zma-90caps',
-    accent: '#000000',
+    accent: '#E50914',
     image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948762/psycho_nutrition/psycho_zma_90caps_front_hero_1790948762.jpg',
     gallery: [
       { view: 'Front Hero', url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948762/psycho_nutrition/psycho_zma_90caps_front_hero_1790948762.jpg', altText: 'ZMA (Zinc, Magnesium, Aspartate) Front View' },
@@ -979,34 +986,35 @@ export const products: Product[] = [
     size: '90 Capsules',
     servingsCount: 45,
     servingSize: '2 Capsules',
-    description: 'ZMA (Zinc, Magnesium, Aspartate) by Psycho Nutrition. Category: Sleep & Anabolic Recovery.',
+    description: 'Synergistic mineral formula combining high-absorption Zinc, Magnesium, Vitamin B6, and Albion Boron to support nocturnal recovery, anabolic hormone output, and deep restful sleep.',
     features: [
-      'Magnesium Oxide, Magnesium Aspartate, Capsule Shell (INS 464), Diluent [INS 460(i)], Zinc Sulphate, Binding Agent [INS 1201], Anti-sticking Agent [INS 470(iii)], Glidant, Pyridoxine Hydrochloride'
+      '450mg Magnesium (Oxide & Aspartate) to relax muscular tension & prevent cramps',
+      '30mg High-Potency Zinc (Aspartate & Oxide) for hormone optimization & immune health',
+      '15mg Vitamin B6 (168% DV) for optimal cellular nutrient utilization',
+      'Added Albion Boron for free testosterone support and deep restorative sleep'
     ],
     supplementFacts: {
       rows: [
-        { label: 'Vitamin B6 Mg', value: '15' },
-        { label: 'Vitamin B6 Dv Percent', value: '168' },
-        { label: 'Magnesium Mg', value: '450' },
-        { label: 'Magnesium Dv Percent', value: '107' },
-        { label: 'Zinc Mg', value: '30' },
-        { label: 'Zinc Dv Percent', value: '273' },
-        { label: 'Boron Mg', value: '3' }
+        { label: 'Vitamin B6 (as Pyridoxine HCl)', value: '15 mg (168% DV)' },
+        { label: 'Magnesium (as Oxide & Aspartate)', value: '450 mg (107% DV)' },
+        { label: 'Zinc (as Aspartate & Oxide)', value: '30 mg (273% DV)' },
+        { label: 'Boron (as Bororganic Glycine)', value: '3 mg' }
       ]
     },
     ingredients: 'Magnesium Oxide, Magnesium Aspartate, Capsule Shell (INS 464), Diluent [INS 460(i)], Zinc Sulphate, Binding Agent [INS 1201], Anti-sticking Agent [INS 470(iii)], Glidant, Pyridoxine Hydrochloride',
+    usageDirections: 'Take 2 capsules daily 30-60 minutes before bedtime with water on an empty stomach. For best results, avoid taking with dairy or calcium-containing foods.',
     certifications: ["Gluten Free","GMP Certified","FDA Registered Facility","Manufactured in USA"]
   },
   {
     id: 'psycho-collagen-150caps',
     name: 'Collagen (Peptide Powder)',
-    series: 'Psycho Nutrition Psycho Nutrition Performance Capsule Series',
+    series: 'PERFORMANCE CAPSULE SERIES',
     price: 23.88,
     rating: 5,
-    reviewCount: Math.floor(Math.random() * 50) + 10,
+    reviewCount: 48,
     category: 'Joint, Skin & Connective Tissue Support',
     href: '/products/psycho-collagen-150caps',
-    accent: '#000000',
+    accent: '#E50914',
     image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948764/psycho_nutrition/psycho_collagen_150caps_front_hero_1790948763.jpg',
     gallery: [
       { view: 'Front Hero', url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1790948764/psycho_nutrition/psycho_collagen_150caps_front_hero_1790948763.jpg', altText: 'Collagen (Peptide Powder) Front View' },
@@ -1015,19 +1023,86 @@ export const products: Product[] = [
     size: '150 Capsules',
     servingsCount: 30,
     servingSize: '5 Capsules',
-    description: 'Collagen (Peptide Powder) by Psycho Nutrition. Category: Joint, Skin & Connective Tissue Support.',
+    description: 'Pure hydrolyzed collagen peptide formula in convenient capsule format designed to reinforce joints, support cartilage recovery, and rejuvenate skin elasticity.',
     features: [
-      '99% pure Collagen Powder, microcrystalline cellulose, gelatin (capsule), silica, vegetable magnesium stearate'
+      '2,500mg Pure Hydrolyzed Collagen Peptides per serving',
+      'Enhances joint flexibility, cartilage resilience and tendon repair',
+      'Revitalizes skin hydration and firmness from within',
+      '150 Rapid-release capsules providing a full 30-day supply'
     ],
     supplementFacts: {
       rows: [
-        { label: 'Calories Kcal', value: '10' },
-        { label: 'Protein G', value: '2' },
-        { label: 'Collagen Peptide Powder Mg', value: '2500' }
+        { label: 'Calories', value: '10 kcal' },
+        { label: 'Protein', value: '2 g' },
+        { label: 'Collagen Peptide Powder', value: '2500 mg' }
       ]
     },
     ingredients: '99% pure Collagen Powder, microcrystalline cellulose, gelatin (capsule), silica, vegetable magnesium stearate',
+    usageDirections: 'Take 5 capsules daily with 8-12 oz of water, preferably on an empty stomach or between meals.',
     certifications: ["Gluten Free","GMP Certified","FDA Registered Facility","Manufactured in USA"]
+  },
+  {
+    id: 'psycho-leandrol-30caps',
+    name: 'LEANDROL (Shred Muscle & Strength)',
+    series: 'HARDCORE SHRED & SCULPT SERIES',
+    price: 54.67,
+    rating: 5,
+    reviewCount: 38,
+    badge: 'EXTREME FORMULA',
+    category: 'Performance',
+    href: '/products/psycho-leandrol-30caps',
+    accent: '#D4AF37',
+    image: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1793681847/psycho_nutrition/psycho_leandrol_30caps_front_hero_1793681843.jpg',
+    gallery: [
+      {
+        view: 'Front Hero Gold Bottle View',
+        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1793681847/psycho_nutrition/psycho_leandrol_30caps_front_hero_1793681843.jpg',
+        altText: 'Psycho Nutrition LEANDROL 30 capsules all-gold metallic chrome bottle front hero view'
+      },
+      {
+        view: 'Back Supplement Facts & Benefits Label',
+        url: 'https://res.cloudinary.com/q6k0oxwk/image/upload/v1793681849/psycho_nutrition/psycho_leandrol_30caps_back_view_1793681848.jpg',
+        altText: 'Psycho Nutrition LEANDROL rear label showing 500mg Supplement Facts panel and 4 performance pillars'
+      }
+    ],
+    size: '30 Rapid Release Capsules',
+    servingsCount: 30,
+    servingSize: '1 Capsule',
+    description: 'Psycho Nutrition LEANDROL is an extreme thermogenic shredding and anabolic muscle sculpting matrix engineered to torch stubborn fat while preserving and hardening lean muscle mass. Formulated with a potent 500mg complex featuring 6-Paradol, Grains of Paradise, Ecdysterone, Laxogenin, Forskolin, and L-Carnitine in rapid-release gold capsules.',
+    features: [
+      'Builds Lean Muscle — Anabolic protein synthesis support powered by 5a-Hydroxy-Laxogenin & Ecdysterone',
+      'Burns Excess Fat — High-impact thermogenic matrix with 6-Paradol & Grains of Paradise seed extract',
+      'Tightens & Sculpts — Non-stimulant lipid oxidizers Fucoxanthin, Berberine HCl & Forskolin',
+      'Boosts Cellular Energy — Dual L-Carnitine L-Tartrate & Acetyl-L-Carnitine for fatty acid transport',
+      'Enhanced Bioavailability — Formulated with Hydroxypropyl-β-Cyclodextrin (HPβCD) for rapid cellular uptake'
+    ],
+    supplementFacts: {
+      headline: 'Proprietary Shred & Lean Mass Complex — 500 mg',
+      rows: [
+        { label: '6-Paradol (Aframomum melegueta)', value: 'Active' },
+        { label: 'Sphaeranthus Indicus Extract', value: 'Active' },
+        { label: 'Grains of Paradise Seed Extract', value: 'Active' },
+        { label: 'L-Carnitine L-Tartrate & Acetyl-L-Carnitine HCl', value: 'Active' },
+        { label: 'Hydroxypropyl-β-Cyclodextrin (HPβCD)', value: 'Active' },
+        { label: 'Phosphatidylcholine & Phytosterol Esters', value: 'Active' },
+        { label: '(-)-Epigallocatechin-3-O-Gallate (EGCG)', value: 'Active' },
+        { label: 'Fucoxanthin & Dihydrocapsiate', value: 'Active' },
+        { label: 'Caffeic Acid Phenethyl Ester (CAPE)', value: 'Active' },
+        { label: 'Forskolin, Ursolic Acid & Berberine HCl', value: 'Active' },
+        { label: 'Coleus Forskohlii Diterpene Extract', value: 'Active' },
+        { label: '5a-Hydroxy-Laxogenin Acetate', value: 'Active' },
+        { label: '20-Hydroxyecdysone (Ecdysterone) Ajugasterone C', value: 'Active' }
+      ]
+    },
+    ingredients: 'Proprietary Shredding & Lean Mass Complex (6-Paradol, Sphaeranthus indicus Extract, Grains of Paradise Seed Extract, L-Carnitine L-Tartrate, Acetyl-L-Carnitine HCl, Hydroxypropyl-β-Cyclodextrin, Phosphatidylcholine, Phytosterol Esters, EGCG, Fucoxanthin, Dihydrocapsiate, CAPE, Forskolin, Ursolic Acid, Berberine HCl), Coleus forskohlii Diterpene Extract, 5a-Hydroxy-Laxogenin Acetate, 20-Hydroxyecdysone (Ecdysterone) Ajugasterone C. Other Ingredients: Rapid Release Gelatin Capsule, Magnesium Stearate, Silicon Dioxide.',
+    usageDirections: 'As a dietary supplement, take 1 rapid release capsule daily with 8-12 oz of water. On training days, consume 30-45 minutes prior to workout or cardio session. Drink plenty of water throughout the day. Do not exceed 1 capsule in any 24-hour period.',
+    certifications: [
+      'Gluten Free',
+      'GMP Certified',
+      'FDA Registered Facility',
+      'Manufactured in USA',
+      'Authenticity QR Verification'
+    ]
   },
 
 ]

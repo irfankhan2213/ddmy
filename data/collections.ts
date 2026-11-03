@@ -66,5 +66,24 @@ export function getCollectionProducts(id: string): Product[] {
   if (id === 'shop-all') return products
   const collection = getCollectionById(id)
   if (!collection) return products
+
+  if (id === 'vitality') {
+    return products.filter(
+      p =>
+        p.category === 'Vitality' ||
+        p.category === 'Liver & Metabolic Health' ||
+        p.category === 'Hormonal Support & Male Vitality' ||
+        p.category === 'Sleep & Anabolic Recovery'
+    )
+  }
+
+  if (id === 'recovery') {
+    return products.filter(
+      p =>
+        p.category === 'Recovery' ||
+        p.category === 'Joint, Skin & Connective Tissue Support'
+    )
+  }
+
   return products.filter(p => p.category === collection.category)
 }
